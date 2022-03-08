@@ -1,0 +1,20 @@
+.carouselImage {
+  max-height: 500px;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.imageContainer {
+  background-color: #000000;
+}
+
+.carouselSubtitle {
+  position: absolute;
+  bottom: 40px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  padding: 0 10%;
+}

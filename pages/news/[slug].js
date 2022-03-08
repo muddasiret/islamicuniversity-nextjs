@@ -1,0 +1,68 @@
+import Moment from "react-moment";
+import ReactMarkdown from "react-markdown";
+import Seo from "../../components/seo";
+import Layout from "../../components/layout";
+import { fetchAPI } from "../../lib/api";
+import { getStrapiMedia } from "../../lib/media";
+import YoutubeEmbed from "../../Common/YoutubeEmbed";
+
+const Article = ({ article }) => {
+  const imageUrl = getStrapiMedia(article.attributes.image);
+  const { title, subtitle,youtube_link, published_at, content } = article.attributes;
+  console.log(youtube_link)
+  const seo = {
+    metaTitle: article.attributes.title,
+    metaDescription: article.attributes.title,
+    shareImage: article.attributes.image,
+    article: true,
+  };
+
+  return (
+    <Layout>
+      <Seo seo={seo} />
+      <h1 className="py-2 text-2xl md:text-4xl text-sky-700 font-bold">
+        {title}
+      </h1>
+      <Moment format="MMM Do YYYY">{published_at}</Moment>
+      <YoutubeEmbed
+        embedLink={youtube_link}
+        classes="mt-5 md:px-20 md:h-[30rem]"
+      />
+      <h2 className="py-5 text-xl md:text-xl text-center text-sky-700 font-bold">
+        {subtitle}
+      </h2>
+      <div className="pr-10 py-5">
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </div>
+    </Layout>
+  );
+};
+
+export async function getStaticPaths() {
+  const articlesRes = await fetchAPI("/newses", { fields: ["slug"] });
+
+  return {
+    paths: articlesRes.data.map((article) => ({
+      params: {
+        slug: article.attributes.slug,
+      },
+    })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const articlesRes = await fetchAPI("/newses", {
+    filters: {
+      slug: params.slug,
+    },
+    populate: "image",
+  });
+
+  return {
+    props: { article: articlesRes.data[0] },
+    revalidate: 1,
+  };
+}
+
+export default Article;
