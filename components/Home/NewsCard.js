@@ -5,9 +5,7 @@ const NewsCard = ({ newsDetails }) => {
   let imgSrc = "images/newsdummy.jpeg";
   const { title, createdAt, slug } = newsDetails.attributes;
   if (newsDetails) {
-    imgSrc =
-      process.env.NEXT_PUBLIC_STRAPI_API_URL +
-      newsDetails.attributes.image.data.attributes.url;
+    imgSrc = newsDetails.attributes.image.data.attributes.url;
   }
   console.log(slug);
   return (

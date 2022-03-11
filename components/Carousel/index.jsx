@@ -7,9 +7,7 @@ export default function CarouselGrid({ carouselData }) {
     <div>
       <Carousel showArrows showThumbs={false} showStatus={false}>
         {carouselData.map((carousel, ind) => {
-          const imageUrl =
-            process.env.NEXT_PUBLIC_STRAPI_API_URL +
-            carousel.attributes.image.data.attributes.url;
+          const imageUrl = carousel.attributes.image.data.attributes.url;
           return (
             <div className="relative" key={ind}>
               <div className={styles.imageContainer}>
