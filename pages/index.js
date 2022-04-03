@@ -8,7 +8,7 @@ import NewsCard from "../components/Home/NewsCard";
 import EventCard from "../components/Home/EventCard";
 import CarouselGrid from "../components/Carousel";
 
-const Home = ({ carousels, newses, homepage }) => {
+const Home = ({ carousels, newses, events, homepage }) => {
   const items = [
     { title: "ABOUT" },
     { title: "PROGRAMES" },
@@ -42,6 +42,12 @@ const Home = ({ carousels, newses, homepage }) => {
             {newses.map((news, ind) => {
               return <NewsCard newsDetails={news} key={ind} />;
             })}
+            {newses.map((news, ind) => {
+              return <NewsCard newsDetails={news} key={ind} />;
+            })}
+            {newses.map((news, ind) => {
+              return <NewsCard newsDetails={news} key={ind} />;
+            })}
           </div>
         </div>
         {/* <div>
@@ -60,16 +66,17 @@ const Home = ({ carousels, newses, homepage }) => {
               classes="mt-5 md:h-80"
             />
           </div> */}
-        <div className="my-5">
-          <h1 className="p-2 text-3xl text-sky-800 font-bold">CISR EVENTS</h1>
-          <div className="grid grid-cols-3 gap-12">
-            {DUMMY_EVENTS.map((event, index) => (
-              <EventCard key={index} data={event} />
-            ))}
+        {events && events.length !== 0 && (
+          <div className="my-5">
+            <h1 className="p-2 text-3xl text-sky-800 font-bold">CISR EVENTS</h1>
+            <div className="grid grid-cols-3 gap-12">
+              {events.map((event, index) => (
+                <EventCard key={index} data={event} />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
-      <div className="h-0.5 bg-slate-200 mt-10 w-100"></div>
       <div className="md:flex md:space-x-4 py-5">
         {items.map((item, ind) => (
           <ItemCard key={ind} title={item.title} />
@@ -81,9 +88,10 @@ const Home = ({ carousels, newses, homepage }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [carouselsRes, newsRes, homepageRes] = await Promise.all([
+  const [carouselsRes, newsRes, eventsRes, homepageRes] = await Promise.all([
     fetchAPI("/carousels", { populate: "image" }),
     fetchAPI("/newses", { populate: "image" }),
+    fetchAPI("/events", { populate: "image" }),
     //fetchAPI("/categories", { populate: "*" }),
     fetchAPI("/homepage", {
       populate: {
@@ -97,7 +105,7 @@ export async function getStaticProps() {
     props: {
       carousels: carouselsRes.data,
       newses: newsRes.data,
-      //categories: categoriesRes.data,
+      events: eventsRes.data,
       homepage: homepageRes.data,
     },
     revalidate: 1,
