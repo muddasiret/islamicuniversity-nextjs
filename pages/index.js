@@ -35,13 +35,11 @@ const Home = ({ carousels, newses, events, homepage }) => {
     <Layout>
       {/* <Seo seo={homepage.attributes.seo} /> */}
       <CarouselGrid carouselData={carousels} />
-      <div className="grid gap-4 space-x-4">
+      <div className="grid gap-4 space-x-4 mt-5">
         <div className="my-5">
-          <h1 className="text-3xl text-sky-800 font-bold text-center mb-3">CISR NEWS</h1>
+          <h1 className="text-4xl text-sky-800 font-bold text-center mb-3">CISR NEWS</h1>
+          <p className="text-center mb-3">New Trends in Islamic Studies</p>
           <div className="grid grid-cols-4 gap-4">
-            {newses.map((news, ind) => {
-              return <NewsCard newsDetails={news} key={ind} />;
-            })}
             {newses.map((news, ind) => {
               return <NewsCard newsDetails={news} key={ind} />;
             })}
@@ -50,25 +48,9 @@ const Home = ({ carousels, newses, events, homepage }) => {
             })}
           </div>
         </div>
-        {/* <div>
-            <h1 className="border-b-2 p-2 text-sky-800 text-xl font-bold">
-              FEATURED
-            </h1>
-            <YoutubeEmbed
-              embedLink={"https://www.youtube.com/embed/DGlyjmmQW4M"}
-              classes="mt-5 md:h-80"
-            />
-            <h1 className="border-b-2 p-2 mt-5 text-xl text-sky-800 font-bold">
-              LATEST
-            </h1>
-            <YoutubeEmbed
-              embedLink={"https://www.youtube.com/embed/Z3cau4ciTR8"}
-              classes="mt-5 md:h-80"
-            />
-          </div> */}
         {events && events.length !== 0 && (
           <div className="my-5">
-            <h1 className="text-3xl text-sky-800 font-bold text-center">CISR EVENTS</h1>
+            <h1 className="text-4xl text-sky-800 font-bold text-center">CISR EVENTS</h1>
             <p className="text-center mb-3">Whats Happening in Islam in South Asia</p>
             <div className="grid grid-cols-3 gap-12">
               {events.map((event, index) => (
