@@ -69,7 +69,7 @@ const Home = ({ carousels, newses, events, homepage }) => {
         {events && events.length !== 0 && (
           <div className="my-5">
             <h1 className="text-3xl text-sky-800 font-bold text-center">CISR EVENTS</h1>
-            <p className="text-center mb-3">What's Happening in Islam in South Asia</p>
+            <p className="text-center mb-3">Whats Happening in Islam in South Asia</p>
             <div className="grid grid-cols-3 gap-12">
               {events.map((event, index) => (
                 <EventCard key={index} data={event} />
