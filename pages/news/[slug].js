@@ -5,6 +5,7 @@ import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 import YoutubeEmbed from "../../Common/YoutubeEmbed";
+import SocialButtons from "../../components/socialButtons";
 
 const Article = ({ article }) => {
   const imageUrl = getStrapiMedia(article.attributes.image);
@@ -24,10 +25,12 @@ const Article = ({ article }) => {
       <h1 className="py-2 text-2xl md:text-4xl text-sky-700 font-bold">
         {title}
       </h1>
-      <span className="bg-slate-100 text-slate-700 rounded-md p-2 mt-2 mb-2">
-        <Moment format="MMM Do YYYY">{published_at}</Moment>
-      </span>
-
+      <div className="flex justify-between items-center">
+        <span className="bg-slate-100 text-slate-700 rounded-md p-2 mt-2 mb-2 text-center">
+          <Moment format="MMM Do YYYY">{published_at}</Moment>
+        </span>
+        <SocialButtons title={title} />
+      </div>
       <YoutubeEmbed
         embedLink={youtube_link}
         classes="mt-5 md:px-20 md:h-[30rem]"

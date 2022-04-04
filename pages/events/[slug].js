@@ -4,14 +4,14 @@ import Seo from "../../components/seo";
 import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
-import YoutubeEmbed from "../../Common/YoutubeEmbed";
 import { BsCalendar2Date } from "react-icons/bs";
 import { BiTime } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
+import SocialButtons from "../../components/socialButtons";
 
 const Event = ({ article }) => {
   const imageUrl = getStrapiMedia(article.attributes.image);
-  const { title, location, datetime } = article.attributes;
+  const { title, location, datetime, description } = article.attributes;
   const seo = {
     metaTitle: article.attributes.title,
     metaDescription: article.attributes.title,
@@ -22,9 +22,11 @@ const Event = ({ article }) => {
   return (
     <Layout>
       <Seo seo={seo} />
-      <h1 className="py-2 text-2xl md:text-4xl text-sky-700 font-bold mb-5">
+      <h1 className="py-2 text-2xl md:text-4xl text-sky-700 font-bold">
         {title}
       </h1>
+      <SocialButtons title={title} />
+
       {/* <span className="bg-slate-100 text-slate-700 rounded-md p-2 mt-2 mb-2">
         <Moment format="MMM Do YYYY">{date}</Moment>
       </span> */}
@@ -52,6 +54,11 @@ const Event = ({ article }) => {
             <GoLocation color="grey" />
             <p className="ml-2 text-slate-600">{location}</p>
           </div>
+          {description && (
+            <div className="ml-6 mb-3 pr-5 text-slate-600">
+              <ReactMarkdown>{description}</ReactMarkdown>
+            </div>
+          )}
         </div>
       </div>
       {/* <YoutubeEmbed
