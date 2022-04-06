@@ -1,7 +1,7 @@
 import React from "react";
 // import Articles from "../components/articles";
 import Layout from "../components/layout";
-import Seo from "../components/seo";
+// import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 import ItemCard from "../components/Home/ItemCard";
 import NewsCard from "../components/Home/NewsCard";
@@ -16,28 +16,14 @@ const Home = ({ carousels, newses, events, homepage }) => {
     { title: "EXPLORE" },
     { title: "SUPPORT" },
   ];
-
-  const DUMMY_EVENTS = [
-    {
-      imgSrc:
-        "https://media.istockphoto.com/photos/man-speaking-at-a-business-conference-picture-id499517325?b=1&k=20&m=499517325&s=170667a&w=0&h=jMCaZov25c5VR1CP-4axUdJPEKSpBWbzzWAubQS3-oo=",
-    },
-    {
-      imgSrc:
-        "https://media.istockphoto.com/photos/man-speaking-at-a-business-conference-picture-id499517325?b=1&k=20&m=499517325&s=170667a&w=0&h=jMCaZov25c5VR1CP-4axUdJPEKSpBWbzzWAubQS3-oo=",
-    },
-    {
-      imgSrc:
-        "https://media.istockphoto.com/photos/man-speaking-at-a-business-conference-picture-id499517325?b=1&k=20&m=499517325&s=170667a&w=0&h=jMCaZov25c5VR1CP-4axUdJPEKSpBWbzzWAubQS3-oo=",
-    },
-  ];
+  
   return (
     <Layout>
       {/* <Seo seo={homepage.attributes.seo} /> */}
       <CarouselGrid carouselData={carousels} />
       <div className="grid gap-4 space-x-4 mt-5">
         <div className="my-5">
-          <h1 className="text-4xl text-sky-800 font-bold text-center mb-3">CISR NEWS</h1>
+          <h1 className="text-4xl text-sky-800 font-bold text-center">CISR NEWS</h1>
           <p className="text-center mb-3">New Trends in Islamic Studies</p>
           <div className="grid grid-cols-4 gap-4">
             {newses.map((news, ind) => {

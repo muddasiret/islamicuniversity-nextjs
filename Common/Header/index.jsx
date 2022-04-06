@@ -7,9 +7,11 @@ import { FiTwitter } from "react-icons/fi";
 import Link from "next/link";
 
 const Header = () => {
+  const logo = "/images/chair logon updated.png";
+
   return (
     <>
-      <div className="container flex justify-end items-center	py-5 px-10 bg-blue-900 h-10">
+      <div className="flex justify-end items-center	py-5 px-10 bg-blue-900 h-10">
         <a className="px-3" href="www.facebook.com" target="_blank">
           <FiMail color="white" />
         </a>
@@ -26,11 +28,11 @@ const Header = () => {
           <FiYoutube color="white" />
         </a>
       </div>
-      <div className="container flex justify-between items-center	py-5 px-10 border-b-2">
+      <div className="flex justify-between items-center	py-5 px-10 border-b-2">
         <Link href="/">
           <img
-            src="https://479141-1506839-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/04/logo-cmc_retina500px.png"
-            className="w-auto h-20 cursor-pointer"
+            src={logo}
+            className="w-auto h-15 cursor-pointer"
             alt="logo_university"
           />
         </Link>
