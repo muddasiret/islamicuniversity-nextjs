@@ -14,11 +14,6 @@ body {
   box-sizing: border-box;
 }
 
-h1 {
-  font-family: Staatliches;
-  font-size: 120px;
-}
-
 #category {
   font-family: Staatliches;
   font-weight: 500;
@@ -65,4 +60,10 @@ img:hover {
 }
 .card-zoom:hover .card-zoom-text {
   @apply scale-100;
+}
+
+.year-card{
+  transition: max-height 0.5s;
+    animation-duration: 1s;
+  animation-name: lineInserted;
 }

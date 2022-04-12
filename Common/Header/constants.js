@@ -5,17 +5,7 @@ export const NAV_LINKS = {
   },
   programmes: {
     label: "programmes",
-    link: "/programmes",
-    sub: [
-      {
-        label: "BA (HONS): ISLAMIC STUDIES",
-        link: "ba_islamic_studies",
-      },
-      {
-        label: "ONLINE DIPLOMA: ISLAMIC PSYCHOLOGY",
-        link: "online_diploma",
-      }
-    ],
+    link: "/programmes"
   },
   research: {
     label: "research",

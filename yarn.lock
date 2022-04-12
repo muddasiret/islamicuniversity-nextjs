@@ -2043,7 +2043,7 @@
   "resolved" "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   "version" "1.2.1"
 
-"prop-types@^15.0.0", "prop-types@^15.5.8", "prop-types@^15.7.0", "prop-types@^15.8.1":
+"prop-types@^15.0.0", "prop-types@^15.5.8", "prop-types@^15.6.1", "prop-types@^15.7.0", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -2079,7 +2079,15 @@
   "resolved" "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   "version" "5.1.1"
 
-"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@17.0.2":
+"react-animate-height@^2.0.23":
+  "integrity" "sha512-DucSC/1QuxWEFzR9IsHMzrf2nrcZ6qAmLIFoENa2kLK7h72XybcMA9o073z7aHccFzdMEW0/fhAdnQG7a4rDow=="
+  "resolved" "https://registry.npmjs.org/react-animate-height/-/react-animate-height-2.0.23.tgz"
+  "version" "2.0.23"
+  dependencies:
+    "classnames" "^2.2.5"
+    "prop-types" "^15.6.1"
+
+"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>=15.6.2", "react-dom@17.0.2":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -2149,7 +2157,7 @@
     "prop-types" "^15.5.8"
     "react-easy-swipe" "^0.0.21"
 
-"react@*", "react@^16.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=16", "react@>=16.8.0", "react@17.0.2":
+"react@*", "react@^16.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=15.6.2", "react@>=16", "react@>=16.8.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
