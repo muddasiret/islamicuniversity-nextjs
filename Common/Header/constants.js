@@ -5,21 +5,11 @@ export const NAV_LINKS = {
   },
   programmes: {
     label: "programmes",
-    link: "/programmes"
+    link: "/programmes",
   },
   research: {
-    label: "research",
-    link: "/research",
-    sub: [
-      {
-        label: "PROJECTS",
-        link: "projects",
-      },
-      {
-        label: "PAPERS",
-        link: "papers",
-      }
-    ],
+    label: "papers",
+    link: "/papers",
   },
   online_learning: {
     label: "online learning",
