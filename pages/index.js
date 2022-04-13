@@ -25,7 +25,7 @@ const Home = ({ carousels, newses, events, homepage }) => {
         <div className="my-5">
           <h1 className="text-4xl text-sky-800 font-bold text-center">CISR NEWS</h1>
           <p className="text-center mb-3">New Trends in Islamic Studies</p>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-12">
             {newses.map((news, ind) => {
               return <NewsCard newsDetails={news} key={ind} />;
             })}
