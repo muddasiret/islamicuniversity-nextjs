@@ -12,7 +12,7 @@ export const NAV_LINKS = {
     link: "/papers",
   },
   online_learning: {
-    label: "online learning",
-    link: "/online_learning",
+    label: "projects",
+    link: "/projects",
   },
 };

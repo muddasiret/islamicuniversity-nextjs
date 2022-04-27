@@ -10,6 +10,14 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+ul{
+  list-style: unset;
+}
+
+ol{
+  list-style-type: decimal;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -66,4 +74,48 @@ img:hover {
   transition: max-height 0.5s;
     animation-duration: 1s;
   animation-name: lineInserted;
+}
+
+.ignore-css{
+	background:none;
+	border:none;
+	bottom:auto;
+	clear:none;
+	cursor:default;
+	/* didn't really know what the default for display should be*/
+	/*display:inline;*/
+	float:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:medium;
+	font-style:normal;
+	font-weight:normal;
+	height:auto;
+	left:auto;
+	letter-spacing:normal;
+	line-height:normal;
+	max-height:none;
+	max-width:none;
+	min-height:0;
+	min-width:0;
+	overflow:visible;
+	position:static;
+	right:auto;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	top:auto;
+	visibility:visible;
+	white-space:normal;
+	width:auto;
+	z-index:auto;
+}
+
+.ignore-css h1,
+.ignore-css h2,
+.ignore-css h3,
+.ignore-css h4,
+.ignore-css h5,
+.ignore-css h6{
+  font-size: auto;
 }

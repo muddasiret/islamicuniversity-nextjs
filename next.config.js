@@ -10,5 +10,4 @@ const nextConfig = {
     LOCAL_BACKEND: process.env.LOCAL_BACKEND
   },
 };
-console.log("envirooooooonment",process.env)
 module.exports = nextConfig;

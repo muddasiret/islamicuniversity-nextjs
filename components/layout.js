@@ -4,7 +4,7 @@ import Header from "../Common/Header";
 const Layout = ({ children }) => (
   <>
     <Header />
-    <div className="py-5 px-10">{children}</div>
+    {children}
     <Footer />
   </>
 );

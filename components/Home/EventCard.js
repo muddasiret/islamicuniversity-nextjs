@@ -9,7 +9,6 @@ const EventCard = ({ data }) => {
   if (data) {
     imgSrc = data.attributes.image.data.attributes.url;
   }
-  console.log(data.attributes);
 
   return (
     <Link href={`/events/${slug}`} passHref={true}>
