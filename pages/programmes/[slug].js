@@ -182,9 +182,7 @@ const ProgrammeOpen = ({ programme }) => {
           )}
 
           <div className="border-2 mt-10 pb-5 mx-[10rem] mb-10">
-            <h3
-              className="mb-5 mt-10 font-extrabold text-2xl text-primaryblue uppercase text-center"
-            >
+            <h3 className="mb-5 mt-10 font-extrabold text-2xl text-primaryblue uppercase text-center">
               Submit your application
             </h3>
             <Formik
@@ -224,12 +222,15 @@ const ProgrammeOpen = ({ programme }) => {
                 resetForm,
                 setErrors,
                 setTouched,
-                handleSubmit
+                handleSubmit,
               }) => (
-                <Form  onSubmit={(e) => {
+                <Form
+                  onSubmit={(e) => {
                     e.preventDefault();
                     handleSubmit();
-                  }} className="flex flex-col flex-wrap items-center">
+                  }}
+                  className="flex flex-col flex-wrap items-center"
+                >
                   <Field
                     name="name"
                     placeHolder="Name"
@@ -312,13 +313,16 @@ const ProgrammeOpen = ({ programme }) => {
                       console.log(values);
                       if (Object.keys(errors).length === 0) {
                         toast({ type: "success", message: "Form Submitted" });
-                        Router.reload(window.location.pathname);
+                        setTimeout(
+                          Router.reload(window.location.pathname),
+                          2000
+                        );
                       } else {
                         toast({ type: "error", message: "Check Form Entries" });
                       }
                     }}
                     type="submit"
-                    disabled={values.name===""}
+                    disabled={values.name === ""}
                     className="p-2 bg-primaryblue font-bold text-white md:w-1/5 my-10 uppercase"
                   >
                     Submit
