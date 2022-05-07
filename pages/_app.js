@@ -3,9 +3,10 @@ import Head from "next/head";
 import "../styles/globals.css";
 import "../styles/social.css";
 import "../styles/header.css";
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { fetchAPI } from "../lib/api";
-import { getStrapiMedia } from "../lib/media";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
@@ -23,6 +24,16 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <Component {...pageProps} />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          draggable={false}
+          pauseOnVisibilityChange
+          closeOnClick
+          pauseOnHover
+        />
       </GlobalContext.Provider>
     </>
   );

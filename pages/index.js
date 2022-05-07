@@ -25,7 +25,7 @@ const Home = ({ carousels, newses, events, homepage }) => {
       <MainLayout>
         <div className="grid gap-4 space-x-4 mt-5">
           <div className="my-5">
-            <h1 className="text-4xl text-sky-800 font-bold text-center">
+            <h1 className="text-4xl text-primaryblue font-bold text-center">
               CISR NEWS
             </h1>
             <p className="text-center mb-3">New Trends in Islamic Studies</p>
@@ -37,7 +37,7 @@ const Home = ({ carousels, newses, events, homepage }) => {
           </div>
           {events && events.length !== 0 && (
             <div className="my-5">
-              <h1 className="text-4xl text-sky-800 font-bold text-center">
+              <h1 className="text-4xl text-primaryblue font-bold text-center">
                 CISR EVENTS
               </h1>
               <p className="text-center mb-3">

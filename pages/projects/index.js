@@ -9,7 +9,7 @@ const Projects = ({ projects }) => {
     <Layout>
       <MainLayout>
         <PageTitle title="PROJECTS" />
-        <h1 className="my-5 text-5xl text-sky-700 text-center">
+        <h1 className="my-5 text-5xl text-primaryblue text-center">
           Research Fellowships
         </h1>
         <p className="my-2 text-xl font-bold text-black-700 text-center">

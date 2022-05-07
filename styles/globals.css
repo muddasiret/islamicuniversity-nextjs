@@ -10,11 +10,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-ul{
+ul {
   list-style: unset;
 }
 
-ol{
+ol {
   list-style-type: decimal;
 }
 
@@ -70,45 +70,45 @@ img:hover {
   @apply scale-100;
 }
 
-.year-card{
+.year-card {
   transition: max-height 0.5s;
-    animation-duration: 1s;
+  animation-duration: 1s;
   animation-name: lineInserted;
 }
 
-.ignore-css{
-	background:none;
-	border:none;
-	bottom:auto;
-	clear:none;
-	cursor:default;
-	/* didn't really know what the default for display should be*/
-	/*display:inline;*/
-	float:none;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:medium;
-	font-style:normal;
-	font-weight:normal;
-	height:auto;
-	left:auto;
-	letter-spacing:normal;
-	line-height:normal;
-	max-height:none;
-	max-width:none;
-	min-height:0;
-	min-width:0;
-	overflow:visible;
-	position:static;
-	right:auto;
-	text-align:left;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	top:auto;
-	visibility:visible;
-	white-space:normal;
-	width:auto;
-	z-index:auto;
+.ignore-css {
+  background: none;
+  border: none;
+  bottom: auto;
+  clear: none;
+  cursor: default;
+  /* didn't really know what the default for display should be*/
+  /*display:inline;*/
+  float: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-style: normal;
+  font-weight: normal;
+  height: auto;
+  left: auto;
+  letter-spacing: normal;
+  line-height: normal;
+  max-height: none;
+  max-width: none;
+  min-height: 0;
+  min-width: 0;
+  overflow: visible;
+  position: static;
+  right: auto;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  text-transform: none;
+  top: auto;
+  visibility: visible;
+  white-space: normal;
+  width: auto;
+  z-index: auto;
 }
 
 .ignore-css h1,
@@ -116,6 +116,52 @@ img:hover {
 .ignore-css h3,
 .ignore-css h4,
 .ignore-css h5,
-.ignore-css h6{
+.ignore-css h6 {
   font-size: auto;
+}
+
+.file-input {
+  display: inline-block;
+  text-align: left;
+  background: rgba(245, 243, 243, 0.704);
+  padding: 16px;
+  width: 450px;
+  position: relative;
+  border-radius: 3px;
+}
+
+.file-input > [type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.file-input > .button {
+  display: inline-block;
+  cursor: pointer;
+  background: dodgerblue;
+  padding: 8px 16px;
+  border-radius: 2px;
+  margin-right: 8px;
+  color: white;
+}
+
+.file-input:hover > .button {
+  background: #041e42;
+  color: white;
+}
+
+.file-input > .label {
+  color: #333;
+  white-space: nowrap;
+  opacity: 0.3;
+}
+
+.file-input.-chosen > .label {
+  opacity: 1;
 }

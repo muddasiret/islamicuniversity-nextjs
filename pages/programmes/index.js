@@ -9,7 +9,7 @@ const Programmes = ({ programmes }) => {
     <Layout>
       <MainLayout>
         <PageTitle title="PROGRAMMES" />
-        <h1 className="my-5 text-5xl text-sky-700 text-center">Study</h1>
+        <h1 className="my-5 text-5xl text-primaryblue text-center">Study</h1>
         <p className="my-2 text-xl font-bold text-black-700 text-center">
           We currently offer three full and part time academic programmes.
         </p>

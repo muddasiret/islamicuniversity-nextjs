@@ -22,7 +22,7 @@ const Article = ({ article }) => {
     <Layout>
       <MainLayout>
         <Seo seo={seo} />
-        <h1 className="py-2 text-2xl md:text-4xl text-sky-700 font-bold">
+        <h1 className="py-2 text-2xl md:text-4xl text-primaryblue font-bold">
           {title}
         </h1>
         <div className="flex justify-between items-center">
@@ -35,7 +35,7 @@ const Article = ({ article }) => {
           embedLink={youtube_link}
           classes="mt-5 md:px-20 md:h-[30rem]"
         />
-        <h2 className="py-5 text-xl md:text-xl text-center text-sky-700 font-bold">
+        <h2 className="py-5 text-xl md:text-xl text-center text-primaryblue font-bold">
           {subtitle}
         </h2>
         <div className="pr-10 py-5">
@@ -48,7 +48,7 @@ const Article = ({ article }) => {
             const pdfName = pdf.attributes.name;
             return (
               <a key={ind} href={pdfLink} target="_blank" rel="noreferrer">
-                <div className="py-2 mb-4 w-fit text-center px-3 bg-blue-700 text-white text-sm font-semibold rounded-md shadow focus:outline-none">
+                <div className="py-2 mb-4 w-fit text-center px-3 bg-primaryblue text-white text-sm font-semibold rounded-md shadow focus:outline-none">
                   Download {pdfName}
                 </div>
               </a>

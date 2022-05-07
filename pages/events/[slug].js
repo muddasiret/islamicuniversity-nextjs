@@ -24,7 +24,7 @@ const Event = ({ article }) => {
     <Layout>
       <MainLayout>
         <Seo seo={seo} />
-        <h1 className="py-2 text-2xl md:text-4xl text-sky-700 font-bold">
+        <h1 className="py-2 text-2xl md:text-4xl text-primaryblue font-bold">
           {title}
         </h1>
         <SocialButtons title={title} />

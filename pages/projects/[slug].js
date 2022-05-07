@@ -20,13 +20,13 @@ const ProjectOpen = ({ project }) => {
       <MainLayout>
         {/* <PageTitle title={title} /> */}
         <div className="px-10">
-          <h1 className="py-2 text-sm md:text-4xl text-sky-700 font-bold text-center my-5">
+          <h1 className="py-2 text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
             {title}
           </h1>
           <div className="mb-5">
             {introduction && (
               <div className="my-3 text-slate-600 text-left bg-slate-100 p-5">
-                <div className="text-center mb-3 uppercase text-2xl font-bold text-sky-700">
+                <div className="text-center mb-3 uppercase text-2xl font-bold text-primaryblue">
                   introduction
                 </div>
                 <ReactMarkdown>{introduction}</ReactMarkdown>
@@ -61,7 +61,7 @@ const ProjectOpen = ({ project }) => {
           <div className="my-5">
             {events && (
               <div className="my-3 text-slate-600 text-left p-5">
-                <div className="text-center mb-3 uppercase text-3xl font-bold text-sky-700">
+                <div className="text-center mb-3 uppercase text-3xl font-bold text-primaryblue">
                   Events
                 </div>
                 <div className="pb-5">
@@ -73,7 +73,7 @@ const ProjectOpen = ({ project }) => {
           <div className="my-5">
             {publications && (
               <div className="my-3 text-slate-600 text-left p-5">
-                <div className="text-center mb-3 uppercase text-3xl font-bold text-sky-700">
+                <div className="text-center mb-3 uppercase text-3xl font-bold text-primaryblue">
                   PUBLICATIONS
                 </div>
                 <div className="pb-5">

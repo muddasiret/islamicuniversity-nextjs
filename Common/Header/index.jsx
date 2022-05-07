@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex justify-end items-center	py-5 px-10 bg-blue-900 h-10">
+      <div className="flex justify-end items-center	py-5 px-10 bg-primaryblue h-10">
         <a className="px-3" href="www.facebook.com" target="_blank">
           <FiMail color="white" />
         </a>
@@ -53,7 +53,7 @@ const Header = () => {
               </Link>
               {NAV_LINKS[key].sub && (
                 <div className="absolute z-1 hidden bg-grey-200 group-hover:block">
-                  <div className="bg-white bg-gray-200 shadow-lg">
+                  <div className="bg-white shadow-lg">
                     <div className="uppercase flex-col flex">
                       {Object.keys(NAV_LINKS[key].sub).map(
                         (sub_key, key_index) => (
