@@ -182,9 +182,7 @@ const ProgrammeOpen = ({ programme }) => {
           )}
 
           <div className="border-2 mt-10 pb-5 mx-[10rem] mb-10">
-            <h3
-              className="mb-5 mt-10 font-extrabold text-2xl text-primaryblue uppercase text-center"
-            >
+            <h3 className="mb-5 mt-10 font-extrabold text-2xl text-primaryblue uppercase text-center">
               Submit your application
             </h3>
             <Formik
@@ -217,15 +215,14 @@ const ProgrammeOpen = ({ programme }) => {
                 console.log(content);
               }}
             >
-              {({
-                errors,
-                touched,
-                values,
-                resetForm,
-                setErrors,
-                setTouched,
-              }) => (
-                <Form className="flex flex-col flex-wrap items-center">
+              {({ errors, touched, values, setErrors, handleSubmit }) => (
+                <Form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSubmit();
+                  }}
+                  className="flex flex-col flex-wrap items-center"
+                >
                   <Field
                     name="name"
                     placeHolder="Name"
