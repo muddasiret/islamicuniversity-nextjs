@@ -165,3 +165,11 @@ img:hover {
 .file-input.-chosen > .label {
   opacity: 1;
 }
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  cursor:not-allowed;
+  color: #666666;
+}
