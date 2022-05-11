@@ -14,10 +14,11 @@ const About = ({ about }) => {
   }, [address]);
   return (
     <Layout>
+      <PageTitle title="ABOUT" />
+
       <MainLayout>
-        <PageTitle title="ABOUT" />
         <div className="px-10">
-          <h1 className="my-5 text-4xl text-primaryblue text-center">
+          <h1 className="my-5 text-4xl text-primaryblue text-center uppercase">
             Chair for Islamic Studies & Research
           </h1>
           <p className="my-5 text-lg font-bold text-black-700 text-center px-16">
@@ -43,13 +44,19 @@ const About = ({ about }) => {
               <ReactMarkdown>{address}</ReactMarkdown>
               <p className="my-3 font-semibold">
                 Email:{" "}
-                <a className="text-skyblue hover:text-blue-500" href={"mailto:" + email}>
+                <a
+                  className="text-skyblue hover:text-blue-500"
+                  href={"mailto:" + email}
+                >
                   {email}
                 </a>
               </p>
               <p className="my-3 font-semibold">
                 Phone:{" "}
-                <a className="text-skyblue  hover:text-blue-500" href={"tel:" + telephone}>
+                <a
+                  className="text-skyblue  hover:text-blue-500"
+                  href={"tel:" + telephone}
+                >
                   {telephone}
                 </a>
               </p>

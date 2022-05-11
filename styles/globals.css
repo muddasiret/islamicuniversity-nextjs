@@ -167,9 +167,49 @@ img:hover {
 }
 
 button:disabled,
-button[disabled]{
+button[disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
-  cursor:not-allowed;
+  cursor: not-allowed;
   color: #666666;
+}
+
+.newscardimg {
+  width: 100%;
+}
+
+.page-title {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-right: 4px solid #e45424;
+  font-family: "Montserrat Black", sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1em;
+  padding: 40px;
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  max-width: 42%;
+  min-width: 20%;
+  text-align: center;
+  z-index: 3;
+}
+
+.pagetitle-bg {
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-overlay{
+  background-color: black;
+  opacity: 0.4;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }

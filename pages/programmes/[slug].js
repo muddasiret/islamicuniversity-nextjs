@@ -109,8 +109,8 @@ const ProgrammeOpen = ({ programme }) => {
   return (
     <Layout>
       {/* <Seo seo={seo} /> */}
+      <PageTitle title="DIPLOMA" />
       <MainLayout>
-        <PageTitle title="DIPLOMA" />
         <div className="px-10">
           <h1 className="py-2 text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
             {title}

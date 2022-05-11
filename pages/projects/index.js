@@ -7,9 +7,9 @@ import { fetchAPI } from "../../lib/api";
 const Projects = ({ projects }) => {
   return (
     <Layout>
+      <PageTitle title="PROJECTS" />
       <MainLayout>
-        <PageTitle title="PROJECTS" />
-        <h1 className="my-5 text-5xl text-primaryblue text-center">
+        <h1 className="my-5 text-5xl text-primaryblue text-center uppercase">
           Research Fellowships
         </h1>
         <p className="my-2 text-xl font-bold text-black-700 text-center">
