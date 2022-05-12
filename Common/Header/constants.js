@@ -15,4 +15,8 @@ export const NAV_LINKS = {
     label: "projects",
     link: "/projects",
   },
+  tea_over_books: {
+    label: "tea over books",
+    link: "/tea-over-books",
+  },
 };

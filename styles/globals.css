@@ -178,6 +178,12 @@ button[disabled] {
   width: 100%;
 }
 
+.bookscardimg{
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
 .page-title {
   background-color: rgba(0, 0, 0, 0.6);
   border-right: 4px solid #e45424;
@@ -212,4 +218,8 @@ button[disabled] {
   width: 100%;
   bottom: 0;
   left: 0;
+}
+
+.book-cover,.book-details{
+  margin-top: -20px;
 }

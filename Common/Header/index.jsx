@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex justify-end items-center	py-5 px-10 bg-primaryblue h-10">
+      {/* <div className="flex justify-end items-center	py-5 px-10 bg-primaryblue h-10">
         <a className="px-3" href="www.facebook.com" target="_blank">
           <FiMail color="white" />
         </a>
@@ -27,8 +27,8 @@ const Header = () => {
         <a className="px-3" href="www.facebook.com" target="_blank">
           <FiYoutube color="white" />
         </a>
-      </div>
-      <div className="flex justify-between items-center	py-5 px-10 border-b-2">
+      </div> */}
+      <div className="flex justify-between container mx-auto flex-row-reverse items-center	py-5 px-10 border-b-2">
         <Link href="/">
           <img
             src={logo}

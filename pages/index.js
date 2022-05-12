@@ -11,13 +11,6 @@ import MainLayout from "../components/mainLayout";
 import { NAV_LINKS } from "../Common/Header/constants";
 
 const Home = ({ carousels, newses, events, homepage }) => {
-  const items = [
-    { title: "ABOUT" },
-    { title: "PROGRAMMES" },
-    { title: "PAPERS" },
-    { title: "PROJECTS" },
-  ];
-
   return (
     <Layout>
       {/* <Seo seo={homepage.attributes.seo} /> */}
