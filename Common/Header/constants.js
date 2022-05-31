@@ -19,4 +19,8 @@ export const NAV_LINKS = {
     label: "tea over books",
     link: "/tea-over-books",
   },
+  sow_a_seed: {
+    label: "sow a seed",
+    link: "/sow-a-seed",
+  },
 };
