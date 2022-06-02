@@ -18,10 +18,10 @@ const Home = ({ carousels, newses, events, homepage }) => {
       <MainLayout>
         <div className="grid gap-4 space-x-4 mt-5">
           <div className="my-5">
-            <h1 className="text-4xl text-primaryblue font-bold text-center">
-              CISR NEWS
+            <h1 className="text-5xl sanspro text-primaryblue font-black text-center">
+            CISR NEWS
             </h1>
-            <p className="text-center mb-3">New Trends in Islamic Studies</p>
+            <p className="text-center mb-3 sanspro text-3xl font-semibold">New Trends in Islamic Studies</p>
             <div className="grid grid-cols-4 gap-12">
               {newses.map((news, ind) => {
                 return <NewsCard newsDetails={news} key={ind} />;
@@ -30,10 +30,10 @@ const Home = ({ carousels, newses, events, homepage }) => {
           </div>
           {events && events.length !== 0 && (
             <div className="my-5">
-              <h1 className="text-4xl text-primaryblue font-bold text-center">
+              <h1 className="text-5xl sanspro font-black text-primaryblue  text-center">
                 CISR EVENTS
               </h1>
-              <p className="text-center mb-3">
+              <p className="text-center mb-3 sanspro text-3xl font-semibold">
                 Whats Happening in Islam in South Asia
               </p>
               <div className="grid grid-cols-3 gap-12">
@@ -44,7 +44,8 @@ const Home = ({ carousels, newses, events, homepage }) => {
             </div>
           )}
         </div>
-        <div className="md:flex md:space-x-4 py-5">
+        {/* <div className="md:flex md:space-x-4 py-5"> */}
+        <div className="grid grid-cols-5 gap-5 mt-10">
           {Object.keys(NAV_LINKS).map((item, ind) => (
             <ItemCard key={ind} details={NAV_LINKS[item]} />
           ))}

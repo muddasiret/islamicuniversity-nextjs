@@ -9,19 +9,16 @@ const Papers = ({ papers }) => {
     <Layout>
       <PageTitle title="PAPERS" />
       <MainLayout>
-        <h1 className="my-5 text-4xl text-primaryblue uppercase text-center">
+        <h1 className="my-5 text-5xl sanspro font-black text-primaryblue uppercase text-center">
           Research Papers
         </h1>
-        <p className="my-5 text-lg font-bold text-black-700 text-center px-16">
+        <p className="my-5 sanspro text-2xl font-semibold text-center px-16 mx-10">
           From time to time, Cambridge Muslim College commissions scholarly
           papers and articles. Nine of these are published and can be downloaded
           as PDF documents below.{" "}
         </p>
         {papers && papers.length !== 0 && (
-          <div className="grid grid-cols-3 gap-6">
-            {papers.map((item, ind) => {
-              return <PaperCard details={item} key={ind} />;
-            })}
+          <div className="grid grid-cols-4 gap-6 mb-10">
             {papers.map((item, ind) => {
               return <PaperCard details={item} key={ind} />;
             })}

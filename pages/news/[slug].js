@@ -22,11 +22,11 @@ const Article = ({ article }) => {
     <Layout>
       <MainLayout>
         <Seo seo={seo} />
-        <h1 className="py-2 text-2xl md:text-4xl text-primaryblue font-bold">
+        <h1 className="py-2 sanspro text-2xl font-black uppercase md:text-3xl text-primaryblue">
           {title}
         </h1>
         <div className="flex justify-between items-center">
-          <span className="bg-slate-100 text-slate-700 rounded-md p-2 mt-2 mb-2 text-center">
+          <span className="bg-white shadow-sm text-slate-700 rounded-md p-2 mt-2 mb-2 text-center">
             <Moment format="MMM Do YYYY">{published_at}</Moment>
           </span>
           <SocialButtons title={title} />

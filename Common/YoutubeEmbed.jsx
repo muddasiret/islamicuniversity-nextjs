@@ -2,7 +2,7 @@ const YoutubeEmbed = ({ classes, embedLink }) => {
   return (
     <iframe
       width="100%"
-      className={classes}
+      className={classes+" rounded-md"}
       title="yt"
       src={embedLink}
     ></iframe>

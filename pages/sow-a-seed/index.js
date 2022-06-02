@@ -32,7 +32,7 @@ const SowASeed = ({ seeds }) => {
       <MainLayout>
         <section className="pb-5">
           {description && (
-            <p className="my-10 text-xl font-bold text-black-700 text-center mx-10">
+            <p className="my-10 sanspro text-2xl font-semibold text-black-700 text-center mx-10">
               {description}
             </p>
           )}
@@ -50,7 +50,7 @@ const SowASeed = ({ seeds }) => {
             Weekly Timetable
           </h2>
 
-          <div className="grid grid-cols-5 gap-10 bg-black/[.1] py-10 px-5">
+          <div className="grid grid-cols-5 gap-10 bg-white rounded-md shadow-lg py-10 px-5">
             {weekly_timetable.map((item, ind) => {
               return timeTableItem(item, ind);
             })}

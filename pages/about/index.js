@@ -18,7 +18,7 @@ const About = ({ about }) => {
 
       <MainLayout>
         <div className="px-10">
-          <h1 className="my-5 text-4xl text-primaryblue text-center uppercase">
+          <h1 className="my-5 text-5xl sanspro font-black text-primaryblue text-center uppercase">
             Chair for Islamic Studies & Research
           </h1>
           <p className="my-5 text-lg font-bold text-black-700 text-center px-16">
@@ -33,33 +33,32 @@ const About = ({ about }) => {
           </h3>
         </div>
         <div className="px-10 my-10">
-          <h1 className="my-10 text-4xl text-primaryblue text-center font-extrabold">
+          <h1 className="my-10 pt-10 text-5xl sanspro font-black text-primaryblue text-center font-extrabold">
             CONTACT US
           </h1>
-          <div className="flex bg-primaryblue text-center justify-center p-10 mt-10">
-            <div className="relative text-lg text-white font-semibold">
-              <div className="bg-slate-400">
-                {/* <img src="images/paperplane.png" alt="plane" className="md:h-[3rem]"/> */}
+          <div className="flex shadow-lg bg-white rounded-md text-center justify-center p-10 mt-10">
+            <div className="relative text-lg font-semibold">
+              <div>
+                <ReactMarkdown>{address}</ReactMarkdown>
+                <p className="my-3 font-semibold">
+                  Email:{" "}
+                  <a
+                    className="text-skyblue hover:text-blue-500"
+                    href={"mailto:" + email}
+                  >
+                    {email}
+                  </a>
+                </p>
+                <p className="my-3 font-semibold">
+                  Phone:{" "}
+                  <a
+                    className="text-skyblue  hover:text-blue-500"
+                    href={"tel:" + telephone}
+                  >
+                    {telephone}
+                  </a>
+                </p>
               </div>
-              <ReactMarkdown>{address}</ReactMarkdown>
-              <p className="my-3 font-semibold">
-                Email:{" "}
-                <a
-                  className="text-skyblue hover:text-blue-500"
-                  href={"mailto:" + email}
-                >
-                  {email}
-                </a>
-              </p>
-              <p className="my-3 font-semibold">
-                Phone:{" "}
-                <a
-                  className="text-skyblue  hover:text-blue-500"
-                  href={"tel:" + telephone}
-                >
-                  {telephone}
-                </a>
-              </p>
               <div className="my-3">
                 <p className="uppercase my-5 font-bold text-xl">Location</p>
                 <iframe
@@ -68,6 +67,7 @@ const About = ({ about }) => {
                   height="500"
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
+                  className=""
                 ></iframe>
               </div>
             </div>

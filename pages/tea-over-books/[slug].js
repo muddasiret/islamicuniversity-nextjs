@@ -16,9 +16,9 @@ const Book = ({ books }) => {
 
   return (
     <Layout>
-      <div className="py-5 px-10 border-cyan-900">
+      <div className="py-5 px-10 border-cyan-900 background-biege">
         <div className="container mx-auto">
-          <h1 className="text-3xl text-primaryblue font-semibold">
+          <h1 className="text-3xl sanspro font-black text-primaryblue">
             {book_name}
           </h1>
         </div>

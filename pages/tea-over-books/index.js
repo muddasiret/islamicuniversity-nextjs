@@ -11,7 +11,7 @@ const TeaOverBooks = ({ books }) => {
       <PageTitle title="TEA OVER BOOKS" />
       <MainLayout>
         <section className="pb-5">
-          <h1 className="my-5 text-4xl text-primaryblue underline text-center italic">
+          <h1 className="my-5 text-5xl sanspro font-black uppercase text-primaryblue text-center">
             About the Books
           </h1>
           <div className="grid grid-cols-5 gap-10">

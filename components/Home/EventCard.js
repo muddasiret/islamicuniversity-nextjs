@@ -16,7 +16,7 @@ const EventCard = ({ data }) => {
         <img
           src={imgSrc}
           alt="event-card"
-          className="w-full h-52 object-cover"
+          className="w-full h-52 object-cover rounded-md"
         />
         <div className="absolute bottom-0 w-full">
           {datetime && (
@@ -25,7 +25,7 @@ const EventCard = ({ data }) => {
               <Moment format="MMM Do YYYY">{datetime}</Moment>
             </p>
           )}
-          <div className="text-white bg-slate-700/[.6] w-full py-2 px-3">
+          <div className="text-white bg-slate-700/[.6] w-full py-2 px-3 rounded-md">
             <h4 className="text-left text-md font-bold ">{title}</h4>
             <span className="text-xs">
               <Moment format="LT">{datetime}</Moment> {location}

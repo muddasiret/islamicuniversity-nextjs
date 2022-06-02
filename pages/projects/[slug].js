@@ -25,7 +25,7 @@ const ProjectOpen = ({ project }) => {
           </h1>
           <div className="mb-5">
             {introduction && (
-              <div className="my-3 text-slate-600 text-left bg-slate-100 p-5">
+              <div className="my-3 text-slate-600 text-left rounded-md bg-white p-5">
                 <div className="text-center mb-3 uppercase text-2xl font-bold text-primaryblue">
                   introduction
                 </div>

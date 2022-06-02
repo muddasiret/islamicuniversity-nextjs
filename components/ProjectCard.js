@@ -7,7 +7,7 @@ const ProjectCard = ({ details }) => {
 
   return (
     <Link href={"/projects/" + slug}>
-      <div className="my-4 flex flex-col justify-center items-center text-center bg-slate-200/50 cursor-pointer shadow-lg group card-zoom hover:shadow-2xl">
+      <div className="my-4 flex flex-col justify-center items-center text-center rounded-md bg-white cursor-pointer shadow-lg group card-zoom hover:shadow-2xl">
         <h2 className="text-center my-5 text-lg uppercase text-primaryblue px-5 pb-2 pt-2 font-bold leading-6">
           {title}
         </h2>
@@ -18,7 +18,7 @@ const ProjectCard = ({ details }) => {
         /> */}
         <p className="text-center text-slate-500 py-5 px-5">{short_description}</p>
         <div className="text-center mb-5">
-          <button className="bg-sky-800 text-white p-2 px-4 text-center align-middle mb-2">
+          <button className="text-white bg-primaryblue rounded p-2 px-5 text-center align-middle mb-2">
             LEARN MORE
           </button>
         </div>

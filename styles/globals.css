@@ -178,13 +178,14 @@ button[disabled] {
   width: 100%;
 }
 
-.bookscardimg{
+.bookscardimg {
   height: 250px;
   width: 100%;
   object-fit: cover;
 }
 
 .page-title {
+  border-top-right-radius: 6px;
   background-color: rgba(0, 0, 0, 0.6);
   border-right: 4px solid #e45424;
   font-family: "Montserrat Black", sans-serif;
@@ -209,7 +210,7 @@ button[disabled] {
   background-position: center;
 }
 
-.bg-overlay{
+.bg-overlay {
   background-color: black;
   opacity: 0.4;
   position: absolute;
@@ -220,6 +221,19 @@ button[disabled] {
   left: 0;
 }
 
-.book-cover,.book-details{
+.book-cover,
+.book-details {
   margin-top: -20px;
+}
+
+.sanspro {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.background-biege {
+  background-color: rgb(245, 245, 220);
+}
+
+.paper-card{
+  min-height: 360px;
 }

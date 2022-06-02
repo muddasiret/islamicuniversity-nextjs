@@ -23,16 +23,16 @@ const BookCard = ({ bookDetails }) => {
   };
 
   return (
-    <div className="mt-5 text-left bg-slate-100/50 shadow-md group card-zoom hover:shadow-2xl">
+    <div className="mt-5 text-left rounded-md bg-white  shadow-md group card-zoom hover:shadow-2xl">
       <img src={imgSrc} className="bookscardimg" />
       <Link href={`/tea-over-books/${slug}`} passHref={true}>
-        <h2 className="text-left cursor-pointer text-md uppercase text-black-600 px-2 py-2 font-bold leading-6">
+        <h2 className="text-left cursor-pointer text-md uppercase text-black-600 px-3 py-2 font-bold leading-6">
           {book_name}
         </h2>
       </Link>
       <p
         onClick={() => showMore()}
-        className="text-left px-2 mb-5 text-xs text-slate-600"
+        className="text-left px-3 mb-5 text-xs text-slate-600"
       >
         {descriptionFormatted}
       </p>
