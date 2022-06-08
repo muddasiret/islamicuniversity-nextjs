@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #f9f6ef;
 }
 
 ul {
@@ -231,9 +232,9 @@ button[disabled] {
 }
 
 .background-biege {
-  background-color: rgb(245, 245, 220);
+  background-color: #f9f6ef;
 }
 
-.paper-card{
+.paper-card {
   min-height: 360px;
 }
