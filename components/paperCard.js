@@ -8,11 +8,11 @@ const PaperCard = ({ details }) => {
   return (
     <a href={pdfLink} target="_blank" rel="noreferrer">
       <div className="mt-5 text-left rounded-md bg-white cursor-pointer shadow-lg group card-zoom hover:shadow-2xl paper-card">
-        <p className="text-left text-md uppercase text-red-700 px-4 pt-4 font-bold ">
+        <p className="text-left roboto-text text-md uppercase text-red-700 px-4 pt-4 font-bold ">
           {author}
         </p>
         <img src={thumb} className="p-4 h-52 newscardimg" />
-        <h2 className="text-left text-md uppercase text-black-600 px-4 pb-2 font-bold leading-6">
+        <h2 className="text-left roboto-text text-md uppercase text-lightdark px-4 pb-2 leading-6">
           {title}
         </h2>
       </div>

@@ -26,7 +26,7 @@ const BookCard = ({ bookDetails }) => {
     <div className="mt-5 text-left rounded-md bg-white  shadow-md group card-zoom hover:shadow-2xl">
       <img src={imgSrc} className="bookscardimg" />
       <Link href={`/tea-over-books/${slug}`} passHref={true}>
-        <h2 className="text-left cursor-pointer text-md uppercase text-black-600 px-3 py-2 font-bold leading-6">
+        <h2 className="text-left roboto-text cursor-pointer text-md uppercase text-lightdark px-3 py-2 leading-6">
           {book_name}
         </h2>
       </Link>

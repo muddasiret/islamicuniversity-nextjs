@@ -8,7 +8,7 @@ const ProjectCard = ({ details }) => {
   return (
     <Link href={"/projects/" + slug}>
       <div className="my-4 flex flex-col justify-center items-center text-center rounded-md bg-white cursor-pointer shadow-lg group card-zoom hover:shadow-2xl">
-        <h2 className="text-center my-5 text-lg uppercase text-primaryblue px-5 pb-2 pt-2 font-bold leading-6">
+        <h2 className="text-center roboto-text my-5 text-lg uppercase text-lightdark px-5 pb-2 pt-2 leading-6">
           {title}
         </h2>
         <img src={thumb}/>

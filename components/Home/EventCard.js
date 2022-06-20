@@ -26,7 +26,7 @@ const EventCard = ({ data }) => {
             </p>
           )}
           <div className="text-white bg-slate-700/[.6] w-full py-2 px-3 rounded-md">
-            <h4 className="text-left text-md font-bold ">{title}</h4>
+            <h4 className="text-left text-md roboto-text">{title}</h4>
             <span className="text-xs">
               <Moment format="LT">{datetime}</Moment> {location}
             </span>

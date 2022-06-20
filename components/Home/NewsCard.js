@@ -16,7 +16,7 @@ const NewsCard = ({ newsDetails }) => {
           {category}
         </p>
         <img src={imgSrc} className="p-4 h-52 newscardimg" />
-        <h2 className="text-left text-md uppercase text-black-600 px-4 pb-2 font-bold leading-6">
+        <h2 className="text-left roboto-text text-md uppercase text-lightdark px-4 pb-2 leading-6">
           {title}
         </h2>
         <p className="text-left px-4 mb-5 text-xs text-slate-600">

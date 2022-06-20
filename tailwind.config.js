@@ -10,6 +10,8 @@ module.exports = {
         primaryblue: "#041e42",
         skyblue: "#19b5fe",
         lightyellow: "#f0f09a",
+        brown:"#3e1b16",
+        lightdark:"#241d20"
       },
       scale: {
         103: "1.03",

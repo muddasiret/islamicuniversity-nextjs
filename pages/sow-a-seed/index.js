@@ -18,7 +18,7 @@ const SowASeed = ({ seeds }) => {
         <div className="text-center flex justify-center my-3">
           <img src={thumb} alt="profile" className="text-center h-32 flex" />
         </div>
-        <div className="text-2xl text-red-700 font-bold my-3">
+        <div className="text-2xl roboto-text text-red-700 font-bold my-3">
           {item.speaker}
         </div>
         <div className="italic  my-3">{item.topic}</div>

@@ -36,14 +36,14 @@ const About = ({ about }) => {
           <h1 className="my-10 pt-10 text-5xl sanspro font-black text-primaryblue text-center font-extrabold">
             CONTACT US
           </h1>
-          <div className="flex shadow-lg bg-white rounded-md text-center justify-center p-10 mt-10">
+          <div className="flex shadow-lg bg-brown text-white rounded-md text-center justify-center p-10 mt-10">
             <div className="relative text-lg font-semibold">
               <div>
                 <ReactMarkdown>{address}</ReactMarkdown>
                 <p className="my-3 font-semibold">
                   Email:{" "}
                   <a
-                    className="text-skyblue hover:text-blue-500"
+                    className="hover:text-blue-500 text-yellow-300"
                     href={"mailto:" + email}
                   >
                     {email}
@@ -52,7 +52,7 @@ const About = ({ about }) => {
                 <p className="my-3 font-semibold">
                   Phone:{" "}
                   <a
-                    className="text-skyblue  hover:text-blue-500"
+                    className="text-yellow-300  hover:text-blue-500"
                     href={"tel:" + telephone}
                   >
                     {telephone}
@@ -60,7 +60,7 @@ const About = ({ about }) => {
                 </p>
               </div>
               <div className="my-3">
-                <p className="uppercase my-5 font-bold text-xl">Location</p>
+                <p className="uppercase my-5 font-bold text-2xl">Location</p>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.7152261889514!2d75.89251971419601!3d11.13457385552672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6513c490a804f%3A0x58cb496669f29102!2sIslamic%20chair%20and%20research%2C%20calicut%20university!5e0!3m2!1sen!2sin!4v1651944181265!5m2!1sen!2sin"
                   width="700"

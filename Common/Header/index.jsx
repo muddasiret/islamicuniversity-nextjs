@@ -1,9 +1,4 @@
 import { NAV_LINKS } from "./constants";
-import { FiMail } from "react-icons/fi";
-import { FiFacebook } from "react-icons/fi";
-import { FiInstagram } from "react-icons/fi";
-import { FiYoutube } from "react-icons/fi";
-import { FiTwitter } from "react-icons/fi";
 import Link from "next/link";
 
 const Header = () => {
@@ -28,11 +23,11 @@ const Header = () => {
           <FiYoutube color="white" />
         </a>
       </div> */}
-      <div className="flex justify-between container mx-auto flex-row-reverse items-center	py-5 px-10 border-b-2 background-biege">
+      <div className="flex justify-between mx-auto flex-row items-center	py-5 px-10 bg-brown">
         <Link href="/">
           <img
             src={logo}
-            className="w-auto h-15 cursor-pointer"
+            className="w-auto h-12 cursor-pointer"
             alt="logo_university"
           />
         </Link>
@@ -44,10 +39,10 @@ const Header = () => {
             // >
             //   {NAV_LINKS[key].label}
             // </a>
-            <div className="uppercase relative group sanspro text-lg hover:text-sky-500" key={index}>
+            <div className="uppercase relative group text-md text-white hover:text-yellow-300" key={index}>
               <Link
                 href={NAV_LINKS[key].link}
-                className="uppercase rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900 group relative"
+                className="uppercase rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-100 hover:text-slate-900 group relative"
               >
                 {NAV_LINKS[key].label}
               </Link>
@@ -59,7 +54,7 @@ const Header = () => {
                         (sub_key, key_index) => (
                           <Link
                             href={NAV_LINKS[key].sub[key_index].link}
-                            className="uppercase px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900 group relative w-100 text-xs text-left"
+                            className="uppercase px-3 py-2 font-medium hover:bg-slate-100 hover:text-slate-900 group relative w-100 text-xs text-left"
                             key={key_index}
                           >
                             <span>{NAV_LINKS[key].sub[key_index].label}</span>
