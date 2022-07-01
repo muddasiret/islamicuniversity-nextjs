@@ -18,10 +18,10 @@ const Home = ({ carousels, newses, events, homepage }) => {
       <MainLayout>
         <div className="grid gap-4 space-x-4 mt-5">
           <div className="my-5">
-            <h1 className="md:text-5xl text-4xl sanspro text-primaryblue font-black text-left md:text-center">
+            <h1 className="md:text-5xl text-4xl sanspro text-darkbrown font-black text-left md:text-center">
               CISR NEWS
             </h1>
-            <p className="text-left md:text-center mb-3 sanspro md:text-3xl text-xl font-semibold">
+            <p className="text-left md:text-center mb-3 text-lightbrown sanspro md:text-3xl text-xl font-semibold">
               New Trends in Islamic Studies
             </p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -32,10 +32,10 @@ const Home = ({ carousels, newses, events, homepage }) => {
           </div>
           {events && events.length !== 0 && (
             <div className="my-5">
-              <h1 className="md:text-5xl text-4xl sanspro font-black text-primaryblue text-left md:text-center">
+              <h1 className="md:text-5xl text-4xl sanspro font-black text-darkbrown text-left md:text-center">
                 CISR EVENTS
               </h1>
-              <p className="text-left md:text-center mb-3 sanspro md:text-3xl text-xl font-semibold">
+              <p className="text-left md:text-center mb-3 sanspro text-lightbrown md:text-3xl text-xl font-semibold">
                 Whats Happening in Islam in South Asia
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
