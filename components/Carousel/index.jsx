@@ -1,6 +1,5 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import styles from "./index.module.css";
 
 export default function CarouselGrid({ carouselData }) {
   return (
@@ -10,10 +9,10 @@ export default function CarouselGrid({ carouselData }) {
           const imageUrl = carousel.attributes.image.data.attributes.url;
           return (
             <div className="relative" key={ind}>
-              <div className={styles.imageContainer}>
-                <img className={styles.carouselImage} src={imageUrl} />
+              <div className="imageContainer">
+                <img className="carouselImage" src={imageUrl} />
               </div>
-              <p className={styles.carouselSubtitle}>
+              <p className="carouselSubtitle">
                 {carousel.attributes.title}
               </p>
             </div>

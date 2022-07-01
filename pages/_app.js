@@ -3,6 +3,7 @@ import Head from "next/head";
 import "../styles/globals.css";
 import "../styles/social.css";
 import "../styles/header.css";
+import "../components/Carousel/carousel.css";
 import { createContext, useEffect } from "react";
 import { fetchAPI } from "../lib/api";
 import { ToastContainer } from "react-toastify";

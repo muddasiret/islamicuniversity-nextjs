@@ -132,7 +132,7 @@ const ProgrammeOpen = ({ programme }) => {
             </div>
           )}
           {currSyllabus && openYear && (
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {currSyllabus.map((item, ind) => {
                 let descShow = openYear.includes(ind);
                 return (

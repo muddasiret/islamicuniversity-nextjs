@@ -11,10 +11,10 @@ const TeaOverBooks = ({ books }) => {
       <PageTitle title="TEA OVER BOOKS" />
       <MainLayout>
         <section className="pb-5">
-          <h1 className="my-5 text-5xl sanspro font-black uppercase text-primaryblue text-center">
+          <h1 className="my-5 md:text-5xl text-4xl sanspro font-black uppercase text-primaryblue text-center">
             About the Books
           </h1>
-          <div className="grid grid-cols-5 gap-10">
+          <div className="mx-5 grid grid-cols-1 md:grid-cols-5 gap-10">
             {books.map((book, ind) => {
               return <BookCard bookDetails={book} key={ind} />;
             })}

@@ -11,7 +11,8 @@ module.exports = {
         skyblue: "#19b5fe",
         lightyellow: "#f0f09a",
         brown:"#3e1b16",
-        lightdark:"#241d20"
+        lightdark:"#241d20",
+        cream:"#c59a50"
       },
       scale: {
         103: "1.03",

@@ -10,8 +10,8 @@ import { NAV_LINKS } from "../Header/constants";
 const Footer = () => {
   return (
     <>
-      <div className="bg-primaryblue">
-        <div className="container mx-auto grid gap-4 md:grid-cols-3 py-5 px-10 text-left">
+      <div className="bg-brown">
+        <div className="container mx-auto grid gap-4 md:grid-cols-3 py-5 px-5 md:px-10 text-left">
           <div className="md:border-r pr-5 py-3">
             <p className="text-white text-lg">NAVIGATE TO</p>
             <div className="">
@@ -47,8 +47,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="bg-gray-800">
-          <div className="md:flex justify-between py-7 px-10 h-10 items-center container mx-auto">
+        <div className="bg-cream">
+          <div className="md:flex justify-between pb-16 pt-7 md:py-7 px-10 h-10 items-center container mx-auto">
             <p className="text-white text-xs">
               Islamic University | Registered UK Charity No. 1137219
             </p>

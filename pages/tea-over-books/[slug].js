@@ -24,7 +24,7 @@ const Book = ({ books }) => {
         </div>
       </div>
       <MainLayout>
-        <div className="grid grid-cols-5 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
           <img src={image} className="book-cover" />
           <div className="book-details col-span-4">
             <p className="text-skyblue font-semibold text-lg mb-0">{author}</p>

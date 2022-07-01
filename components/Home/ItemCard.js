@@ -20,7 +20,7 @@ const ItemCard = ({ details }) => {
             : `Islamic University’s Online Learning Platform, home to exclusive
             Lecture Series.`}
         </p>
-        <button className="my-5 p-2 px-5 rounded text-white text-sm bg-primaryblue">
+        <button className="my-5 p-2 px-5 rounded text-white text-sm bg-brown">
           READ MORE
         </button>
       </div>

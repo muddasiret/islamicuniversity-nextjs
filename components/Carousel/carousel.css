@@ -1,3 +1,14 @@
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  img.carouselImage {
+    height: 300px;
+  }
+  p.carouselSubtitle {
+    position: absolute;
+    font-size: 1rem;
+  }
+}
+
 .carouselImage {
   max-height: 500px;
   object-fit: cover;

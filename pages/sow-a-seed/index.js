@@ -50,7 +50,7 @@ const SowASeed = ({ seeds }) => {
             Weekly Timetable
           </h2>
 
-          <div className="grid grid-cols-5 gap-10 bg-white rounded-md shadow-lg py-10 px-5">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 bg-white rounded-md shadow-lg py-10 px-5">
             {weekly_timetable.map((item, ind) => {
               return timeTableItem(item, ind);
             })}

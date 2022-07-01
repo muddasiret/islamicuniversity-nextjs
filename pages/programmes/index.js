@@ -9,11 +9,11 @@ const Programmes = ({ programmes }) => {
     <Layout>
       <PageTitle title="PROGRAMMES" />
       <MainLayout>
-        <h1 className="my-5 text-5xl sanspro font-black uppercase text-primaryblue text-center">Study</h1>
-        <p className="my-2 sanspro text-2xl font-semibold text-black-700 text-center">
+        <h1 className="my-5 md:text-5xl text-4xl sanspro font-black uppercase text-primaryblue text-center">Study</h1>
+        <p className="md:my-2 sanspro md:text-2xl text-xl font-semibold text-black-700 text-center">
           We currently offer three full and part time academic programmes.
         </p>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {programmes.map((item, ind) => {
             return <ProgrammeCard details={item} key={ind} />;
           })}
