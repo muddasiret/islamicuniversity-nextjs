@@ -16,20 +16,21 @@ const EventCard = ({ data }) => {
         <img
           src={imgSrc}
           alt="event-card"
-          className="w-full h-52 object-cover rounded-md"
+          className="w-full h-64 object-cover rounded-md shadow-2xl"
         />
         <div className="absolute bottom-0 w-full">
           {datetime && (
-            <p className="text-xs text-white bg-blue-600/[.4] w-2/5 px-3 py-2 flex items-center">
-              <BiTime color="white" className="mr-1"/>
+            <p className="text-xs text-white bg-blue-600/[.4] px-2 py-2 w-6/12 flex items-center">
+              <BiTime color="white" className="mr-1" />
               <Moment format="MMM Do YYYY">{datetime}</Moment>
+              <span className="ml-3">
+                <Moment format="LT">{datetime}</Moment>
+              </span>
             </p>
           )}
           <div className="text-white bg-slate-700/[.6] w-full py-2 px-3 rounded-md">
             <h4 className="text-left text-md roboto-text">{title}</h4>
-            <span className="text-xs">
-              <Moment format="LT">{datetime}</Moment> {location}
-            </span>
+            <span className="text-xs">{location}</span>
           </div>
         </div>
         {/* <p className="pt-2 text-sm pr-5">

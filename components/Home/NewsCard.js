@@ -12,7 +12,7 @@ const NewsCard = ({ newsDetails }) => {
   return (
     <Link href={`/news/${slug}`} passHref={true}>
       <div className="mt-5 text-left rounded-md bg-white cursor-pointer shadow-lg group card-zoom hover:shadow-2xl">
-        <p className="text-left text-md uppercase text-red-700 px-4 pt-4 font-bold ">
+        <p className="text-left text-md uppercase text-darkred px-4 pt-4 font-bold ">
           {category}
         </p>
         <img src={imgSrc} className="p-4 h-52 newscardimg" />

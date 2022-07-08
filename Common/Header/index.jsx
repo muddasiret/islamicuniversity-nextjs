@@ -25,7 +25,7 @@ const Header = () => {
           <FiYoutube color="white" />
         </a>
       </div> */}
-      <div className="flex justify-between mx-auto flex-row items-center	py-5 px-5 md:px-10 bg-brown">
+      <div className="flex header-main justify-between mx-auto flex-row items-center	py-5 px-5 md:px-10 bg-brown">
         <Link href="/">
           <img
             src={logo}
@@ -45,7 +45,7 @@ const Header = () => {
         <nav className="hidden sm:flex sm:justify-center space-x-4">
           {Object.keys(NAV_LINKS).map((key, index) => (
             <div
-              className="uppercase relative group text-md text-white hover:text-yellow-300"
+              className="uppercase relative group text-md text-white hover:text-yellow-400"
               key={index}
             >
               <Link

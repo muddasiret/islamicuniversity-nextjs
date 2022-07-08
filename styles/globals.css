@@ -148,7 +148,7 @@ img:hover {
 .file-input > .button {
   display: inline-block;
   cursor: pointer;
-  background: dodgerblue;
+  background: #3e1b16;
   padding: 8px 16px;
   border-radius: 2px;
   margin-right: 8px;
@@ -183,7 +183,7 @@ button[disabled] {
 }
 
 .bookscardimg {
-  height: 400px;
+  height: 350px;
   width: 100%;
   object-fit: cover;
 }
@@ -231,7 +231,7 @@ button[disabled] {
 }
 
 .sanspro {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Charis SIL', serif;
 }
 
 .background-biege {
@@ -240,6 +240,14 @@ button[disabled] {
 
 .paper-card {
   min-height: 360px;
+}
+
+.header-main{
+  -webkit-box-shadow: 0px 15px 40px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 15px 40px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 15px 40px 0px rgba(0,0,0,0.75);
+position: relative;
+z-index: 10;
 }
 
 

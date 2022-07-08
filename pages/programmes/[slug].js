@@ -3,12 +3,13 @@ import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
 import PageTitle from "../../components/pageTitle";
 import YoutubeEmbed from "../../Common/YoutubeEmbed";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MainLayout from "../../components/mainLayout";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import toast from "../../components/toast";
 import Router from "next/router";
+import GeneratePdf, { generatePdf } from "../../components/generatePdf";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -30,7 +31,7 @@ const SignupSchema = Yup.object().shape({
 
 const ProgrammeOpen = ({ programme }) => {
   const errorClasses = "text-red-500 mb-4 text-left w-4/5 uppercase";
-  const inputClasses = "border-2 mb-4 p-2 md:w-4/5";
+  const inputClasses = "border-2 mb-4 p-2 md:w-4/5 rounded-md";
   const labelClasses = "mb-2 text-primaryblue font-bold text-left text-lg";
   // const imageUrl = getStrapiMedia(article.attributes.image);
   // const seo = {
@@ -106,6 +107,8 @@ const ProgrammeOpen = ({ programme }) => {
     toast({ type: "success", message: "Form Submitted" });
   };
 
+  const ref = useRef();
+
   return (
     <Layout>
       {/* <Seo seo={seo} /> */}
@@ -115,22 +118,27 @@ const ProgrammeOpen = ({ programme }) => {
           <h1 className="py-2 text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
             {title}
           </h1>
-          <YoutubeEmbed embedLink={youtube_link} classes="mt-5 md:h-[30rem]" />
+          {youtube_link && (
+            <YoutubeEmbed
+              embedLink={youtube_link}
+              classes="mt-5 md:h-[30rem]"
+            />
+          )}
           <div className="flex">
             <div className="mb-5">
               {description && (
-                <div className="my-3 text-slate-600 text-center bg-slate-100 p-5">
+                <div className="my-3 text-center text-darkbrown p-7">
                   <ReactMarkdown>{description}</ReactMarkdown>
                 </div>
               )}
             </div>
           </div>
 
-          {sub_description && (
+          {/* {sub_description && (
             <div className="my-12">
               <div dangerouslySetInnerHTML={{ __html: sub_description }} />
             </div>
-          )}
+          )} */}
           {currSyllabus && openYear && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {currSyllabus.map((item, ind) => {
@@ -138,16 +146,18 @@ const ProgrammeOpen = ({ programme }) => {
                 return (
                   <div
                     onClick={() => openYearHandler(ind)}
-                    className="border-2 p-3 h-min cursor-pointer transition-all year-card"
+                    className="border-2 border-cream rounded-md p-3 h-min cursor-pointer transition-all year-card"
                     key={ind}
                   >
                     <div className="flex items-center">
-                      <div className="bg-sky-700 text-white px-3 mr-2 py-1 text-md">
+                      <div className="bg-cream rounded-md text-white px-3 mr-2 py-1 text-md">
                         {descShow ? "-" : "+"}
                       </div>
                       <p className="uppercase text-primaryblue">{item.title}</p>
                     </div>
-                    {descShow && <p className="mt-5">{item.description}</p>}
+                    {descShow && (
+                      <p className="mt-5 px-4 pb-2">{item.description}</p>
+                    )}
                   </div>
                 );
               })}
@@ -165,24 +175,26 @@ const ProgrammeOpen = ({ programme }) => {
                 return (
                   <div
                     onClick={() => openApplyHandler(ind)}
-                    className="border-2 p-3 h-min cursor-pointer mb-2"
+                    className="border-2 border-cream p-3 h-min cursor-pointer mb-4 rounded-md"
                     key={ind}
                   >
                     <div className="flex items-center">
-                      <div className="bg-sky-700 text-white px-2  mr-2 ml-2 text-md">
+                      <div className="bg-cream rounded-md text-white px-2  mr-2 ml-2 text-md">
                         {descShow ? "-" : "+"}
                       </div>
                       <p className="uppercase text-primaryblue">{item.title}</p>
                     </div>
-                    {descShow && <p className="mt-5">{item.description}</p>}
+                    {descShow && (
+                      <p className="mt-5 px-5 pl-8 pb-2">{item.description}</p>
+                    )}
                   </div>
                 );
               })}
             </div>
           )}
 
-          <div className="border-2 mt-10 pb-5 mx-[10rem] mb-10">
-            <h3 className="mb-5 mt-10 font-extrabold text-2xl text-primaryblue uppercase text-center">
+          <div className="border-2 bg-cream rounded-md border-cream mt-10 pb-5 mx-[10rem] mb-10">
+            <h3 className="mb-5 mt-10 font-extrabold text-2xl text-darkbrown uppercase text-center">
               Submit your application
             </h3>
             <Formik
@@ -287,9 +299,9 @@ const ProgrammeOpen = ({ programme }) => {
                   {errors.course && touched.course ? (
                     <div className={errorClasses}>{errors.course}</div>
                   ) : null}
-                  <div className="flex flex-col my-3 w-4/5">
+                  <div className="flex flex-col my-3 w-4/5 rounded-md">
                     <label className={labelClasses}>File</label>
-                    <div className="file-input">
+                    <div className="file-input border-2">
                       <input type="file" />
                       <span className="button">Choose</span>
                       <span className="label" data-js-label>
@@ -297,11 +309,11 @@ const ProgrammeOpen = ({ programme }) => {
                       </span>
                     </div>
                   </div>
-                  <div className="flex flex-col my-3 w-4/5">
+                  <div className="flex flex-col my-3 w-4/5 rounded-md">
                     <label className={labelClasses}>Image</label>
-                    <div className="file-input">
+                    <div className="file-input border-2">
                       <input type="file" />
-                      <span className="button">Choose</span>
+                      <span className="button rounded-md">Choose</span>
                       <span className="label" data-js-label>
                         No Image selected
                       </span>
@@ -309,24 +321,34 @@ const ProgrammeOpen = ({ programme }) => {
                   </div>
                   <button
                     onClick={() => {
-                      console.log(errors);
-                      console.log(values);
-                      if (Object.keys(errors).length === 0) {
-                        toast({ type: "success", message: "Form Submitted" });
-                        setTimeout(
-                          Router.reload(window.location.pathname),
-                          2000
-                        );
-                      } else {
-                        toast({ type: "error", message: "Check Form Entries" });
-                      }
+                      // console.log(errors);
+                      // console.log(values);
+                      // if (Object.keys(errors).length === 0) {
+                      //   toast({ type: "success", message: "Form Submitted" });
+                      //   setTimeout(
+                      //     Router.reload(window.location.pathname),
+                      //     2000
+                      //   );
+                      // } else {
+                      //   toast({ type: "error", message: "Check Form Entries" });
+                      // }
+                      generatePdf(values);
                     }}
                     type="submit"
-                    disabled={values.name === ""}
-                    className="p-2 bg-primaryblue font-bold text-white md:w-1/5 my-10 uppercase"
+                    // disabled={values.name === ""}
+                    className="p-2 bg-primaryblue rounded-md font-bold text-white md:w-1/5 my-10 uppercase"
                   >
                     Submit
                   </button>
+                  <div className="content hidden" ref={ref}>
+                    <h1>Chair for Islamic Studies and Research</h1>
+                    <p id="text">
+                      Name: {values.name} Mob:{values.phone} Email:
+                      {values.email} Address:{values.address}
+                      Qualification:{values.qualification}
+                      Course:Diploma
+                    </p>
+                  </div>
                 </Form>
               )}
             </Formik>

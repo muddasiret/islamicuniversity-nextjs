@@ -1,11 +1,7 @@
-import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
-import Seo from "../../components/seo";
 import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
-import { getStrapiMedia } from "../../lib/media";
 import YoutubeEmbed from "../../Common/YoutubeEmbed";
-import SocialButtons from "../../components/socialButtons";
 import MainLayout from "../../components/mainLayout";
 
 const Book = ({ books }) => {
@@ -16,14 +12,10 @@ const Book = ({ books }) => {
 
   return (
     <Layout>
-      <div className="py-5 px-10 border-cyan-900 background-biege">
-        <div className="container mx-auto">
-          <h1 className="text-3xl sanspro font-black text-primaryblue">
-            {book_name}
-          </h1>
-        </div>
-      </div>
       <MainLayout>
+        <h1 className="text-4xl my-10 py-5 sanspro font-black text-darkbrown">
+          {book_name}
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
           <img src={image} className="book-cover" />
           <div className="book-details col-span-4">
@@ -35,8 +27,8 @@ const Book = ({ books }) => {
         </div>
         <YoutubeEmbed
           embedLink={youtube_link}
-          classes="mt-5 md:px-25 md:h-[34rem]"
-        />  
+          classes="mt-10 py-10 md:px-25 md:h-[34rem]"
+        />
       </MainLayout>
     </Layout>
   );

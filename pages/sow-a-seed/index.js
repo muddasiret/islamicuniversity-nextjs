@@ -46,7 +46,7 @@ const SowASeed = ({ seeds }) => {
               </div>
             </div>
           )}
-          <h2 className="text-center text-3xl pt-4 my-10 font-bold leading-6">
+          <h2 className="text-center text-3xl pt-4 my-10 font-bold text-darkbrown leading-6">
             Weekly Timetable
           </h2>
 

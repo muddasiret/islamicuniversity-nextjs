@@ -18,7 +18,7 @@ const ProjectCard = ({ details }) => {
         /> */}
         <p className="text-center text-slate-500 py-5 px-5">{short_description}</p>
         <div className="text-center mb-5">
-          <button className="text-white bg-primaryblue rounded p-2 px-5 text-center align-middle mb-2">
+          <button className="text-white bg-brown rounded p-2 px-5 text-center align-middle mb-2">
             LEARN MORE
           </button>
         </div>

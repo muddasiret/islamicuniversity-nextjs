@@ -17,7 +17,7 @@ const ProgrammeCard = ({ details }) => {
         />
         <p className="text-center py-5 uppercase font-semibold">{degree}</p>
         <div className="text-center mb-5">
-          <button className="bg-primaryblue text-white p-2 px-5 rounded text-center align-middle mb-2">
+          <button className="bg-brown text-white p-2 px-5 rounded text-center align-middle mb-2">
             READ MORE
           </button>
         </div>

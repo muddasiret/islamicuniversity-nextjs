@@ -9,7 +9,7 @@ const Projects = ({ projects }) => {
     <Layout>
       <PageTitle title="PROJECTS" />
       <MainLayout>
-        <h1 className="my-5 md:text-5xl text-4xl sanspro font-black text-primaryblue text-center uppercase">
+        <h1 className="my-5 md:text-5xl text-4xl sanspro font-black text-darkbrown text-center uppercase">
           Research Fellowships
         </h1>
         <p className="my-2 sanspro md:text-2xl font-semibold text-black-700 text-center">
@@ -17,7 +17,7 @@ const Projects = ({ projects }) => {
           Research Fellowships each year. All of our active research projects
           can be explored below.
         </p>
-        <div className="grid">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((item, ind) => {
             return <ProjectCard details={item} key={ind} />;
           })}
