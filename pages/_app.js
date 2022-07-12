@@ -8,6 +8,7 @@ import { createContext, useEffect } from "react";
 import { fetchAPI } from "../lib/api";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { NextSeo } from "next-seo";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
@@ -17,6 +18,7 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <>
+      <NextSeo noindex={true} nofollow={true} />
       <Head>
         {/* <link
           rel="shortcut icon"
