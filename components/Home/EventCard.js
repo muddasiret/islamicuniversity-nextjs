@@ -5,7 +5,7 @@ import { BiTime } from "react-icons/bi";
 const EventCard = ({ data }) => {
   let imgSrc =
     "https://479141-1506839-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/04/college_closed_img-700x441.jpg";
-  const { title, datetime, slug, location } = data.attributes;
+  const { title, date, time, slug, location } = data.attributes;
   if (data) {
     imgSrc = data.attributes.image.data.attributes.url;
   }
@@ -19,13 +19,11 @@ const EventCard = ({ data }) => {
           className="w-full h-64 object-cover rounded-md shadow-2xl"
         />
         <div className="absolute bottom-0 w-full">
-          {datetime && (
+          {date && time && (
             <p className="text-xs text-white bg-blue-600/[.4] px-2 py-2 w-6/12 flex items-center">
               <BiTime color="white" className="mr-1" />
-              <Moment format="MMM Do YYYY">{datetime}</Moment>
-              <span className="ml-3">
-                <Moment format="LT">{datetime}</Moment>
-              </span>
+              <Moment format="MMM Do YYYY">{date}</Moment>
+              <span className="ml-3">{time}</span>
             </p>
           )}
           <div className="text-white bg-slate-700/[.6] w-full py-2 px-3 rounded-md">
