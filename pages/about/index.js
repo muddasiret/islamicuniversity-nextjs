@@ -8,7 +8,7 @@ import Contact from "../../components/contact";
 import Markdown from "markdown-to-jsx";
 
 const About = ({ about }) => {
-  const { youtube_link, aim, description, address, telephone, email } =
+  const { youtube_link, description, address, telephone, email } =
     about.attributes;
   useEffect(() => {
     console.log(address);
@@ -25,13 +25,15 @@ const About = ({ about }) => {
           <p className="my-5 text-lg font-bold text-darkbrown text-center px-16">
             UNIVERSITY OF CALICUT
           </p>
-          <YoutubeEmbed embedLink={youtube_link} classes="mt-5 md:h-[30rem]" />
-          <h2 className="text-2xl text-darkbrown text-center font-bold my-5">
-            {aim}
-          </h2>
-          <h3 className="text-md text-slate-600 text-center font-bold my-5 px-5">
-            {description}
-          </h3>
+          {youtube_link && (
+            <YoutubeEmbed
+              embedLink={youtube_link}
+              classes="mt-5 md:h-[30rem]"
+            />
+          )}
+          <div className="markdown-reset">
+            <Markdown>{description}</Markdown>
+          </div>
         </div>
         <div className="px-10 my-10">
           <h1 className="my-10 pt-10 text-5xl sanspro font-black text-darkbrown text-center font-extrabold">
