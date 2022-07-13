@@ -8,19 +8,33 @@ export const NAV_LINKS = {
     link: "/programmes",
   },
   research: {
-    label: "papers",
+    label: "research",
     link: "/papers",
+    sub: [
+      {
+        label: "papers",
+        link: "/papers",
+      },
+      { label: "projects", link: "/projects" },
+    ],
   },
-  online_learning: {
-    label: "projects",
-    link: "/projects",
-  },
-  tea_over_books: {
-    label: "tea over books",
-    link: "/tea-over-books",
-  },
-  sow_a_seed: {
-    label: "sow a seed",
-    link: "/sow-a-seed",
+  explore: {
+    label: "explore",
+    link: "/news",
+    sub: [
+      {
+        label: "tea over books",
+        link: "/tea-over-books",
+      },
+      {
+        label: "sow a seed",
+        link: "/sow-a-seed",
+      },
+      {
+        label: "news",
+        link: "/news",
+      },
+      { label: "events", link: "/events" },
+    ],
   },
 };

@@ -1,7 +1,7 @@
-import ReactMarkdown from "react-markdown";
 import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
 import MainLayout from "../../components/mainLayout";
+import Markdown from "markdown-to-jsx";
 
 const ProjectOpen = ({ project }) => {
   // const imageUrl = getStrapiMedia(article.attributes.image);
@@ -29,7 +29,9 @@ const ProjectOpen = ({ project }) => {
                 <div className="text-center mb-3 uppercase text-2xl font-bold text-primaryblue">
                   introduction
                 </div>
-                <ReactMarkdown>{introduction}</ReactMarkdown>
+                <div className="markdown-reset">
+                  <Markdown>{introduction}</Markdown>
+                </div>
               </div>
             )}
           </div>
@@ -65,7 +67,9 @@ const ProjectOpen = ({ project }) => {
                   Events
                 </div>
                 <div className="pb-5">
-                  <ReactMarkdown>{events}</ReactMarkdown>
+                  <div className="markdown-reset">
+                    <Markdown>{events}</Markdown>
+                  </div>
                 </div>
               </div>
             )}
@@ -77,7 +81,9 @@ const ProjectOpen = ({ project }) => {
                   PUBLICATIONS
                 </div>
                 <div className="pb-5">
-                  <ReactMarkdown>{publications}</ReactMarkdown>
+                  <div className="markdown-reset">
+                    <Markdown>{publications}</Markdown>
+                  </div>
                 </div>
               </div>
             )}

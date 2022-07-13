@@ -1,5 +1,4 @@
 import Moment from "react-moment";
-import ReactMarkdown from "react-markdown";
 import Seo from "../../components/seo";
 import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
@@ -9,6 +8,7 @@ import { BiTime } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
 import SocialButtons from "../../components/socialButtons";
 import MainLayout from "../../components/mainLayout";
+import Markdown from "markdown-to-jsx";
 
 const Event = ({ article }) => {
   const imageUrl = getStrapiMedia(article.attributes.image);
@@ -58,7 +58,9 @@ const Event = ({ article }) => {
             </div>
             {description && (
               <div className="ml-6 mb-3 pr-5 text-slate-600">
-                <ReactMarkdown>{description}</ReactMarkdown>
+                <div className="markdown-reset">
+                  <Markdown>{description}</Markdown>
+                </div>
               </div>
             )}
           </div>
@@ -67,9 +69,6 @@ const Event = ({ article }) => {
         embedLink={youtube_link}
         classes="mt-5 md:px-20 md:h-[30rem]"
       /> */}
-        {/* <div className="pr-10 py-5">
-        <ReactMarkdown>{content}</ReactMarkdown>
-      </div> */}
         {/* {pdf &&
         pdf.data &&
         pdf.data.map((pdf, ind) => {

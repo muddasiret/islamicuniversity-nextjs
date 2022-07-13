@@ -1,4 +1,3 @@
-import ReactMarkdown from "react-markdown";
 import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
 import PageTitle from "../../components/pageTitle";
@@ -8,8 +7,8 @@ import MainLayout from "../../components/mainLayout";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import toast from "../../components/toast";
-import Router from "next/router";
 import GeneratePdf, { generatePdf } from "../../components/generatePdf";
+import Markdown from "markdown-to-jsx";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -128,7 +127,9 @@ const ProgrammeOpen = ({ programme }) => {
             <div className="mb-5">
               {description && (
                 <div className="my-3 text-center text-darkbrown p-7">
-                  <ReactMarkdown>{description}</ReactMarkdown>
+                  <div className="markdown-reset">
+                    <Markdown>{description}</Markdown>
+                  </div>
                 </div>
               )}
             </div>

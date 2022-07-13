@@ -45,7 +45,7 @@ const Header = () => {
         <nav className="hidden sm:flex sm:justify-center space-x-4">
           {Object.keys(NAV_LINKS).map((key, index) => (
             <div
-              className="uppercase relative group text-md text-white hover:text-yellow-400"
+              className="uppercase relative group text-md text-white hover:text-yellow-500"
               key={index}
             >
               <Link
@@ -54,19 +54,31 @@ const Header = () => {
               >
                 {NAV_LINKS[key].label}
               </Link>
+              {/* {index === 0 && (
+                <div className="submenu">
+                  <ul>
+                    <li>dasdsdadas</li>
+                    <li>dasdsdadas</li>
+                    <li>dasdsdadas</li>
+                    <li>dasdsdadas</li>
+                    <li>dasdsdadas</li>
+                  </ul>
+                </div>
+              )} */}
               {NAV_LINKS[key].sub && (
-                <div className="absolute z-1 hidden bg-grey-200 group-hover:block">
-                  <div className="bg-white shadow-lg">
-                    <div className="uppercase flex-col flex">
+                <div className="absolute z-1 min-w-max bg-grey-200 hidden group-hover:block right-0 top-6">
+                  <div className="bg-cream shadow-lg">
+                    <div className="uppercase cursor-pointer flex-col flex">
                       {Object.keys(NAV_LINKS[key].sub).map(
                         (sub_key, key_index) => (
-                          <Link
-                            href={NAV_LINKS[key].sub[key_index].link}
-                            className="uppercase px-3 py-2 font-medium hover:bg-slate-100 hover:text-slate-900 group relative w-100 text-xs text-left"
+                          <div
+                            className="uppercase text-white cursor-pointer px-3 py-2 font-medium hover:bg-slate-100 hover:text-slate-900 group relative w-100 text-xs text-left"
                             key={key_index}
                           >
-                            <span>{NAV_LINKS[key].sub[key_index].label}</span>
-                          </Link>
+                            <Link href={NAV_LINKS[key].sub[key_index].link}>
+                              <span>{NAV_LINKS[key].sub[key_index].label}</span>
+                            </Link>
+                          </div>
                         )
                       )}
                     </div>

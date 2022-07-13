@@ -1,12 +1,11 @@
 import Moment from "react-moment";
-import ReactMarkdown from "react-markdown";
 import Seo from "../../components/seo";
 import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
-import { getStrapiMedia } from "../../lib/media";
 import YoutubeEmbed from "../../Common/YoutubeEmbed";
 import SocialButtons from "../../components/socialButtons";
 import MainLayout from "../../components/mainLayout";
+import Markdown from "markdown-to-jsx";
 
 const Article = ({ article }) => {
   const { title, subtitle, youtube_link, published_at, content, pdf } =
@@ -39,7 +38,9 @@ const Article = ({ article }) => {
           {subtitle}
         </h2>
         <div className="pr-10 py-5">
-          <ReactMarkdown>{content}</ReactMarkdown>
+          <div className="markdown-reset">
+            <Markdown>{content}</Markdown>
+          </div>
         </div>
         {pdf &&
           pdf.data &&

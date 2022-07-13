@@ -9,8 +9,10 @@ import EventCard from "../components/Home/EventCard";
 import CarouselGrid from "../components/Carousel";
 import MainLayout from "../components/mainLayout";
 import { NAV_LINKS } from "../Common/Header/constants";
+import { useRouter } from "next/router";
 
 const Home = ({ carousels, newses, events, homepage }) => {
+  const router = useRouter();
   return (
     <Layout>
       {/* <Seo seo={homepage.attributes.seo} /> */}
@@ -30,6 +32,14 @@ const Home = ({ carousels, newses, events, homepage }) => {
               })}
             </div>
           </div>
+        </div>
+        <div className="w-100 flex justify-center">
+          <button
+            onClick={() => router.push("/news")}
+            className="my-5 p-2 px-5 rounded text-white text-sm bg-brown"
+          >
+            SEE MORE
+          </button>
         </div>
       </MainLayout>
       <div
@@ -54,6 +64,11 @@ const Home = ({ carousels, newses, events, homepage }) => {
             </div>
           </div>
         )}
+        <div className="w-100 flex justify-center">
+          <button onClick={() => router.push("/events")} className="my-5 p-2 px-5 rounded text-white text-sm bg-brown">
+            SEE MORE
+          </button>
+        </div>
       </div>
       <MainLayout>
         {/* <div className="md:flex md:space-x-4 py-5"> */}
@@ -71,8 +86,16 @@ export async function getStaticProps() {
   // Run API calls in parallel
   const [carouselsRes, newsRes, eventsRes, homepageRes] = await Promise.all([
     fetchAPI("/carousels", { populate: "image" }),
-    fetchAPI("/newses", { populate: "image" }),
-    fetchAPI("/events", { populate: "image" }),
+    fetchAPI("/newses", {
+      populate: "image",
+      "pagination[pageSize]": 4,
+      "pagination[page]": 1,
+    }),
+    fetchAPI("/events", {
+      populate: "image",
+      "pagination[pageSize]": 3,
+      "pagination[page]": 1,
+    }),
     //fetchAPI("/categories", { populate: "*" }),
     fetchAPI("/homepage", {
       populate: {

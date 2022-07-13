@@ -18,9 +18,6 @@ const TeaOverBooks = ({ books }) => {
             {books.map((book, ind) => {
               return <BookCard bookDetails={book} key={ind} />;
             })}
-            {books.map((book, ind) => {
-              return <BookCard bookDetails={book} key={ind} />;
-            })}
           </div>
         </section>
       </MainLayout>

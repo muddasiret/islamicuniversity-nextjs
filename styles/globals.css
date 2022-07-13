@@ -6,12 +6,12 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Charis SIL', serif;
+  font-family: "Charis SIL", serif;
   background-color: #f9f6ef;
 }
 
-.roboto-text{
-  font-family: 'Roboto Slab', serif;
+.roboto-text {
+  font-family: "Roboto Slab", serif;
 }
 
 ul {
@@ -231,7 +231,7 @@ button[disabled] {
 }
 
 .sanspro {
-  font-family: 'Charis SIL', serif;
+  font-family: "Charis SIL", serif;
 }
 
 .background-biege {
@@ -242,14 +242,13 @@ button[disabled] {
   min-height: 360px;
 }
 
-.header-main{
-  -webkit-box-shadow: 0px 15px 40px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 15px 40px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 15px 40px 0px rgba(0,0,0,0.75);
-position: relative;
-z-index: 10;
+.header-main {
+  -webkit-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.75);
+  position: relative;
+  z-index: 10;
 }
-
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
@@ -262,4 +261,72 @@ z-index: 10;
   .pagetitle-bg {
     height: 150px;
   }
+}
+
+.markdown-reset blockquote {
+  margin: auto;
+}
+
+.markdown-reset h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.markdown-reset h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.markdown-reset h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.markdown-reset h4 {
+  display: block;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.markdown-reset h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.markdown-reset h6 {
+  display: block;
+  font-size: 0.67em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.markdown-reset img {
+  object-fit: cover;
+}
+
+.submenu{
+  position: absolute;
+  background: brown;
+  padding: 10px;
 }

@@ -12,6 +12,7 @@
     "formik": "^2.2.9",
     "html-to-image": "^1.9.0",
     "jspdf": "^2.5.1",
+    "markdown-to-jsx": "^7.1.7",
     "moment": "^2.29.1",
     "next": "12.1.0",
     "next-seo": "^5.4.0",
