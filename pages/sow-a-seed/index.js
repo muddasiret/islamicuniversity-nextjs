@@ -54,7 +54,7 @@ const SowASeed = ({ seeds }) => {
             {weekly_timetable.map((item, ind) => {
               return timeTableItem(item, ind);
             })}
-            {weekly_timetable.map((item, ind) => {
+            {/* {weekly_timetable.map((item, ind) => {
               return timeTableItem(item, ind);
             })}
             {weekly_timetable.map((item, ind) => {
@@ -65,7 +65,7 @@ const SowASeed = ({ seeds }) => {
             })}
             {weekly_timetable.map((item, ind) => {
               return timeTableItem(item, ind);
-            })}
+            })} */}
           </div>
 
           {end_youtube && (
