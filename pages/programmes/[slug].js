@@ -55,6 +55,7 @@ const ProgrammeOpen = ({ programme }) => {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
+    console.log(syllabus, how_to_apply);
     setOpenYear([]);
     setOpenApply([]);
     var inputs = document.querySelectorAll(".file-input");
@@ -140,7 +141,7 @@ const ProgrammeOpen = ({ programme }) => {
               <div dangerouslySetInnerHTML={{ __html: sub_description }} />
             </div>
           )} */}
-          {currSyllabus && openYear && (
+          {currSyllabus !== [] && openYear && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {currSyllabus.map((item, ind) => {
                 let descShow = openYear.includes(ind);
@@ -169,7 +170,7 @@ const ProgrammeOpen = ({ programme }) => {
             HOW TO APPLY
           </h1>
 
-          {currApply && openApply && (
+          {currApply !== [] && openApply && (
             <div>
               {currApply.map((item, ind) => {
                 let descShow = openApply.includes(ind);
