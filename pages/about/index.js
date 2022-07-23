@@ -26,7 +26,7 @@ const About = ({ about }) => {
   };
 
   const plus = () => (
-    <span className="w-7 h-7 ml-4">
+    <div className="w-7 h-7 ml-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
@@ -38,10 +38,10 @@ const About = ({ about }) => {
           clipRule="evenodd"
         ></path>
       </svg>
-    </span>
+    </div>
   );
   const minus = () => (
-    <span className="w-7 h-7 ml-4">
+    <div className="w-7 h-7 ml-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
@@ -53,7 +53,7 @@ const About = ({ about }) => {
           clipRule="evenodd"
         ></path>
       </svg>
-    </span>
+    </div>
   );
   return (
     <Layout>
@@ -81,7 +81,35 @@ const About = ({ about }) => {
               <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 bg-cream text-white">
                 <div className="flex justify-between w-full p-2">
                   Vision
-                  {open === 1 ? plus : minus}
+                  {open === 1 ? (
+                    <div className="w-7 h-7 ml-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    <div className="w-7 h-7 ml-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  )}
                 </div>
               </AccordionHeader>
               <AccordionBody className="p-4 text-lg">
@@ -113,7 +141,35 @@ const About = ({ about }) => {
               <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 bg-cream text-white">
                 <div className="flex justify-between w-full p-2">
                   Mission
-                  {open === 2 ? plus : minus}
+                  {open === 2 ? (
+                    <div className="w-7 h-7 ml-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    <div className="w-7 h-7 ml-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  )}
                 </div>
               </AccordionHeader>
               <AccordionBody className="p-4 text-lg">
@@ -145,7 +201,35 @@ const About = ({ about }) => {
               <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 bg-cream text-white">
                 <div className="flex justify-between w-full p-2">
                   Values
-                  {open === 4 ? plus : minus}
+                  {open === 4 ? (
+                    <div className="w-7 h-7 ml-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    <div className="w-7 h-7 ml-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  )}
                 </div>
               </AccordionHeader>
               <AccordionBody className="p-4 text-lg">
@@ -177,7 +261,35 @@ const About = ({ about }) => {
               <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 border-b-2 bg-cream text-white">
                 <div className="flex justify-between w-full p-2">
                   Methodology
-                  {open === 3 ? plus : minus}
+                  {open === 3 ? (
+                    <div className="w-7 h-7 ml-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    <div className="w-7 h-7 ml-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  )}
                 </div>
               </AccordionHeader>
               <AccordionBody className="p-4 text-lg mb-8 pb-10">
