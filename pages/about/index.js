@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import YoutubeEmbed from "../../Common/YoutubeEmbed";
 import Layout from "../../components/layout";
 import MainLayout from "../../components/mainLayout";
@@ -6,6 +6,11 @@ import PageTitle from "../../components/pageTitle";
 import { fetchAPI } from "../../lib/api";
 import Contact from "../../components/contact";
 import Markdown from "markdown-to-jsx";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 
 const About = ({ about }) => {
   const { youtube_link, description, address, telephone, email } =
@@ -13,6 +18,43 @@ const About = ({ about }) => {
   useEffect(() => {
     console.log(address);
   }, [address]);
+
+  const [open, setOpen] = useState(0);
+
+  const handleOpen = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
+
+  const plus = () => (
+    <span className="w-7 h-7 ml-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fillRule="evenodd"
+          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+          clipRule="evenodd"
+        ></path>
+      </svg>
+    </span>
+  );
+  const minus = () => (
+    <span className="w-7 h-7 ml-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fillRule="evenodd"
+          d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+          clipRule="evenodd"
+        ></path>
+      </svg>
+    </span>
+  );
   return (
     <Layout>
       <PageTitle title="ABOUT" />
@@ -31,8 +73,141 @@ const About = ({ about }) => {
               classes="mt-5 md:h-[30rem]"
             />
           )}
-          <div className="markdown-reset">
+          {/* <div className="markdown-reset">
             <Markdown>{description}</Markdown>
+          </div> */}
+          <div className="mt-5">
+            <Accordion open={open === 1} onClick={() => handleOpen(1)}>
+              <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 bg-cream text-white">
+                <div className="flex justify-between w-full p-2">
+                  Vision
+                  {open === 1 ? plus : minus}
+                </div>
+              </AccordionHeader>
+              <AccordionBody className="p-4 text-lg">
+                The Chair of Muslim Cultural and Religious History at the
+                University of Erfurt puts great emphasis on interdisciplinarity
+                and internationality. This is, on the one hand, reflected in its
+                integration into the universitys Department of Religious Studies
+                that imparts broad knowledge of the European religious
+                landscape. On the other hand, the Chair cooperates with other
+                departments, such as Political Science, History, Communication
+                Studies or Theology, and expresses shared interests within the
+                framework of the compulsory “Studium Fundamentale”. Moreover,
+                the programme allows for optional semesters, field excursions
+                and internships abroad. Cultural Studies and Social Sciences in
+                general and Religious Studies in particular need to extend and
+                improve their practical orientation in order to make their
+                expertise fruitful and applicable in politics, commerce and
+                society. Experts with well-founded knowledge of religious
+                minority groups in Europe are already lacking and sought after.
+                It is, therefore, the Chairs declared aim to provide this sort
+                of cultural competences at the undergraduate level (B.A.
+                programme) that will enable the graduate to play a vital part in
+                different areas of society, such as economy, politics, education
+                or the media, and to fulfill not an preclusive, but an
+                integrative function within them.
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 2} onClick={() => handleOpen(2)}>
+              <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 bg-cream text-white">
+                <div className="flex justify-between w-full p-2">
+                  Mission
+                  {open === 2 ? plus : minus}
+                </div>
+              </AccordionHeader>
+              <AccordionBody className="p-4 text-lg">
+                The Chair of Muslim Cultural and Religious History at the
+                University of Erfurt puts great emphasis on interdisciplinarity
+                and internationality. This is, on the one hand, reflected in its
+                integration into the universitys Department of Religious Studies
+                that imparts broad knowledge of the European religious
+                landscape. On the other hand, the Chair cooperates with other
+                departments, such as Political Science, History, Communication
+                Studies or Theology, and expresses shared interests within the
+                framework of the compulsory “Studium Fundamentale”. Moreover,
+                the programme allows for optional semesters, field excursions
+                and internships abroad. Cultural Studies and Social Sciences in
+                general and Religious Studies in particular need to extend and
+                improve their practical orientation in order to make their
+                expertise fruitful and applicable in politics, commerce and
+                society. Experts with well-founded knowledge of religious
+                minority groups in Europe are already lacking and sought after.
+                It is, therefore, the Chairs declared aim to provide this sort
+                of cultural competences at the undergraduate level (B.A.
+                programme) that will enable the graduate to play a vital part in
+                different areas of society, such as economy, politics, education
+                or the media, and to fulfill not an preclusive, but an
+                integrative function within them.
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 4} onClick={() => handleOpen(4)}>
+              <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 bg-cream text-white">
+                <div className="flex justify-between w-full p-2">
+                  Values
+                  {open === 4 ? plus : minus}
+                </div>
+              </AccordionHeader>
+              <AccordionBody className="p-4 text-lg">
+                The Chair of Muslim Cultural and Religious History at the
+                University of Erfurt puts great emphasis on interdisciplinarity
+                and internationality. This is, on the one hand, reflected in its
+                integration into the universitys Department of Religious Studies
+                that imparts broad knowledge of the European religious
+                landscape. On the other hand, the Chair cooperates with other
+                departments, such as Political Science, History, Communication
+                Studies or Theology, and expresses shared interests within the
+                framework of the compulsory “Studium Fundamentale”. Moreover,
+                the programme allows for optional semesters, field excursions
+                and internships abroad. Cultural Studies and Social Sciences in
+                general and Religious Studies in particular need to extend and
+                improve their practical orientation in order to make their
+                expertise fruitful and applicable in politics, commerce and
+                society. Experts with well-founded knowledge of religious
+                minority groups in Europe are already lacking and sought after.
+                It is, therefore, the Chairs declared aim to provide this sort
+                of cultural competences at the undergraduate level (B.A.
+                programme) that will enable the graduate to play a vital part in
+                different areas of society, such as economy, politics, education
+                or the media, and to fulfill not an preclusive, but an
+                integrative function within them.
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 3} onClick={() => handleOpen(3)}>
+              <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 border-b-2 bg-cream text-white">
+                <div className="flex justify-between w-full p-2">
+                  Methodology
+                  {open === 3 ? plus : minus}
+                </div>
+              </AccordionHeader>
+              <AccordionBody className="p-4 text-lg mb-8 pb-10">
+                <div className="mb-8">
+                  The Chair of Muslim Cultural and Religious History at the
+                  University of Erfurt puts great emphasis on
+                  interdisciplinarity and internationality. This is, on the one
+                  hand, reflected in its integration into the universitys
+                  Department of Religious Studies that imparts broad knowledge
+                  of the European religious landscape. On the other hand, the
+                  Chair cooperates with other departments, such as Political
+                  Science, History, Communication Studies or Theology, and
+                  expresses shared interests within the framework of the
+                  compulsory “Studium Fundamentale”. Moreover, the programme
+                  allows for optional semesters, field excursions and
+                  internships abroad. Cultural Studies and Social Sciences in
+                  general and Religious Studies in particular need to extend and
+                  improve their practical orientation in order to make their
+                  expertise fruitful and applicable in politics, commerce and
+                  society. Experts with well-founded knowledge of religious
+                  minority groups in Europe are already lacking and sought
+                  after. It is, therefore, the Chairs declared aim to provide
+                  this sort of cultural competences at the undergraduate level
+                  (B.A. programme) that will enable the graduate to play a vital
+                  part in different areas of society, such as economy, politics,
+                  education or the media, and to fulfill not an preclusive, but
+                  an integrative function within them.
+                </div>
+              </AccordionBody>
+            </Accordion>
           </div>
         </div>
         <div className="px-10 my-10">

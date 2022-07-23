@@ -15,7 +15,8 @@ module.exports = {
         lightbrown:"#6e4d4d",
         lightdark:"#241d20",
         cream:"#c59a50",
-        darkred:"#ae3321"
+        darkred:"#ae3321",
+        orange:"#e45424"
       },
       scale: {
         103: "1.03",
