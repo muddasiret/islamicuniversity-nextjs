@@ -6,6 +6,13 @@ export const NAV_LINKS = {
   programmes: {
     label: "programmes",
     link: "/programmes",
+    sub: [
+      {
+        label: "Academic",
+        link: "/programmes",
+      },
+      { label: "Semi Academic", link: "/programmes" },
+    ],
   },
   research: {
     label: "research",
