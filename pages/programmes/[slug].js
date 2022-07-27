@@ -145,23 +145,32 @@ const ProgrammeOpen = ({ programme }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {currSyllabus.map((item, ind) => {
                 let descShow = openYear.includes(ind);
-                return (
-                  <div
-                    onClick={() => openYearHandler(ind)}
-                    className="border-2 border-cream rounded-md p-3 h-min cursor-pointer transition-all year-card"
-                    key={ind}
-                  >
-                    <div className="flex items-center">
-                      <div className="bg-cream rounded-md text-white px-3 mr-2 py-1 text-md">
-                        {descShow ? "-" : "+"}
+                if (item.title)
+                  return (
+                    <div
+                      onClick={() => openYearHandler(ind)}
+                      className="border-2 border-cream rounded-md p-3 h-min cursor-pointer transition-all year-card"
+                      key={ind}
+                    >
+                      <div className="flex items-center">
+                        <div className="bg-cream rounded-md text-white px-3 mr-2 py-1 text-md">
+                          {descShow ? "-" : "+"}
+                        </div>
+                        <p className="uppercase text-primaryblue">
+                          {item.title}
+                        </p>
                       </div>
-                      <p className="uppercase text-primaryblue">{item.title}</p>
+                      {descShow && (
+                        <p className="mt-5 px-4 pb-2">
+                          <div className="markdown-reset">
+                            {item.description && (
+                              <Markdown>{item.description}</Markdown>
+                            )}
+                          </div>
+                        </p>
+                      )}
                     </div>
-                    {descShow && (
-                      <p className="mt-5 px-4 pb-2">{item.description}</p>
-                    )}
-                  </div>
-                );
+                  );
               })}
             </div>
           )}
@@ -187,7 +196,11 @@ const ProgrammeOpen = ({ programme }) => {
                       <p className="uppercase text-primaryblue">{item.title}</p>
                     </div>
                     {descShow && (
-                      <p className="mt-5 px-5 pl-8 pb-2">{item.description}</p>
+                      <p className="mt-5 px-5 pl-8 pb-2">
+                        <div className="markdown-reset">
+                          <Markdown>{item.description}</Markdown>
+                        </div>
+                      </p>
                     )}
                   </div>
                 );
