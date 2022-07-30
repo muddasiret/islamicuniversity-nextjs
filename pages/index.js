@@ -11,7 +11,8 @@ import MainLayout from "../components/mainLayout";
 import { NAV_LINKS } from "../Common/Header/constants";
 import { useRouter } from "next/router";
 
-const Home = ({ carousels, newses, events, homepage }) => {
+const Home = (props) => {
+  const { carousels, newses, events, homepage } = props;
   const router = useRouter();
   return (
     <Layout>

@@ -9,7 +9,6 @@ import * as Yup from "yup";
 import toast from "../../components/toast";
 import GeneratePdf, { generatePdf } from "../../components/generatePdf";
 import Markdown from "markdown-to-jsx";
-import { getTitleImage } from "../../utils/getTitleImage";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -29,7 +28,7 @@ const SignupSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
 });
 
-const ProgrammeOpen = ({ programme, global }) => {
+const ProgrammeOpen = ({ programme }) => {
   const errorClasses = "text-red-500 mb-4 text-left w-4/5 uppercase";
   const inputClasses = "border-2 mb-4 p-2 md:w-4/5 rounded-md";
   const labelClasses = "mb-2 text-primaryblue font-bold text-left text-lg";
@@ -109,12 +108,11 @@ const ProgrammeOpen = ({ programme, global }) => {
   };
 
   const ref = useRef();
-  let title_image = getTitleImage(global);
 
   return (
     <Layout>
       {/* <Seo seo={seo} /> */}
-      <PageTitle title="DIPLOMA" title_image={title_image} />
+      <PageTitle title="DIPLOMA" />
       <MainLayout>
         <div className="px-10">
           <h1 className="py-2 text-sm md:text-4xl text-primaryblue font-bold text-center my-5">

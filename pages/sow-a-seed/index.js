@@ -3,8 +3,11 @@ import Layout from "../../components/layout";
 import MainLayout from "../../components/mainLayout";
 import PageTitle from "../../components/pageTitle";
 import { fetchAPI } from "../../lib/api";
+import { getTitleImage } from "../../utils/getTitleImage";
 
-const SowASeed = ({ seeds }) => {
+const SowASeed = ({ seeds,global }) => {
+  let title_image =  getTitleImage(global)
+
   const { description, main_youtube, weekly_timetable, end_youtube } =
     seeds[0].attributes;
 
@@ -28,7 +31,7 @@ const SowASeed = ({ seeds }) => {
   };
   return (
     <Layout>
-      <PageTitle title="SOW A SEED" />
+      <PageTitle title="SOW A SEED" title_image={title_image}/>
       <MainLayout>
         <section className="pb-5">
           {description && (

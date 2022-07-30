@@ -3,11 +3,14 @@ import MainLayout from "../../components/mainLayout";
 import PageTitle from "../../components/pageTitle";
 import ProjectCard from "../../components/ProjectCard";
 import { fetchAPI } from "../../lib/api";
+import { getTitleImage } from "../../utils/getTitleImage";
 
-const Projects = ({ projects }) => {
+const Projects = ({ projects,global }) => {
+  let title_image =  getTitleImage(global)
+
   return (
     <Layout>
-      <PageTitle title="PROJECTS" />
+      <PageTitle title="PROJECTS" title_image={title_image}/>
       <MainLayout>
         <h1 className="my-5 md:text-5xl text-4xl sanspro font-black text-darkbrown text-center uppercase">
           Research Fellowships

@@ -4,11 +4,14 @@ import MainLayout from "../../components/mainLayout";
 import PageTitle from "../../components/pageTitle";
 import PaperCard from "../../components/paperCard";
 import { fetchAPI } from "../../lib/api";
+import { getTitleImage } from "../../utils/getTitleImage";
 
-const TeaOverBooks = ({ books }) => {
+const TeaOverBooks = ({ books,global }) => {
+  let title_image =  getTitleImage(global)
+
   return (
     <Layout>
-      <PageTitle title="TEA OVER BOOKS" />
+      <PageTitle title="TEA OVER BOOKS" title_image={title_image}/>
       <MainLayout>
         <section className="my-10 py-10">
           <h1 className="my-5 md:text-5xl mb-10 text-4xl sanspro font-black uppercase text-darkbrown text-center">

@@ -1,9 +1,11 @@
-const PageTitle = ({ title }) => {
+import { useEffect } from "react";
+
+const PageTitle = ({ title,title_image }) => {
   return (
     <div className="view-content relative">
       <div
         style={{
-          backgroundImage: `url(${"https://www.heidelberg.edu/sites/default/files/styles/crop_banner_image/public/images/basic-pages/Library%20%2820%29_0.jpg?h=3f2d8485&itok=4EGKxlHN"})`,
+          backgroundImage: `url(${title_image})`,
         }}
         className="w-100 pagetitle-bg"
       >

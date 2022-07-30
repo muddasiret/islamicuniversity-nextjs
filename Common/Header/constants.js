@@ -9,9 +9,9 @@ export const NAV_LINKS = {
     sub: [
       {
         label: "Academic",
-        link: "/programmes",
+        link: "/academic",
       },
-      { label: "Semi Academic", link: "/programmes" },
+      { label: "Semi Academic", link: "/semi-academic" },
     ],
   },
   research: {

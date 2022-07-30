@@ -3,11 +3,14 @@ import MainLayout from "../../components/mainLayout";
 import PageTitle from "../../components/pageTitle";
 import PaperCard from "../../components/paperCard";
 import { fetchAPI } from "../../lib/api";
+import { getTitleImage } from "../../utils/getTitleImage";
 
-const Papers = ({ papers }) => {
+const Papers = ({ papers,global }) => {
+  let title_image =  getTitleImage(global)
+
   return (
     <Layout>
-      <PageTitle title="PAPERS" />
+      <PageTitle title="PAPERS" title_image={title_image}/>
       <MainLayout>
         <h1 className="my-5 md:text-5xl text-4xl sanspro font-black text-primaryblue uppercase text-center">
           Research Papers
