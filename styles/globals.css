@@ -353,3 +353,8 @@ button[disabled] {
 .accordion-content {
   padding: 1rem;
 }
+
+
+.project-header{
+  min-height: 65px;
+}

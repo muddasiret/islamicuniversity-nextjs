@@ -22,7 +22,7 @@ const Book = ({ books }) => {
           <div className="book-details col-span-4">
             <p className="text-skyblue font-semibold text-lg mb-0">{author}</p>
             <div className="pr-10 py-5 markdown-reset">
-              <Markdown>{description}</Markdown>
+              <div dangerouslySetInnerHTML={{ __html: description }} />
             </div>
             {main_image && <img src={main_image} className="w-full mt-2" />}
             {youtube_link && (

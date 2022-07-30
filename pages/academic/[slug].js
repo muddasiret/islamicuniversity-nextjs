@@ -129,7 +129,7 @@ const ProgrammeOpen = ({ programme }) => {
               {description && (
                 <div className="my-3 text-center text-darkbrown p-7">
                   <div className="markdown-reset">
-                    <Markdown>{description}</Markdown>
+                    <div dangerouslySetInnerHTML={{ __html: description }} />
                   </div>
                 </div>
               )}
@@ -164,7 +164,7 @@ const ProgrammeOpen = ({ programme }) => {
                         <p className="mt-5 px-4 pb-2">
                           <div className="markdown-reset">
                             {item.description && (
-                              <Markdown>{item.description}</Markdown>
+                              <div dangerouslySetInnerHTML={{ __html: description }} />
                             )}
                           </div>
                         </p>
@@ -198,7 +198,7 @@ const ProgrammeOpen = ({ programme }) => {
                     {descShow && (
                       <p className="mt-5 px-5 pl-8 pb-2">
                         <div className="markdown-reset">
-                          <Markdown>{item.description}</Markdown>
+                          <div dangerouslySetInnerHTML={{ __html: description }} />
                         </div>
                       </p>
                     )}

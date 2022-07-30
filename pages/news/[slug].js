@@ -39,7 +39,7 @@ const Article = ({ article }) => {
         </h2>
         <div className="pr-10 py-5">
           <div className="markdown-reset">
-            <Markdown>{content}</Markdown>
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </div>
         {pdf &&

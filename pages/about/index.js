@@ -49,9 +49,9 @@ const About = ({ about, global }) => {
               classes="mt-5 md:h-[30rem]"
             />
           )}
-          {/* <div className="markdown-reset">
-            <Markdown>{description}</Markdown>
-          </div> */}
+          <div className="markdown-reset">
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+          </div>
           <div className="mt-5">
           {about_accordion.map(({ title, description }) => (
           <Accordion key={title} title={title} content={description} />

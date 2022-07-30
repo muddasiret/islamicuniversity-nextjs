@@ -30,7 +30,7 @@ const ProjectOpen = ({ project }) => {
                   introduction
                 </div>
                 <div className="markdown-reset">
-                  <Markdown>{introduction}</Markdown>
+                  <div dangerouslySetInnerHTML={{ __html: introduction }} />
                 </div>
               </div>
             )}
@@ -68,7 +68,7 @@ const ProjectOpen = ({ project }) => {
                 </div>
                 <div className="pb-5">
                   <div className="markdown-reset">
-                    <Markdown>{events}</Markdown>
+                    <div dangerouslySetInnerHTML={{ __html: events }} />
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const ProjectOpen = ({ project }) => {
                 </div>
                 <div className="pb-5">
                   <div className="markdown-reset">
-                    <Markdown>{publications}</Markdown>
+                    <div dangerouslySetInnerHTML={{ __html: publications }} />
                   </div>
                 </div>
               </div>

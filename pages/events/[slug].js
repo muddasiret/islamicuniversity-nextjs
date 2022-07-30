@@ -59,7 +59,7 @@ const Event = ({ article }) => {
             {description && (
               <div className="ml-6 mb-3 pr-5 text-slate-600">
                 <div className="markdown-reset">
-                  <Markdown>{description}</Markdown>
+                  <div dangerouslySetInnerHTML={{ __html: description }} />
                 </div>
               </div>
             )}
