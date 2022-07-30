@@ -138,11 +138,11 @@ const ProgrammeOpen = ({ programme, global }) => {
             </div>
           </div>
 
-          {/* {sub_description && (
+          {sub_description && (
             <div className="my-12">
               <div dangerouslySetInnerHTML={{ __html: sub_description }} />
             </div>
-          )} */}
+          )}
           {currSyllabus !== [] && openYear && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {currSyllabus.map((item, ind) => {
