@@ -5,13 +5,8 @@ import MainLayout from "../../components/mainLayout";
 import PageTitle from "../../components/pageTitle";
 import { fetchAPI } from "../../lib/api";
 import Contact from "../../components/contact";
-import Markdown from "markdown-to-jsx";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-} from "@material-tailwind/react";
 import { getTitleImage } from "../../utils/getTitleImage";
+import Accordion from "./accordion/accordion";
 
 const About = ({ about, global }) => {
   const {
@@ -58,54 +53,9 @@ const About = ({ about, global }) => {
             <Markdown>{description}</Markdown>
           </div> */}
           <div className="mt-5">
-            {about_accordion.map((data, ind) => (
-              <Accordion
-                key={data.id}
-                open={open.includes(data.id)}
-                onClick={() => handleOpen(data.id)}
-              >
-                <AccordionHeader className="flex justify-between w-full p-2 border-black border-t-2 bg-cream text-white">
-                  <div className="flex justify-between w-full p-2 capitalize">
-                    {data.title}
-                    {open === 1 ? (
-                      <div className="w-7 h-7 ml-4">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                    ) : (
-                      <div className="w-7 h-7 ml-4">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                </AccordionHeader>
-                <AccordionBody className="p-4 text-lg">
-                  <div
-                    className="product-des"
-                    dangerouslySetInnerHTML={{ __html: data.description }}
-                  />
-                </AccordionBody>
-              </Accordion>
-            ))}
+          {about_accordion.map(({ title, description }) => (
+          <Accordion key={title} title={title} content={description} />
+        ))}
           </div>
         </div>
         <div className="px-10 my-10">
@@ -113,12 +63,12 @@ const About = ({ about, global }) => {
             CONTACT US
           </h1>
           <div className="flex shadow-lg bg-brown text-white rounded-md text-left justify-center py-10 px-1 mt-10">
-            <div className="relative flex justify-between flex-col sm:flex-row text-lg font-semibold">
+            <div className="relative flex justify-between flex-col sm:flex-row text-lg font-semibold w-full px-10">
               <div className="sm:w-2/4 mt-2">
                 <div>
-                  <div className="markdown-reset">
+                  {/* <div className="markdown-reset">
                     <Markdown>{address}</Markdown>
-                  </div>
+                  </div> */}
                   <p className="my-3 font-semibold">
                     Email:{" "}
                     <a
