@@ -17,7 +17,7 @@ const About = ({ about, global }) => {
     email,
     about_accordion,
   } = about.attributes;
-  let title_image = getTitleImage(global);
+  let title_image = getTitleImage(global,"ABOUT");
   const [open, setOpen] = useState([]);
 
   const handleOpen = (value) => {

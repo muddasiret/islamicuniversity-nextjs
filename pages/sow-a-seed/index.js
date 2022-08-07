@@ -6,7 +6,7 @@ import { fetchAPI } from "../../lib/api";
 import { getTitleImage } from "../../utils/getTitleImage";
 
 const SowASeed = ({ seeds,global }) => {
-  let title_image =  getTitleImage(global)
+  let title_image =  getTitleImage(global,"SOW A SEED")
 
   const { description, main_youtube, weekly_timetable, end_youtube } =
     seeds[0].attributes;

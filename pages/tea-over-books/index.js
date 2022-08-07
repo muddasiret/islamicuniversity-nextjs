@@ -2,12 +2,11 @@ import BookCard from "../../components/bookCard";
 import Layout from "../../components/layout";
 import MainLayout from "../../components/mainLayout";
 import PageTitle from "../../components/pageTitle";
-import PaperCard from "../../components/paperCard";
 import { fetchAPI } from "../../lib/api";
 import { getTitleImage } from "../../utils/getTitleImage";
 
 const TeaOverBooks = ({ books,global }) => {
-  let title_image =  getTitleImage(global)
+  let title_image =  getTitleImage(global,"TEA OVER BOOKS")
 
   return (
     <Layout>

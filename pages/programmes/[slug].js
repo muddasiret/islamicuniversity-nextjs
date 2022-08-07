@@ -109,7 +109,7 @@ const ProgrammeOpen = ({ programme, global }) => {
   };
 
   const ref = useRef();
-  let title_image = getTitleImage(global);
+  let title_image = getTitleImage(global,"DIPLOMA");
 
   return (
     <Layout>

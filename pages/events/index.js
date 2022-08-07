@@ -6,7 +6,7 @@ import { fetchAPI } from "../../lib/api";
 import { getTitleImage } from "../../utils/getTitleImage";
 
 const Events = ({ events,global }) => {
-  let title_image =  getTitleImage(global)
+  let title_image =  getTitleImage(global,"EVENTS")
 
   return (
     <Layout>
