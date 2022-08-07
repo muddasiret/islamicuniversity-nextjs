@@ -9,6 +9,7 @@ import { fetchAPI } from "../lib/api";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NextSeo } from "next-seo";
+import { getStrapiMedia } from "../lib/media";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
@@ -20,10 +21,10 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <NextSeo noindex={true} nofollow={true} />
       <Head>
-        {/* <link
+        <link
           rel="shortcut icon"
           href={getStrapiMedia(global.attributes.favicon)}
-        /> */}
+        />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <Component {...pageProps} />

@@ -44,14 +44,14 @@ const Header = () => {
                     <div className="uppercase cursor-pointer flex-col flex">
                       {Object.keys(NAV_LINKS[key].sub).map(
                         (sub_key, key_index) => (
-                          <div
-                            className="uppercase text-white cursor-pointer px-3 py-2 font-medium hover:bg-slate-100 hover:text-slate-900 group relative w-100 text-xs text-left"
+                          <Link
                             key={key_index}
+                            href={NAV_LINKS[key].sub[key_index].link}
                           >
-                            <Link href={NAV_LINKS[key].sub[key_index].link}>
+                            <div className="uppercase text-white cursor-pointer px-3 py-2 font-medium hover:bg-slate-100 hover:text-slate-900 group relative w-100 text-xs text-left">
                               <span>{NAV_LINKS[key].sub[key_index].label}</span>
-                            </Link>
-                          </div>
+                            </div>
+                          </Link>
                         )
                       )}
                     </div>
@@ -60,8 +60,11 @@ const Header = () => {
               )}
             </div>
           ))}
-          {searchOpen && <input className="search_input"/>}
-          <div onClick={()=>setSearchOpen(!searchOpen)} className="search_icon">
+          {searchOpen && <input className="search_input" />}
+          <div
+            onClick={() => setSearchOpen(!searchOpen)}
+            className="search_icon"
+          >
             <svg
               fill="#FFFFFF"
               xmlns="http://www.w3.org/2000/svg"
