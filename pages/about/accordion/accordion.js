@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Accordion = ({ title, content, pdf }) => {
   const [isActive, setIsActive] = useState(false);
   console.log("pdf", pdf);
-  const pdfLink = pdf.data ? pdf.data.attributes.url : "";
+  const pdfLink = pdf ? (pdf.data ? pdf.data.attributes.url : "") : "";
 
   return (
     <div className="accordion-item">

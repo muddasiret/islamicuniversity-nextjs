@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import YoutubeEmbed from "../../Common/YoutubeEmbed";
 import Layout from "../../components/layout";
 import MainLayout from "../../components/mainLayout";
@@ -12,27 +11,11 @@ const About = ({ about, global }) => {
   const {
     youtube_link,
     description,
-    address,
     telephone,
     email,
     about_accordion,
   } = about.attributes;
   let title_image = getTitleImage(global, "ABOUT");
-  const [open, setOpen] = useState([]);
-  useEffect(() => {
-    console.log("pdf", about);
-  }, []);
-  const handleOpen = (value) => {
-    const arr = [...open]; //example array
-    const newId = value; //new id
-    if (!arr.includes(newId)) {
-      //checking weather array contain the id
-      arr.push(newId); //adding to array because value doesnt exists
-    } else {
-      arr.splice(arr.indexOf(newId), 1); //deleting
-    }
-    setOpen(arr);
-  };
 
   return (
     <Layout>
