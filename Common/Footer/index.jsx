@@ -7,7 +7,7 @@ import { FiTwitter } from "react-icons/fi";
 import { MdNavigateNext } from "react-icons/md";
 import { NAV_LINKS } from "../Header/constants";
 
-const Footer = () => {
+const Footer = ({footer_address_email_phone}) => {
   return (
     <>
       <div className="bg-brown">
@@ -28,7 +28,10 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="text-white text-base">
+          <div className="markdown-reset">
+                          <div dangerouslySetInnerHTML={{ __html: footer_address_email_phone }} />
+                        </div>
+            {/* <p className="text-white text-base">
               Islamic University | Registered UK Charity No. 1137219
             </p>
             <br />
@@ -44,7 +47,7 @@ const Footer = () => {
               <a className="text-yellow-500" href="mailto:someone@example.com">
                 someone@example.com
               </a>
-            </p>
+            </p> */}
           </div>
         </div>
         <div className="bg-cream">

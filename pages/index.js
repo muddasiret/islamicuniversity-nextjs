@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 const Home = (props) => {
   const { carousels, newses, events, homepage } = props;
   const router = useRouter();
+  console.log(homepage.attributes.bottom_menu[0]);
   return (
     <Layout>
       {/* <Seo seo={homepage.attributes.seo} /> */}
@@ -66,19 +67,24 @@ const Home = (props) => {
           </div>
         )}
         <div className="w-100 flex justify-center">
-          <button onClick={() => router.push("/events")} className="my-5 p-2 px-5 rounded text-white text-sm bg-brown">
+          <button
+            onClick={() => router.push("/events")}
+            className="my-5 p-2 px-5 rounded text-white text-sm bg-brown"
+          >
             SEE MORE
           </button>
         </div>
       </div>
-      <MainLayout>
-        {/* <div className="md:flex md:space-x-4 py-5"> */}
-        <div className="grid md:grid-cols-5 grid-cols-1 gap-5 mt-10">
-          {Object.keys(NAV_LINKS).map((item, ind) => (
-            <ItemCard key={ind} details={NAV_LINKS[item]} />
-          ))}
-        </div>
-      </MainLayout>
+      {homepage.attributes.bottom_menu.length && (
+        <MainLayout>
+          {/* <div className="md:flex md:space-x-4 py-5"> */}
+          <div className="grid md:grid-cols-5 grid-cols-1 gap-5 mt-10">
+            {homepage.attributes.bottom_menu.map((item, ind) => (
+              <ItemCard key={ind} details={item} />
+            ))}
+          </div>
+        </MainLayout>
+      )}
     </Layout>
   );
 };
@@ -102,6 +108,7 @@ export async function getStaticProps() {
       populate: {
         hero: "*",
         seo: { populate: "*" },
+        bottom_menu: { populate: "*" },
       },
     }),
   ]);

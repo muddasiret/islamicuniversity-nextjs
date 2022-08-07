@@ -56,7 +56,10 @@ MyApp.getInitialProps = async (ctx) => {
       defaultSeo: {
         populate: "*",
       },
-      title_image:'*'
+      title_image: "*",
+      title_image_individual: {
+        populate: "*",
+      },
     },
   });
   // Pass the data to our page via props

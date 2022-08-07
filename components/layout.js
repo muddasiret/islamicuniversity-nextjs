@@ -1,12 +1,18 @@
+import { useContext } from "react";
 import Footer from "../Common/Footer";
 import Header from "../Common/Header";
+import { GlobalContext } from "../pages/_app";
 
-const Layout = ({ children }) => (
-  <>
-    <Header />
-    {children}
-    <Footer />
-  </>
-);
+const Layout = ({ children }) => {
+  const { footer_address_email_phone } = useContext(GlobalContext);
+
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer footer_address_email_phone={footer_address_email_phone} />
+    </>
+  );
+};
 
 export default Layout;

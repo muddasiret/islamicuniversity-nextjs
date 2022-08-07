@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import YoutubeEmbed from "../../Common/YoutubeEmbed";
 import NewsCard from "../../components/Home/NewsCard";
 import Layout from "../../components/layout";
@@ -7,7 +8,10 @@ import { fetchAPI } from "../../lib/api";
 import { getTitleImage } from "../../utils/getTitleImage";
 
 const News = ({ newses,global }) => {
-  let title_image =  getTitleImage(global)
+  useEffect(() => {
+    console.log(global)
+  }, []);
+  let title_image =  getTitleImage(global,"NEWS");
   return (
     <Layout>
       <PageTitle title="NEWS" title_image={title_image}/>
