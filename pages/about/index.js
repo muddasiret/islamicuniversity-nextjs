@@ -17,9 +17,11 @@ const About = ({ about, global }) => {
     email,
     about_accordion,
   } = about.attributes;
-  let title_image = getTitleImage(global,"ABOUT");
+  let title_image = getTitleImage(global, "ABOUT");
   const [open, setOpen] = useState([]);
-
+  useEffect(() => {
+    console.log("pdf", about);
+  }, []);
   const handleOpen = (value) => {
     const arr = [...open]; //example array
     const newId = value; //new id
@@ -29,7 +31,7 @@ const About = ({ about, global }) => {
     } else {
       arr.splice(arr.indexOf(newId), 1); //deleting
     }
-    setOpen(arr)
+    setOpen(arr);
   };
 
   return (
@@ -50,12 +52,17 @@ const About = ({ about, global }) => {
             />
           )}
           <div className="markdown-reset">
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+            <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
           <div className="mt-5">
-          {about_accordion.map(({ title, description }) => (
-          <Accordion key={title} title={title} content={description} />
-        ))}
+            {about_accordion.map(({ title, description, pdf }) => (
+              <Accordion
+                key={title}
+                title={title}
+                pdf={pdf}
+                content={description}
+              />
+            ))}
           </div>
         </div>
         <div className="px-10 my-10">
@@ -111,7 +118,11 @@ const About = ({ about, global }) => {
 };
 
 export async function getStaticProps() {
-  const [about] = await Promise.all([fetchAPI("/abouts", { populate: "*" })]);
+  const [about] = await Promise.all([
+    fetchAPI("/abouts", {
+      populate: ["about_accordion", "about_accordion.pdf"],
+    }),
+  ]);
 
   return {
     props: {

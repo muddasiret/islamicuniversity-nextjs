@@ -7,7 +7,7 @@ import { FiTwitter } from "react-icons/fi";
 import { MdNavigateNext } from "react-icons/md";
 import { NAV_LINKS } from "../Header/constants";
 
-const Footer = ({footer_address_email_phone}) => {
+const Footer = ({ footer_address_email_phone, footer_sub }) => {
   return (
     <>
       <div className="bg-brown">
@@ -28,9 +28,11 @@ const Footer = ({footer_address_email_phone}) => {
             </div>
           </div>
           <div>
-          <div className="markdown-reset">
-                          <div dangerouslySetInnerHTML={{ __html: footer_address_email_phone }} />
-                        </div>
+            <div className="markdown-reset">
+              <div
+                dangerouslySetInnerHTML={{ __html: footer_address_email_phone }}
+              />
+            </div>
             {/* <p className="text-white text-base">
               Islamic University | Registered UK Charity No. 1137219
             </p>
@@ -52,9 +54,7 @@ const Footer = ({footer_address_email_phone}) => {
         </div>
         <div className="bg-cream">
           <div className="md:flex justify-between pb-16 pt-7 md:py-7 px-10 h-10 items-center container mx-auto">
-            <p className="text-white text-xs">
-              Islamic University | Registered UK Charity No. 1137219
-            </p>
+            <p className="text-white text-xs">{footer_sub}</p>
             <div className="flex md:justify-end justify-center items-center my-3">
               <a className="px-3" href="www.facebook.com" target="_blank">
                 <FiMail color="white" />

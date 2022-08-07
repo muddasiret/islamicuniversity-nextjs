@@ -53,7 +53,7 @@ const ProjectOpen = ({ project }) => {
                     </div>
                     <div className="my-2 text-left">
                       <span>
-                        <b>{designation}</b> {description}
+                        <b>{designation}</b>  <div dangerouslySetInnerHTML={{ __html: description }} />
                       </span>
                     </div>
                   </div>

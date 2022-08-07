@@ -10,6 +10,8 @@ import toast from "../../components/toast";
 import GeneratePdf, { generatePdf } from "../../components/generatePdf";
 import Markdown from "markdown-to-jsx";
 import { getTitleImage } from "../../utils/getTitleImage";
+import axios from "axios";
+import { BASE_URL } from "../../Common/constants";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -30,8 +32,8 @@ const SignupSchema = Yup.object().shape({
 });
 
 const ProgrammeOpen = ({ programme, global }) => {
-  const errorClasses = "text-red-500 mb-4 text-left w-4/5 uppercase";
-  const inputClasses = "border-2 mb-4 p-2 md:w-4/5 rounded-md";
+  const errorClasses = "text-red-600 mb-4 text-left w-4/5 uppercase";
+  const inputClasses = "border-2 mb-4 p-2 w-11/12 md:w-4/5 rounded-md";
   const labelClasses = "mb-2 text-primaryblue font-bold text-left text-lg";
   // const imageUrl = getStrapiMedia(article.attributes.image);
   // const seo = {
@@ -47,6 +49,8 @@ const ProgrammeOpen = ({ programme, global }) => {
     syllabus,
     sub_description,
     how_to_apply,
+    subtitle,
+    faculty,
   } = programme.attributes;
 
   const [openYear, setOpenYear] = useState([]);
@@ -54,6 +58,8 @@ const ProgrammeOpen = ({ programme, global }) => {
   const [currSyllabus, setSyllabus] = useState(syllabus);
   const [currApply, setApply] = useState(how_to_apply);
   const [files, setFiles] = useState([]);
+  const [docFiles, setDocFiles] = useState([]);
+  const [appId, setAppId] = useState(null);
 
   useEffect(() => {
     console.log(syllabus, how_to_apply);
@@ -109,7 +115,7 @@ const ProgrammeOpen = ({ programme, global }) => {
   };
 
   const ref = useRef();
-  let title_image = getTitleImage(global,"DIPLOMA");
+  let title_image = getTitleImage(global, "DIPLOMA");
 
   return (
     <Layout>
@@ -117,7 +123,7 @@ const ProgrammeOpen = ({ programme, global }) => {
       <PageTitle title="DIPLOMA" title_image={title_image} />
       <MainLayout>
         <div className="px-10">
-          <h1 className="py-2 text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
+          <h1 className="text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
             {title}
           </h1>
           {youtube_link && (
@@ -129,7 +135,7 @@ const ProgrammeOpen = ({ programme, global }) => {
           <div className="flex">
             <div className="mb-5">
               {description && (
-                <div className="my-3 text-center text-darkbrown p-7">
+                <div className="my-3 text-left text-darkbrown">
                   <div className="markdown-reset">
                     <div dangerouslySetInnerHTML={{ __html: description }} />
                   </div>
@@ -137,12 +143,48 @@ const ProgrammeOpen = ({ programme, global }) => {
               )}
             </div>
           </div>
+          {subtitle && (
+            <div className="mb-3 text-2xl text-center font-bold">
+              {subtitle}
+            </div>
+          )}
 
           {sub_description && (
-            <div className="my-12">
+            <div className="my-2 mb-12">
               <div dangerouslySetInnerHTML={{ __html: sub_description }} />
             </div>
           )}
+          <div className="text-center text-2xl font-bold my-5">FACULTY</div>
+          <div className="mb-7 pb-2">
+            {faculty &&
+              faculty.map((member, ind) => {
+                const { name, designation, description, image } = member;
+                const thumb = image.data.attributes.url;
+                return (
+                  <div className="mb-10" key={ind}>
+                    <div className="text-center flex flex-col items-center">
+                      <img
+                        src={thumb}
+                        alt="profile"
+                        className="text-center h-32 flex"
+                      />
+                      <p className="text-center font-bold my-2">{name}</p>
+                    </div>
+                    <div className="my-2 text-center">
+                      <div className="w-full mb-5">
+                        <b className="text-center text-sm">{designation}</b>{" "}
+                      </div>
+                      <span>
+                        <div
+                          className="text-left"
+                          dangerouslySetInnerHTML={{ __html: description }}
+                        />
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
           {currSyllabus !== [] && openYear && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {currSyllabus.map((item, ind) => {
@@ -166,7 +208,11 @@ const ProgrammeOpen = ({ programme, global }) => {
                         <p className="mt-5 px-4 pb-2">
                           <div className="markdown-reset">
                             {item.description && (
-                              <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: item.description,
+                                }}
+                              />
                             )}
                           </div>
                         </p>
@@ -200,7 +246,11 @@ const ProgrammeOpen = ({ programme, global }) => {
                     {descShow && (
                       <p className="mt-5 px-5 pl-8 pb-2">
                         <div className="markdown-reset">
-                          <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: item.description,
+                            }}
+                          />
                         </div>
                       </p>
                     )}
@@ -210,7 +260,7 @@ const ProgrammeOpen = ({ programme, global }) => {
             </div>
           )}
 
-          <div className="border-2 bg-cream rounded-md border-cream mt-10 pb-5 mx-[10rem] mb-10">
+          <div className="border-2 bg-cream rounded-md border-cream mt-10 pb-5 md:mx-[10rem] mb-10">
             <h3 className="mb-5 mt-10 font-extrabold text-2xl text-darkbrown uppercase text-center">
               Submit your application
             </h3>
@@ -225,23 +275,66 @@ const ProgrammeOpen = ({ programme, global }) => {
               }}
               validationSchema={SignupSchema}
               onSubmit={async (values) => {
-                // same shape as initial values
-                console.log("Muduuuuuuu");
-                console.log(files);
-                const rawResponse = await fetch(
-                  "http://localhost:1337/api/applications",
-                  {
-                    method: "POST",
-                    headers: {
-                      Accept: "application/json",
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ data: values }),
-                  }
-                );
-                const content = await rawResponse.json();
+                // same shape as initial valuessetSubmitting(true);
 
-                console.log(content);
+                let formDataToSend = {
+                  ...values,
+                };
+                console.log(values);
+
+                console.log(formDataToSend);
+
+                axios
+                  .post(BASE_URL + "/api/applications", {
+                    data: formDataToSend,
+                  })
+                  .then((res) => {
+                    console.log(res.data);
+                    setAppId(res.data.data.id);
+                    return res.data.data.id;
+                  })
+                  .then((refId) => {
+                    console.log(refId);
+                    const formData = new FormData();
+                    console.log(files);
+                    formData.append("files", files[0]);
+                    formData.append("refId", refId);
+                    formData.append("ref", "api::application.application");
+                    formData.append("field", "image");
+                    return axios.post(BASE_URL + "/api/upload", formData);
+                  })
+                  .then((res) => {
+                    const formData = new FormData();
+                    formData.append("files", docFiles[0]);
+                    formData.append("refId", appId);
+                    formData.append("ref", "api::application.application");
+                    formData.append("field", "file");
+                    return axios.post(BASE_URL + "/api/upload", formData);
+                  })
+                  .then((res) => {
+                    console.log("success", res.data);
+                    console.log(res.data);
+                    toast({ type: "success", message: "Form Submitted" });
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
+
+                // console.log("Muduuuuuuu");
+                // console.log(files);
+                // const requestOptions = {
+                //   method: "POST",
+                //   headers: { "Content-Type": "application/json" },
+                //   body: JSON.stringify({ data: values }),
+                // };
+                // fetch("http://localhost:1337/api/applications", requestOptions)
+                //   .then((response) => response.json())
+                //   .then((data) => {
+                //     toast({ type: "success", message: "Form Submitted" });
+                //   })
+                //   .catch((err) => {
+                //     toast({ type: "error", message: "Something went wrong" });
+                //   });
               }}
             >
               {({
@@ -316,20 +409,30 @@ const ProgrammeOpen = ({ programme, global }) => {
                   {errors.course && touched.course ? (
                     <div className={errorClasses}>{errors.course}</div>
                   ) : null}
-                  <div className="flex flex-col my-3 w-4/5 rounded-md">
+                  <div className="flex flex-col my-3 w-11/12 md:w-4/5 rounded-md">
                     <label className={labelClasses}>File</label>
                     <div className="file-input border-2">
-                      <input type="file" />
+                      <input
+                        type="file"
+                        onChange={async (e) => {
+                          setDocFiles(e.target.files);
+                        }}
+                      />
                       <span className="button">Choose</span>
                       <span className="label" data-js-label>
                         No file selected
                       </span>
                     </div>
                   </div>
-                  <div className="flex flex-col my-3 w-4/5 rounded-md">
+                  <div className="flex flex-col my-3 w-11/12 md:w-4/5 rounded-md">
                     <label className={labelClasses}>Image</label>
                     <div className="file-input border-2">
-                      <input type="file" />
+                      <input
+                        type="file"
+                        onChange={async (e) => {
+                          setFiles(e.target.files);
+                        }}
+                      />
                       <span className="button rounded-md">Choose</span>
                       <span className="label" data-js-label>
                         No Image selected
@@ -337,23 +440,8 @@ const ProgrammeOpen = ({ programme, global }) => {
                     </div>
                   </div>
                   <button
-                    onClick={() => {
-                      // console.log(errors);
-                      // console.log(values);
-                      // if (Object.keys(errors).length === 0) {
-                      //   toast({ type: "success", message: "Form Submitted" });
-                      //   setTimeout(
-                      //     Router.reload(window.location.pathname),
-                      //     2000
-                      //   );
-                      // } else {
-                      //   toast({ type: "error", message: "Check Form Entries" });
-                      // }
-                      generatePdf(values);
-                    }}
                     type="submit"
-                    // disabled={values.name === ""}
-                    className="p-2 bg-primaryblue rounded-md font-bold text-white md:w-1/5 my-10 uppercase"
+                    className="p-2 bg-primaryblue rounded-md font-bold text-white w-4/5 md:w-1/5 my-10 uppercase"
                   >
                     Submit
                   </button>
@@ -394,7 +482,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["syllabus", "how_to_apply"],
+    populate: ["syllabus", "how_to_apply", "faculty", "faculty.image"],
   });
 
   return {

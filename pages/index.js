@@ -15,6 +15,8 @@ const Home = (props) => {
   const { carousels, newses, events, homepage } = props;
   const router = useRouter();
   console.log(homepage.attributes.bottom_menu[0]);
+  const logo = "/images/ico.ico";
+
   return (
     <Layout>
       {/* <Seo seo={homepage.attributes.seo} /> */}
@@ -73,6 +75,9 @@ const Home = (props) => {
           >
             SEE MORE
           </button>
+        </div>
+        <div className="flex justify-center h-20 relative">
+          <img src={logo} className="absolute h-20 top-20"/>
         </div>
       </div>
       {homepage.attributes.bottom_menu.length && (

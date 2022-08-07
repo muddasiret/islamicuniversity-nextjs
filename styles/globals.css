@@ -11,7 +11,7 @@ body {
 }
 
 .roboto-text {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", serif !important;
 }
 
 ul {
@@ -129,7 +129,6 @@ img:hover {
   text-align: left;
   background: rgba(245, 243, 243, 0.704);
   padding: 16px;
-  width: 450px;
   position: relative;
   border-radius: 3px;
 }
