@@ -20,7 +20,7 @@ const About = ({ about, global }) => {
   return (
     <Layout>
       <PageTitle title="ABOUT" title_image={title_image} />
-      <MainLayout>
+      <MainLayout animationDisabled>
         <div className="px-10">
           <h1 className="my-5 text-5xl sanspro font-black text-darkbrown text-center uppercase">
             Chair for Islamic Studies & Research
