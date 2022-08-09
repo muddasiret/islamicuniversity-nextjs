@@ -1,6 +1,7 @@
 import { NAV_LINKS } from "./constants";
 import Link from "next/link";
 import { useState } from "react";
+import { Fade } from "react-awesome-reveal";
 
 const Header = () => {
   const logo = "/images/chair logon updated.png";
@@ -60,7 +61,11 @@ const Header = () => {
               )}
             </div>
           ))}
-          {searchOpen && <input className="search_input" />}
+          {searchOpen && (
+            <Fade direction="down" duration={700} triggerOnce>
+              <input className="search_input" />
+            </Fade>
+          )}
           <div
             onClick={() => setSearchOpen(!searchOpen)}
             className="search_icon"

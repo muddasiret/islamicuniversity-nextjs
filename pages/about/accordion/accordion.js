@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Fade } from "react-awesome-reveal";
 
 const Accordion = ({ title, content, pdf }) => {
   const [isActive, setIsActive] = useState(false);
@@ -12,9 +13,11 @@ const Accordion = ({ title, content, pdf }) => {
         <div>{isActive ? "-" : "+"}</div>
       </div>
       {isActive && (
-        <div className="accordion-content">
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </div>
+        <Fade direction="left" duration={700} triggerOnce>
+          <div className="accordion-content">
+            <div dangerouslySetInnerHTML={{ __html: content }} />
+          </div>
+        </Fade>
       )}
       {isActive && pdfLink && (
         <div className="mb-5">
