@@ -61,7 +61,7 @@ const Home = (props) => {
             <p className="text-left md:text-center mb-12 sanspro text-darkbrown md:text-3xl text-xl ">
               Whats Happening in Islam in South Asia
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 ml-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:ml-12">
               {events.map((event, index) => (
                 <EventCard key={index} data={event} />
               ))}
@@ -83,7 +83,7 @@ const Home = (props) => {
       {homepage.attributes.bottom_menu.length && (
         <MainLayout>
           {/* <div className="md:flex md:space-x-4 py-5"> */}
-          <div className="grid md:grid-cols-5 grid-cols-1 gap-5 mt-10">
+          <div className="grid md:grid-cols-4 grid-cols-1 gap-5 mt-10">
             {homepage.attributes.bottom_menu.map((item, ind) => (
               <ItemCard key={ind} details={item} />
             ))}

@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 export default function CarouselGrid({ carouselData }) {
   return (
     <div>
-      <Carousel showArrows autoPlay showThumbs={false} showStatus={false}>
+      <Carousel showArrows showThumbs={false} showStatus={false}>
         {carouselData.map((carousel, ind) => {
           const imageUrl = carousel.attributes.image.data.attributes.url;
           // const imageUrl =

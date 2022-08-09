@@ -10,8 +10,15 @@ const ItemCard = ({ details }) => {
         <h2 className="text-center text-darkbrown py-2 font-bold text-lg">
           <p className="text-center py-2 uppercase roboto-text">{title}</p>
         </h2>
-        <img src={thumb} alt="event-card" className="w-100 rounded-md" />
-        <div className="my-2" dangerouslySetInnerHTML={{ __html: description }} />
+        <img
+          src={thumb}
+          alt="event-card"
+          className="w-100 w-full h-40 object-cover rounded-md"
+        />
+        <div
+          className="my-2"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
         <button className="mb-5 mt-2 p-2 px-5 rounded text-white text-sm bg-brown">
           READ MORE
         </button>
