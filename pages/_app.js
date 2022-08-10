@@ -16,7 +16,10 @@ export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
-
+  const shareImage = global.attributes.defaultSeo.shareImage.data
+    ? global.attributes.defaultSeo.shareImage.data.attributes.url
+    : "";
+  useEffect(() => {}, []);
   return (
     <>
       <NextSeo noindex={true} nofollow={true} />
@@ -25,6 +28,7 @@ const MyApp = ({ Component, pageProps }) => {
           rel="shortcut icon"
           href={getStrapiMedia(global.attributes.favicon)}
         />
+        {shareImage && <meta property="og:image" content={shareImage} />}
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <Component {...pageProps} />

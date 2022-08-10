@@ -80,7 +80,12 @@ const Header = () => {
           style={{ display: hamburgerActive ? "block" : "none" }}
           data-behavior="header-menu"
         >
-          <div className="px-3 text-right flex justify-items-end justify-end mt-5">
+          <div
+            className="px-3 text-right flex justify-items-end justify-end my-5"
+            onClick={() => {
+              setHamburgerActive(false);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 320 512"
