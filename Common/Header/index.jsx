@@ -2,6 +2,7 @@ import { NAV_LINKS } from "./constants";
 import Link from "next/link";
 import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import Accordion from "../../pages/about/accordion/accordion";
 
 const Header = () => {
   const logo = "/images/chair logon updated.png";
@@ -20,7 +21,8 @@ const Header = () => {
         </Link>
         <div className="md:hidden">
           <img
-            src={"https://remoteforce.vercel.app/images/hamburger.png"}
+            src={"images/menu.png"}
+            width={35}
             role="button"
             onClick={() => {
               setHamburgerActive(true);
@@ -68,17 +70,9 @@ const Header = () => {
           )}
           <div
             onClick={() => setSearchOpen(!searchOpen)}
-            className="search_icon"
+            className="search_icon cursor-pointer"
           >
-            <svg
-              fill="#FFFFFF"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 50 50"
-              width="50px"
-              height="50px"
-            >
-              <path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z" />
-            </svg>
+            <img src="images/search.png" height={25} width={25} />
           </div>
         </nav>
         <div
@@ -86,27 +80,32 @@ const Header = () => {
           style={{ display: hamburgerActive ? "block" : "none" }}
           data-behavior="header-menu"
         >
-          <div className="px-3 text-right flex justify-items-end justify-end">
-            <img
-              onClick={() => setHamburgerActive(false)}
-              className="object-contain h-10"
-              src="https://www.pikpng.com/pngl/m/302-3024323_close-icon-close-icon-free-png-clipart.png"
-            />
+          <div className="px-3 text-right flex justify-items-end justify-end mt-5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+              width={25}
+            >
+              <path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+            </svg>
           </div>
-          <div className="px-3 text-center">
-            {Object.keys(NAV_LINKS).map((key, index) => (
-              <div
-                className="uppercase relative group text-md hover:text-yellow-300 my-5"
-                key={index}
-              >
-                <Link
-                  href={NAV_LINKS[key].link}
-                  className="uppercase rounded-lg px-3 py-2 font-medium hover:text-slate-900 group relative"
-                >
-                  {NAV_LINKS[key].label}
-                </Link>
-              </div>
-            ))}
+          <div className="px-3 text-center mob-header-acc">
+            {Object.keys(NAV_LINKS).map((mainLink, index) => {
+              return (
+                <Accordion
+                  key={index}
+                  title={
+                    <Link
+                      href={NAV_LINKS[mainLink].link}
+                      className="uppercase rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-100 hover:text-slate-900 group relative"
+                    >
+                      {NAV_LINKS[mainLink].label}
+                    </Link>
+                  }
+                  content={"desc"}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

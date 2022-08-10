@@ -47,14 +47,13 @@ const Contact = () => {
         },
         body: JSON.stringify(body),
       }).then((res) => {
-        console.log(res.json());
         triggerToast()
       });
     },
   });
 
   const errorClasses = "text-red-600";
-  const inputClasses = "text-brown rounded-md p-1 mr-5 w-4/5";
+  const inputClasses = "text-brown rounded-md p-1 mr-5 w-full sm:w-4/5";
   const inputGroupClasses = "mb-5";
 
   return (

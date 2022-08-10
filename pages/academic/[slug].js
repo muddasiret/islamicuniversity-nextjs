@@ -55,7 +55,6 @@ const ProgrammeOpen = ({ programme }) => {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    console.log(syllabus, how_to_apply);
     setOpenYear([]);
     setOpenApply([]);
     var inputs = document.querySelectorAll(".file-input");
@@ -114,7 +113,7 @@ const ProgrammeOpen = ({ programme }) => {
       {/* <Seo seo={seo} /> */}
       <PageTitle title="DIPLOMA" />
       <MainLayout>
-        <div className="px-10">
+        <div className="sm:px-10">
           <h1 className="py-2 text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
             {title}
           </h1>
@@ -224,8 +223,7 @@ const ProgrammeOpen = ({ programme }) => {
               validationSchema={SignupSchema}
               onSubmit={async (values) => {
                 // same shape as initial values
-                console.log("Muduuuuuuu");
-                console.log(files);
+            
                 const rawResponse = await fetch(
                   "http://localhost:1337/api/applications",
                   {
@@ -239,7 +237,6 @@ const ProgrammeOpen = ({ programme }) => {
                 );
                 const content = await rawResponse.json();
 
-                console.log(content);
               }}
             >
               {({

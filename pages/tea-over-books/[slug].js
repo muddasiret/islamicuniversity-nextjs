@@ -7,7 +7,6 @@ import Markdown from 'markdown-to-jsx';
 const Book = ({ books }) => {
   const { book_name, cover, youtube_link, description, author, image } =
     books.attributes;
-  console.log(description,"descr")
   const cover_image = cover.data.attributes.url;
   const main_image = image.data ? image.data.attributes.url : "";
 

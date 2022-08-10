@@ -19,7 +19,7 @@ const ProjectOpen = ({ project }) => {
       {/* <Seo seo={seo} /> */}
       <MainLayout>
         {/* <PageTitle title={title} /> */}
-        <div className="px-10">
+        <div className="sm:px-10">
           <h1 className="py-2 text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
             {title}
           </h1>

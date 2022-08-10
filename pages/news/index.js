@@ -8,9 +8,6 @@ import { fetchAPI } from "../../lib/api";
 import { getTitleImage } from "../../utils/getTitleImage";
 
 const News = ({ newses,global }) => {
-  useEffect(() => {
-    console.log(global)
-  }, []);
   let title_image =  getTitleImage(global,"NEWS");
   return (
     <Layout>

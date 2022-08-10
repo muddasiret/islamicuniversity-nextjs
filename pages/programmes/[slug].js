@@ -62,7 +62,6 @@ const ProgrammeOpen = ({ programme, global }) => {
   const [appId, setAppId] = useState(null);
 
   useEffect(() => {
-    console.log(syllabus, how_to_apply);
     setOpenYear([]);
     setOpenApply([]);
     var inputs = document.querySelectorAll(".file-input");
@@ -122,7 +121,7 @@ const ProgrammeOpen = ({ programme, global }) => {
       {/* <Seo seo={seo} /> */}
       <PageTitle title="DIPLOMA" title_image={title_image} />
       <MainLayout>
-        <div className="px-10">
+        <div className="sm:px-10">
           <h1 className="text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
             {title}
           </h1>
@@ -280,23 +279,17 @@ const ProgrammeOpen = ({ programme, global }) => {
                 let formDataToSend = {
                   ...values,
                 };
-                console.log(values);
-
-                console.log(formDataToSend);
 
                 axios
                   .post(BASE_URL + "/api/applications", {
                     data: formDataToSend,
                   })
                   .then((res) => {
-                    console.log(res.data);
                     setAppId(res.data.data.id);
                     return res.data.data.id;
                   })
                   .then((refId) => {
-                    console.log(refId);
                     const formData = new FormData();
-                    console.log(files);
                     formData.append("files", files[0]);
                     formData.append("refId", refId);
                     formData.append("ref", "api::application.application");
@@ -312,8 +305,6 @@ const ProgrammeOpen = ({ programme, global }) => {
                     return axios.post(BASE_URL + "/api/upload", formData);
                   })
                   .then((res) => {
-                    console.log("success", res.data);
-                    console.log(res.data);
                     toast({ type: "success", message: "Form Submitted" });
                   })
                   .catch((error) => {

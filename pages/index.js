@@ -14,7 +14,6 @@ import { useRouter } from "next/router";
 const Home = (props) => {
   const { carousels, newses, events, homepage } = props;
   const router = useRouter();
-  console.log(homepage.attributes.bottom_menu[0]);
   const logo = "/images/ico.ico";
 
   return (

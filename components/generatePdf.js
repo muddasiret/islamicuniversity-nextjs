@@ -2,7 +2,6 @@ import { jsPDF } from "jspdf";
 
 export const generatePdf = (values) => {
   const doc = new jsPDF();
-  console.log(values)
   let split = doc.splitTextToSize(
     document.getElementById("text").innerText,
     100
