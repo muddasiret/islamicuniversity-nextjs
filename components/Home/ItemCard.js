@@ -16,7 +16,7 @@ const ItemCard = ({ details }) => {
           className="w-100 w-full h-40 object-cover rounded-md"
         />
         <div
-          className="my-2"
+          className="my-2 item-card-desc"
           dangerouslySetInnerHTML={{ __html: description }}
         />
         <button className="mb-5 mt-2 p-2 px-5 rounded text-white text-sm bg-brown">

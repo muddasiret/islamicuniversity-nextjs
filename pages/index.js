@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 const Home = (props) => {
   const { carousels, newses, events, homepage } = props;
   const router = useRouter();
-  const logo = "/images/ico.ico";
+  const logo = "/images/ico_white.ico";
 
   return (
     <Layout>

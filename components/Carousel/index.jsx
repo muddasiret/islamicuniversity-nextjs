@@ -16,8 +16,17 @@ export default function CarouselGrid({ carouselData }) {
               </div>
               <div className="carouselTexts">
                 {carousel.attributes.title && (
-                  <p className="carouselTitle">{carousel.attributes.title}</p>
+                  <div className="view-content relative">
+                    <div className="pagetitle-bg">
+                      <h1 className="absolute bottom-0 left-0 page-title">
+                        {carousel.attributes.title}
+                      </h1>
+                    </div>
+                  </div>
                 )}
+                {/* {carousel.attributes.title && (
+                  <p className="carouselTitle">{carousel.attributes.title}</p>
+                )} */}
                 {carousel.attributes.description && (
                   <p className="carouselSubtitle">
                     {carousel.attributes.description}

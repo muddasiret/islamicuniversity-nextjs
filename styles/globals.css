@@ -74,6 +74,12 @@ img:hover {
   @apply scale-100;
 }
 
+.item-card-desc {
+  min-height: 144px;
+  display: flex;
+  align-items: center;
+}
+
 .year-card {
   transition: max-height 0.5s;
   animation-duration: 1s;
@@ -187,6 +193,21 @@ button[disabled] {
   object-fit: cover;
 }
 
+.carouselTexts .pagetitle-bg {
+  height: auto;
+  padding: 2% 0%;
+  font-weight: 800;
+}
+
+.carouselTexts .page-title {
+  position: relative;
+  max-width: none;
+  border-left: 4px solid #e45424;
+  padding: auto;
+  padding: 20px;
+  font-size: 2.25rem;
+}
+
 .page-title {
   border-top-right-radius: 6px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -251,6 +272,12 @@ button[disabled] {
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
+  .carouselTexts h1.page-title {
+    font-size: 1.2rem;
+    max-width: 100%;
+    padding: 10px;
+    line-height: 1.5em;
+  }
   h1.page-title {
     font-size: 1.5rem;
     max-width: 80%;
@@ -324,12 +351,11 @@ button[disabled] {
   object-fit: cover;
 }
 
-.submenu{
+.submenu {
   position: absolute;
   background: brown;
   padding: 10px;
 }
-
 
 .accordion {
   max-width: 600px;
@@ -353,17 +379,20 @@ button[disabled] {
   padding: 1rem;
 }
 
-
-.project-header{
+.project-header {
   min-height: 65px;
 }
 
-.search_icon svg{
+.search_icon svg {
   height: 24px;
   width: 24px;
   cursor: pointer;
 }
 
-.search_input{
+.search_input {
   padding: 5px;
+}
+
+.programfaculty{
+  border-radius: 50%;
 }

@@ -64,8 +64,10 @@ const ProgrammeOpen = ({ programme, global }) => {
   useEffect(() => {
     setOpenYear([]);
     setOpenApply([]);
-    var inputs = document.querySelectorAll(".file-input");
+  }, []);
 
+  useEffect(() => {
+    var inputs = document.querySelectorAll(".file-input");
     for (var i = 0, len = inputs.length; i < len; i++) {
       customInput(inputs[i]);
     }
@@ -75,14 +77,13 @@ const ProgrammeOpen = ({ programme, global }) => {
       const label = el.querySelector("[data-js-label]");
 
       fileInput.onchange = fileInput.onmouseout = function () {
-        if (!fileInput.value) return;
-
-        var value = fileInput.value.replace(/^.*[\\\/]/, "");
-        el.className += " -chosen";
-        label.innerText = value;
+        if (files.length !== 0 || docFiles.length !== 0) {
+          if (!fileInput.value) return;
+          el.className += " -chosen";
+        }
       };
     }
-  }, []);
+  }, [files, docFiles]);
   // Also see: https://www.quirksmode.org/dom/inputfile.html
 
   const openYearHandler = (ind) => {
@@ -153,9 +154,13 @@ const ProgrammeOpen = ({ programme, global }) => {
               <div dangerouslySetInnerHTML={{ __html: sub_description }} />
             </div>
           )}
-          <div className="text-center text-2xl font-bold my-5">FACULTY</div>
+          {faculty.length !== 0 ? (
+            <div className="text-center text-2xl font-bold my-5">FACULTY</div>
+          ) : (
+            ""
+          )}
           <div className="mb-7 pb-2">
-            {faculty &&
+            {faculty.length !== 0 &&
               faculty.map((member, ind) => {
                 const { name, designation, description, image } = member;
                 const thumb = image.data.attributes.url;
@@ -165,7 +170,7 @@ const ProgrammeOpen = ({ programme, global }) => {
                       <img
                         src={thumb}
                         alt="profile"
-                        className="text-center h-32 flex"
+                        className="text-center h-32 flex programfaculty"
                       />
                       <p className="text-center font-bold my-2">{name}</p>
                     </div>
@@ -260,7 +265,10 @@ const ProgrammeOpen = ({ programme, global }) => {
           )}
 
           <div className="border-2 bg-cream rounded-md border-cream mt-10 pb-5 md:mx-[10rem] mb-10">
-            <h3 className="mb-5 mt-10 font-extrabold text-2xl text-darkbrown uppercase text-center">
+            <h3
+              onClick={() => console.log(files)}
+              className="mb-5 mt-10 font-extrabold text-2xl text-darkbrown uppercase text-center"
+            >
               Submit your application
             </h3>
             <Formik
@@ -406,11 +414,27 @@ const ProgrammeOpen = ({ programme, global }) => {
                       <input
                         type="file"
                         onChange={async (e) => {
-                          setDocFiles(e.target.files);
+                          setDocFiles([]);
+                          console.log(e.target.files[0].name);
+                          const fileSize = e.target.files[0].size / 1024 / 1024; // in MiB
+                          if (fileSize > 2) {
+                            toast({
+                              type: "error",
+                              message: "File size should be less than 2MB",
+                            });
+                            document.getElementById(
+                              "nofileselected"
+                            ).innerText = "No file selected";
+                          } else {
+                            setDocFiles(e.target.files);
+                            document.getElementById(
+                              "nofileselected"
+                            ).innerText = e.target.files[0].name;
+                          }
                         }}
                       />
                       <span className="button">Choose</span>
-                      <span className="label" data-js-label>
+                      <span className="label" id="nofileselected" data-js-label>
                         No file selected
                       </span>
                     </div>
@@ -420,12 +444,26 @@ const ProgrammeOpen = ({ programme, global }) => {
                     <div className="file-input border-2">
                       <input
                         type="file"
+                        id="fileInputId"
                         onChange={async (e) => {
-                          setFiles(e.target.files);
+                          setFiles([]);
+                          const fileSize = e.target.files[0].size / 1024 / 1024; // in MiB
+                          if (fileSize > 2) {
+                            toast({
+                              type: "error",
+                              message: "File size should be less than 2MB",
+                            });
+                            document.getElementById("noimgselected").innerText =
+                              "No Image selected";
+                          } else {
+                            setFiles(e.target.files);
+                            document.getElementById("noimgselected").innerText =
+                              e.target.files[0].name;
+                          }
                         }}
                       />
                       <span className="button rounded-md">Choose</span>
-                      <span className="label" data-js-label>
+                      <span id="noimgselected" className="label" data-js-label>
                         No Image selected
                       </span>
                     </div>

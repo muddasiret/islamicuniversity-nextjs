@@ -25,23 +25,31 @@ const Article = ({ article }) => {
           {title}
         </h1>
         <div className="flex justify-between items-center">
-          <span className="bg-white shadow-sm text-slate-700 rounded-md p-2 mt-2 mb-2 text-center">
-            <Moment format="MMM Do YYYY">{published_at}</Moment>
-          </span>
+          {published_at && (
+            <span className="bg-white shadow-sm text-slate-700 rounded-md p-2 mt-2 mb-2 text-center">
+              <Moment format="MMM Do YYYY">{published_at}</Moment>
+            </span>
+          )}
           <SocialButtons title={title} />
         </div>
-        <YoutubeEmbed
-          embedLink={youtube_link}
-          classes="mt-5 md:px-20 md:h-[30rem]"
-        />
-        <h2 className="py-5 text-xl md:text-xl text-center text-primaryblue font-bold">
-          {subtitle}
-        </h2>
-        <div className="pr-10 py-5">
-          <div className="markdown-reset">
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+        {youtube_link && (
+          <YoutubeEmbed
+            embedLink={youtube_link}
+            classes="mt-5 md:px-20 md:h-[30rem]"
+          />
+        )}
+        {subtitle && (
+          <h2 className="py-5 text-xl md:text-xl text-center text-primaryblue font-bold">
+            {subtitle}
+          </h2>
+        )}
+        {content && (
+          <div className="pr-10 py-5">
+            <div className="markdown-reset">
+              <div dangerouslySetInnerHTML={{ __html: content }} />
+            </div>
           </div>
-        </div>
+        )}
         {pdf &&
           pdf.data &&
           pdf.data.map((pdf, ind) => {
