@@ -1,4 +1,4 @@
-import { NAV_LINKS } from "./constants";
+import { MOB_LINKS, NAV_LINKS } from "./constants";
 import Link from "next/link";
 import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
@@ -12,14 +12,26 @@ const Header = () => {
   return (
     <>
       <div className="flex header-main justify-between mx-auto flex-row items-center	py-5 px-5 md:px-10 bg-brown">
-        <Link href="/">
+        <div>
+          <Link href="/">
+            <img
+              src={logo}
+              className="w-auto h-12 cursor-pointer"
+              alt="logo_university"
+            />
+          </Link>
+        </div>
+        <div className="md:hidden flex">
           <img
-            src={logo}
-            className="w-auto h-12 cursor-pointer"
-            alt="logo_university"
+            src={"images/search.png"}
+            width={35}
+            role="button"
+            className="mr-4"
+            onClick={() => {
+              setSearchOpen(true);
+              setHamburgerActive(true);
+            }}
           />
-        </Link>
-        <div className="md:hidden">
           <img
             src={"images/menu.png"}
             width={35}
@@ -76,38 +88,45 @@ const Header = () => {
           </div>
         </nav>
         <div
-          className="bg-white fixed z-10 top-0 left-0 w-full right-0 bottom-0 h-full"
+          className="fixed bg-brown z-10 top-0 left-0 w-full right-0 bottom-0 h-full"
           style={{ display: hamburgerActive ? "block" : "none" }}
           data-behavior="header-menu"
         >
-          <div
-            className="px-3 text-right flex justify-items-end justify-end my-5"
-            onClick={() => {
-              setHamburgerActive(false);
-            }}
-          >
+          <div className="px-3 text-right flex justify-between items-center my-5">
+            <div className="text-white text-lg">
+              <img
+                src={logo}
+                className="w-auto h-12 cursor-pointer"
+                alt="logo_university"
+              />
+            </div>
             <svg
+              width={35}
+              color={"#fff"}
+              onClick={() => {
+                setHamburgerActive(false);
+                setSearchOpen(false);
+              }}
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 320 512"
-              width={25}
+              viewBox="0 0 512 512"
             >
-              <path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+              <path fill="#fff" d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z" />
             </svg>
           </div>
+          {searchOpen && (
+            <Fade direction="down" duration={700} triggerOnce>
+              <div className="px-3">
+                <input className="search_input w-full mb-5" />
+              </div>
+            </Fade>
+          )}
           <div className="px-3 text-center mob-header-acc">
-            {Object.keys(NAV_LINKS).map((mainLink, index) => {
+            {MOB_LINKS.map((mainLink, index) => {
               return (
                 <Accordion
                   key={index}
-                  title={
-                    <Link
-                      href={NAV_LINKS[mainLink].link}
-                      className="uppercase rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-100 hover:text-slate-900 group relative"
-                    >
-                      {NAV_LINKS[mainLink].label}
-                    </Link>
-                  }
-                  content={"desc"}
+                  title={mainLink}
+                  content={mainLink.sub}
                 />
               );
             })}

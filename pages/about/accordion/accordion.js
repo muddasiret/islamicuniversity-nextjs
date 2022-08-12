@@ -5,32 +5,50 @@ import { Fade } from "react-awesome-reveal";
 const Accordion = ({ title, content, pdf }) => {
   const [isActive, setIsActive] = useState(false);
   const pdfLink = pdf ? (pdf.data ? pdf.data.attributes.url : "") : "";
-  useEffect(() => {
-    if (content.props) console.log(content.props.children);
-  }, [content]);
+  const classes = typeof title === "string" ? "" : "mob-modal";
   return (
-    <div className="accordion-item">
-      <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
-        <div>{title}</div>
-        <div>{isActive ? "-" : "+"}</div>
+    <div className={"accordion-item" + " " + classes}>
+      <div
+        className="accordion-title"
+        onClick={() => {
+          if (typeof title === "string") setIsActive(!isActive);
+        }}
+      >
+        {typeof title !== "string" ? (
+          <Link
+            href={title.link}
+            className="uppercase rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-100 hover:text-slate-900 group relative"
+          >
+            {title.label}
+          </Link>
+        ) : (
+          <div>{title}</div>
+        )}
+        {content && (
+          <div
+            onClick={() => {
+              setIsActive(!isActive);
+            }}
+            className={typeof title !== "string" ? "mob-modal-menu" : ""}
+          >
+            {isActive ? "-" : "+"}
+          </div>
+        )}
       </div>
       {isActive &&
-        (content.props ? (
+        (Array.isArray(content) ? (
           <div className="accordion-content">
-            {content.props.children.map(
-              (link, ind) =>
-                link.props && (
-                  <div>
-                    <Link
-                      key={ind}
-                      href={link.props.href}
-                      className="uppercase rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-100 hover:text-slate-900 group relative"
-                    >
-                      {link.props.children}
-                    </Link>
-                  </div>
-                )
-            )}
+            {content &&
+              content.map((link, ind) => (
+                <div key={ind}>
+                  <Link
+                    href={link.link}
+                    className="uppercase rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-100 hover:text-slate-900 group relative"
+                  >
+                    {link.label}
+                  </Link>
+                </div>
+              ))}
           </div>
         ) : (
           <Fade direction="left" duration={700} triggerOnce>

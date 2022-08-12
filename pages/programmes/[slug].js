@@ -180,7 +180,7 @@ const ProgrammeOpen = ({ programme, global }) => {
                       </div>
                       <span>
                         <div
-                          className="text-left"
+                          className="text-center"
                           dangerouslySetInnerHTML={{ __html: description }}
                         />
                       </span>
