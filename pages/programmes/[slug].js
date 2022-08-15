@@ -196,7 +196,11 @@ const ProgrammeOpen = ({ programme, global }) => {
                         className="border-2 border-cream rounded-md p-3 h-min cursor-pointer transition-all year-card"
                       >
                         <div className="flex items-center">
-                          <div className="bg-cream rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md">
+                          <div
+                            className={`${
+                              descShow ? "bg-red-800" : "bg-cream"
+                            } rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md`}
+                          >
                             {descShow ? "-" : "+"}
                           </div>
                           <p className="uppercase text-primaryblue">{name}</p>
@@ -241,7 +245,11 @@ const ProgrammeOpen = ({ programme, global }) => {
                       key={ind}
                     >
                       <div className="flex items-center">
-                        <div className="bg-cream rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md">
+                        <div
+                          className={`${
+                            descShow ? "bg-red-800" : "bg-cream"
+                          } rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md`}
+                        >
                           {descShow ? "-" : "+"}
                         </div>
                         <p className="uppercase text-primaryblue">
@@ -282,7 +290,11 @@ const ProgrammeOpen = ({ programme, global }) => {
                     key={ind}
                   >
                     <div className="flex items-center">
-                      <div className="bg-cream rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md">
+                      <div
+                        className={`${
+                          descShow ? "bg-red-800" : "bg-cream"
+                        } rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md`}
+                      >
                         {descShow ? "-" : "+"}
                       </div>
                       <p className="uppercase text-primaryblue">{item.title}</p>
