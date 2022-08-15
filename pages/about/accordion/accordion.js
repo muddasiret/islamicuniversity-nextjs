@@ -2,20 +2,16 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 
-const Accordion = ({ title, content, pdf, className }) => {
+const Accordion = ({ title, content, pdf }) => {
   const [isActive, setIsActive] = useState(false);
   const pdfLink = pdf ? (pdf.data ? pdf.data.attributes.url : "") : "";
   const classes = typeof title === "string" ? "" : "mob-modal";
   return (
-    <div
-      className={"accordion-item" + " " + classes + className ? className : ""}
-    >
+    <div className={"accordion-item" + " " + classes}>
       <div
         className="accordion-title"
         onClick={() => {
-          if (content || pdfLink) {
-            if (typeof title === "string") setIsActive(!isActive);
-          }
+          if (typeof title === "string") setIsActive(!isActive);
         }}
       >
         {typeof title !== "string" ? (
