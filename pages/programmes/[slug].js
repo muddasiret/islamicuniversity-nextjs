@@ -12,6 +12,7 @@ import Markdown from "markdown-to-jsx";
 import { getTitleImage } from "../../utils/getTitleImage";
 import axios from "axios";
 import { BASE_URL } from "../../Common/constants";
+import Accordion from "../about/accordion/accordion";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -55,8 +56,10 @@ const ProgrammeOpen = ({ programme, global }) => {
 
   const [openYear, setOpenYear] = useState([]);
   const [openApply, setOpenApply] = useState([]);
+  const [openFaculty, setOpenFaculty] = useState([]);
   const [currSyllabus, setSyllabus] = useState(syllabus);
   const [currApply, setApply] = useState(how_to_apply);
+  const [currFaculty, setFaculty] = useState(faculty);
   const [files, setFiles] = useState([]);
   const [docFiles, setDocFiles] = useState([]);
   const [appId, setAppId] = useState(null);
@@ -64,6 +67,7 @@ const ProgrammeOpen = ({ programme, global }) => {
   useEffect(() => {
     setOpenYear([]);
     setOpenApply([]);
+    setOpenFaculty([]);
   }, []);
 
   useEffect(() => {
@@ -108,6 +112,18 @@ const ProgrammeOpen = ({ programme, global }) => {
     }
     setOpenApply(currArr);
     setApply([...how_to_apply]);
+  };
+
+  const openFacultyHandler = (ind) => {
+    let index = openFaculty.indexOf(ind);
+    let currArr = openFaculty;
+    if (index === -1) {
+      currArr.push(ind);
+    } else {
+      currArr.splice(index, 1);
+    }
+    setOpenFaculty(currArr);
+    setFaculty([...faculty]);
   };
 
   const triggerToast = () => {
@@ -159,36 +175,60 @@ const ProgrammeOpen = ({ programme, global }) => {
           ) : (
             ""
           )}
-          <div className="mb-7 pb-2">
-            {faculty.length !== 0 &&
-              faculty.map((member, ind) => {
-                const { name, designation, description, image } = member;
+          {currFaculty !== [] && openFaculty && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              {currFaculty.map((item, ind) => {
+                let descShow = openFaculty.includes(ind);
+                const { name, designation, description, image } = item;
                 const thumb = image.data.attributes.url;
-                return (
-                  <div className="mb-10" key={ind}>
-                    <div className="text-center flex flex-col items-center">
-                      <img
-                        src={thumb}
-                        alt="profile"
-                        className="text-center h-32 flex programfaculty"
-                      />
-                      <p className="text-center font-bold my-2">{name}</p>
-                    </div>
-                    <div className="my-2 text-center">
-                      <div className="w-full mb-5">
-                        <b className="text-center text-sm">{designation}</b>{" "}
-                      </div>
-                      <span>
-                        <div
-                          className="text-center"
-                          dangerouslySetInnerHTML={{ __html: description }}
+                if (name)
+                  return (
+                    <div key={ind} className="">
+                      <div className="flex items-center justify-center">
+                        <img
+                          src={thumb}
+                          alt="profile"
+                          className="text-center h-32 flex programfaculty"
                         />
-                      </span>
+                      </div>
+                      <div
+                        onClick={() => openFacultyHandler(ind)}
+                        className="border-2 border-cream rounded-md p-3 h-min cursor-pointer transition-all year-card"
+                      >
+                        <div className="flex items-center">
+                          <div className="bg-cream rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md">
+                            {descShow ? "-" : "+"}
+                          </div>
+                          <p className="uppercase text-primaryblue">{name}</p>
+                        </div>
+                        {descShow && (
+                          <p className="mt-5 px-4 pb-2">
+                            <p className="uppercase text-primaryblue font-bold mb-4">
+                              {designation}
+                            </p>
+                            <div className="markdown-reset">
+                              {description && (
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: description,
+                                  }}
+                                />
+                              )}
+                            </div>
+                          </p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                );
+                  );
               })}
-          </div>
+            </div>
+          )}
+
+          {currSyllabus !== [] && openYear && (
+            <h1 className="text-center mt-10 uppercase mb-7 text-2xl font-bold">
+              syllabus
+            </h1>
+          )}
           {currSyllabus !== [] && openYear && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {currSyllabus.map((item, ind) => {
@@ -201,7 +241,7 @@ const ProgrammeOpen = ({ programme, global }) => {
                       key={ind}
                     >
                       <div className="flex items-center">
-                        <div className="bg-cream rounded-md text-white px-3 mr-2 py-1 text-md">
+                        <div className="bg-cream rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md">
                           {descShow ? "-" : "+"}
                         </div>
                         <p className="uppercase text-primaryblue">
@@ -242,7 +282,7 @@ const ProgrammeOpen = ({ programme, global }) => {
                     key={ind}
                   >
                     <div className="flex items-center">
-                      <div className="bg-cream rounded-md text-white px-2  mr-2 ml-2 text-md">
+                      <div className="bg-cream rounded-sm text-white h-6 w-7 flex text-center items-center justify-center px-3 mr-2 text-md">
                         {descShow ? "-" : "+"}
                       </div>
                       <p className="uppercase text-primaryblue">{item.title}</p>

@@ -23,7 +23,7 @@ const Header = () => {
         </div>
         <div className="md:hidden flex">
           <img
-            src={"images/search.png"}
+            src={"/images/search.png"}
             width={35}
             role="button"
             className="mr-4"
@@ -84,7 +84,7 @@ const Header = () => {
             onClick={() => setSearchOpen(!searchOpen)}
             className="search_icon cursor-pointer"
           >
-            <img src="images/search.png" height={25} width={25} />
+            <img src="/images/search.png" height={25} width={25} />
           </div>
         </nav>
         <div

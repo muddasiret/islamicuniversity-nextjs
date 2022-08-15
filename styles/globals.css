@@ -363,6 +363,10 @@ button[disabled] {
   margin: 2rem auto;
 }
 
+.faculty-cont .accordion-title{
+  border-top: none;
+}
+
 .accordion-title {
   display: flex;
   flex-direction: row;
@@ -396,6 +400,10 @@ button[disabled] {
 
 .programfaculty {
   border-radius: 50%;
+  width: 8rem;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
 }
 
 .mob-modal .accordion-title {
@@ -420,17 +428,17 @@ button[disabled] {
   justify-content: center;
 }
 
-.mob-modal .accordion-content{
+.mob-modal .accordion-content {
   background-color: white;
   padding: 0;
 }
 
-.mob-modal .accordion-content a{
+.mob-modal .accordion-content a {
   text-transform: capitalize;
   width: 100%;
 }
 
-.mob-modal .accordion-content div{
+.mob-modal .accordion-content div {
   width: 100%;
   border-bottom: 1px solid;
   padding: 10px;
