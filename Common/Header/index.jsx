@@ -33,7 +33,7 @@ const Header = () => {
             }}
           />
           <img
-            src={"images/menu.png"}
+            src={"/images/menu.png"}
             width={35}
             role="button"
             onClick={() => {

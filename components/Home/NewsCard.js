@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const NewsCard = ({ newsDetails }) => {
-  let imgSrc = "images/newsdummy.jpeg";
+  let imgSrc = "/images/newsdummy.jpeg";
   const { title, slug, image, category, subtitle } = newsDetails.attributes;
   if (newsDetails) {
     imgSrc = image.data.attributes.url;
