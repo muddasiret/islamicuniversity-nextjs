@@ -3,18 +3,23 @@ import MainLayout from "../../components/mainLayout";
 import PageTitle from "../../components/pageTitle";
 import ProgrammeCard from "../../components/programmeCard";
 import { fetchAPI } from "../../lib/api";
-import { getTitleImage } from "../../utils/getTitleImage";
+import { getPageDescription, getTitleImage } from "../../utils/getTitleImage";
 
-const Programmes = ({ programmes,global }) => {
-  let title_image =  getTitleImage(global,"PROGRAMMES")
+const Programmes = ({ programmes, global }) => {
+  let title_image = getTitleImage(global, "PROGRAMMES");
+  let page_desc = getPageDescription(global, "PROGRAMMES");
 
   return (
     <Layout>
-      <PageTitle title="PROGRAMMES" title_image={title_image}/>
+      <PageTitle title="PROGRAMMES" title_image={title_image} />
       <MainLayout>
-        <h1 className="my-5 md:text-5xl text-4xl sanspro font-black uppercase text-primaryblue text-center">Study</h1>
+        <h1 className="my-5 md:text-5xl text-4xl sanspro font-black uppercase text-primaryblue text-center">
+          Study
+        </h1>
         <p className="md:my-2 sanspro md:text-2xl text-xl font-semibold text-black-700 text-center">
-          We currently offer three full and part time academic programmes.
+          {page_desc
+            ? page_desc
+            : "We currently offer three full and part time academic programmes."}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {programmes.map((item, ind) => {

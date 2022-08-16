@@ -65,6 +65,9 @@ MyApp.getInitialProps = async (ctx) => {
       title_image_individual: {
         populate: "*",
       },
+      page_subtitles: {
+        populate: "*",
+      },
     },
   });
   // Pass the data to our page via props

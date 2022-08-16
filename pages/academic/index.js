@@ -3,9 +3,10 @@ import MainLayout from "../../components/mainLayout";
 import PageTitle from "../../components/pageTitle";
 import ProgrammeCard from "../../components/programmeCard";
 import { fetchAPI } from "../../lib/api";
-import { getTitleImage } from "../../utils/getTitleImage";
+import { getPageDescription, getTitleImage } from "../../utils/getTitleImage";
 
 const Academic = ({ programmes, global }) => {
+  let page_desc = getPageDescription(global, "Academic");
   let title_image = getTitleImage(global, "Academic");
 
   return (
@@ -16,7 +17,9 @@ const Academic = ({ programmes, global }) => {
           Study
         </h1>
         <p className="md:my-2 sanspro md:text-2xl text-xl font-semibold text-black-700 text-center">
-          We currently offer three full and part time academic programmes.
+          {page_desc
+            ? page_desc
+            : "We currently offer three full and part time academic programmes."}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {programmes.length ? (

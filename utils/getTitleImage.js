@@ -13,3 +13,13 @@ export const getTitleImage = (global, title) => {
   }
   return imgSrc;
 };
+
+export const getPageDescription = (global, title) => {
+  return global.attributes.page_subtitles.filter(
+    (o) => o.page.toUpperCase() === title.toUpperCase()
+  ).length !== 0
+    ? global.attributes.page_subtitles.filter(
+        (o) => o.page.toUpperCase() === title.toUpperCase()
+      )[0].description
+    : null;
+};
