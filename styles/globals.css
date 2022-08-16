@@ -273,6 +273,10 @@ button[disabled] {
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
+  .map-continer iframe{
+    max-height: 350px;
+    margin-top: 20px;
+  }
   .carouselTexts h1.page-title {
     font-size: 1.2rem;
     max-width: 100%;

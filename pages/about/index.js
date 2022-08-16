@@ -82,7 +82,7 @@ const About = ({ about, global }) => {
                   <Contact />
                 </div>
               </div>
-              <div className="ml-5 sm:w-2/4 flex justify-end mt-5 sm:mt-0 h-52">
+              <div className="sm:ml-5 sm:w-2/4 flex justify-end mt-5 sm:mt-0 sm:h-52 map-continer">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.7152261889514!2d75.89251971419601!3d11.13457385552672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6513c490a804f%3A0x58cb496669f29102!2sIslamic%20chair%20and%20research%2C%20calicut%20university!5e0!3m2!1sen!2sin!4v1651944181265!5m2!1sen!2sin"
                   width="550"
