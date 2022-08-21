@@ -181,7 +181,9 @@ const ProgrammeOpen = ({ programme, global }) => {
               {currFaculty.map((item, ind) => {
                 let descShow = openFaculty.includes(ind);
                 const { name, designation, description, image } = item;
-                const thumb = image.data ? image.data.attributes.url : null;
+                const thumb = image.data
+                  ? image.data.attributes.url
+                  : "/images/dummy-profile-pic.jpeg";
                 if (name)
                   return (
                     <div key={ind} className="">

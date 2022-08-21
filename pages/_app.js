@@ -15,11 +15,14 @@ import { getStrapiMedia } from "../lib/media";
 export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }) => {
+  console.log(pageProps);
   const { global } = pageProps;
   const shareImage = global.attributes.defaultSeo.shareImage.data
     ? global.attributes.defaultSeo.shareImage.data.attributes.url
     : "";
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(pageProps);
+  }, []);
   return (
     <>
       <NextSeo noindex={true} nofollow={true} />
@@ -28,7 +31,17 @@ const MyApp = ({ Component, pageProps }) => {
           rel="shortcut icon"
           href={getStrapiMedia(global.attributes.favicon)}
         />
-        {shareImage && <meta property="og:image" content={shareImage} />}
+        <meta property="og:title" content="CISR" key="title" />
+        {/*{shareImage && <meta property="og:image" content={shareImage} />} */}
+        <meta
+          property="og:description"
+          content="Set up GitHub authentication so you can use it from VS Code or the command line"
+        />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:image"
+          content="https://flaviocopes.com/img/avatar.png"
+        />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <Component {...pageProps} />
