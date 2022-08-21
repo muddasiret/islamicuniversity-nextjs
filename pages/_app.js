@@ -35,12 +35,12 @@ const MyApp = ({ Component, pageProps }) => {
         {/*{shareImage && <meta property="og:image" content={shareImage} />} */}
         <meta
           property="og:description"
-          content="Set up GitHub authentication so you can use it from VS Code or the command line"
+          content="Set up GitHub authentication so you can use it from VS Code or the command lineChair for Islamic Studies and Research"
         />
         <meta property="og:type" content="article" />
         <meta
           property="og:image"
-          content="https://flaviocopes.com/img/avatar.png"
+          content="https://islamicuniversity.s3.ap-south-1.amazonaws.com/CISR_Just_Logo_cf0dd677c3.png"
         />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
