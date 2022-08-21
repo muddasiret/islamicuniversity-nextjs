@@ -180,17 +180,19 @@ const ProgrammeOpen = ({ programme, global }) => {
               {currFaculty.map((item, ind) => {
                 let descShow = openFaculty.includes(ind);
                 const { name, designation, description, image } = item;
-                const thumb = image.data.attributes.url;
+                const thumb = image.data ? image.data.attributes.url : null;
                 if (name)
                   return (
                     <div key={ind} className="">
-                      <div className="flex items-center justify-center">
-                        <img
-                          src={thumb}
-                          alt="profile"
-                          className="text-center h-32 flex programfaculty"
-                        />
-                      </div>
+                      {thumb && (
+                        <div className="flex items-center justify-center">
+                          <img
+                            src={thumb}
+                            alt="profile"
+                            className="text-center h-32 flex programfaculty"
+                          />
+                        </div>
+                      )}
                       <div
                         onClick={() => openFacultyHandler(ind)}
                         className="border-2 border-cream rounded-md p-3 h-min cursor-pointer transition-all year-card"
