@@ -65,6 +65,7 @@ const ProgrammeOpen = ({ programme, global }) => {
   const [appId, setAppId] = useState(null);
 
   useEffect(() => {
+    console.log(currSyllabus);
     setOpenYear([]);
     setOpenApply([]);
     setOpenFaculty([]);
@@ -230,7 +231,7 @@ const ProgrammeOpen = ({ programme, global }) => {
             </div>
           )}
 
-          {currSyllabus !== [] && openYear && (
+          {currSyllabus.length !== 0 && openYear && (
             <h1 className="text-center mt-10 uppercase mb-7 text-2xl font-bold">
               syllabus
             </h1>
@@ -277,9 +278,11 @@ const ProgrammeOpen = ({ programme, global }) => {
             </div>
           )}
 
-          <h1 className="text-center mt-10 mb-7 text-2xl font-bold">
-            HOW TO APPLY
-          </h1>
+          {currApply.length !== 0 && (
+            <h1 className="text-center mt-10 mb-7 text-2xl font-bold">
+              HOW TO APPLY
+            </h1>
+          )}
 
           {currApply !== [] && openApply && (
             <div>
