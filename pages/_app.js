@@ -32,10 +32,9 @@ const MyApp = ({ Component, pageProps }) => {
           href={getStrapiMedia(global.attributes.favicon)}
         />
         <meta property="og:title" content="CISR" key="title" />
-        {/*{shareImage && <meta property="og:image" content={shareImage} />} */}
         <meta
           property="og:description"
-          content="Set up GitHub authentication so you can use it from VS Code or the command lineChair for Islamic Studies and Research"
+          content="Chair for Islamic Studies and Research"
         />
         <meta property="og:type" content="article" />
         <meta
