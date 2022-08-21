@@ -40,7 +40,7 @@ const MyApp = ({ Component, pageProps }) => {
         <meta property="og:type" content="article" />
         <meta
           property="og:image"
-          content="https://islamicuniversity.s3.ap-south-1.amazonaws.com/CISR_Just_Logo_cf0dd677c3.png"
+          content={shareImage}
         />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
