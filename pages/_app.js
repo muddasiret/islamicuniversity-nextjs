@@ -4,7 +4,7 @@ import "../styles/globals.css";
 import "../styles/social.css";
 import "../styles/header.css";
 import "../components/Carousel/carousel.css";
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,9 +20,9 @@ const MyApp = ({ Component, pageProps }) => {
   const shareImage = global.attributes.defaultSeo.shareImage.data
     ? global.attributes.defaultSeo.shareImage.data.attributes.url
     : "";
-  useEffect(() => {
-    console.log(pageProps);
-  }, []);
+  const shareTitle = global.attributes.defaultSeo.metaTitle;
+  const shareDesc = global.attributes.defaultSeo.metaDescription;
+
   return (
     <>
       <NextSeo noindex={true} nofollow={true} />
@@ -31,16 +31,10 @@ const MyApp = ({ Component, pageProps }) => {
           rel="shortcut icon"
           href={getStrapiMedia(global.attributes.favicon)}
         />
-        <meta property="og:title" content="CISR" key="title" />
-        <meta
-          property="og:description"
-          content="Chair for Islamic Studies and Research"
-        />
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:image"
-          content={shareImage}
-        />
+        <meta property="og:title" content={shareTitle} key="title" />
+        <meta property="og:description" content={shareDesc} />
+        <meta property="og:type" content="site" />
+        <meta property="og:image" content={shareImage} />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <Component {...pageProps} />
