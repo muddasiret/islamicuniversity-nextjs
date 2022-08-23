@@ -14,7 +14,7 @@ const Projects = ({ projects, global }) => {
       <PageTitle title="PROJECTS" title_image={title_image} />
       <MainLayout>
         <h1 className="my-5 md:text-5xl text-4xl sanspro font-black text-darkbrown text-center uppercase">
-          Research Fellowships
+          Research Projects
         </h1>
         <p className="my-2 sanspro md:text-2xl font-semibold text-black-700 text-center">
           {page_desc

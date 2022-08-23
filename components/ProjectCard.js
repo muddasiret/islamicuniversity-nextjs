@@ -3,7 +3,9 @@ import React from "react";
 
 const ProjectCard = ({ details }) => {
   const { title, slug, image, short_description } = details.attributes;
-  const thumb = image.data.attributes.url;
+  const thumb = image.data
+    ? image.data.attributes.url
+    : "/images/placeholder.png";
 
   return (
     <Link href={"/projects/" + slug}>
@@ -11,12 +13,14 @@ const ProjectCard = ({ details }) => {
         <h2 className="text-center roboto-text my-5 text-lg uppercase text-lightdark px-5 pb-2 pt-2 leading-6">
           {title}
         </h2>
-        <img src={thumb}/>
+        <img src={thumb} />
         {/* <div
           style={{ backgroundImage: `url(${thumb})` }}
           className="h-44 w-10/12 bg-cover"
         /> */}
-        <p className="text-center text-slate-500 py-5 px-5">{short_description}</p>
+        <p className="text-center text-slate-500 py-5 px-5">
+          {short_description}
+        </p>
         <div className="text-center mb-5">
           <button className="text-white bg-brown rounded p-2 px-5 text-center align-middle mb-2">
             LEARN MORE

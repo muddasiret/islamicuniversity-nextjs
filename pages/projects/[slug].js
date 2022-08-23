@@ -40,7 +40,9 @@ const ProjectOpen = ({ project }) => {
             {team &&
               team.map((member, ind) => {
                 const { name, designation, description, image } = member;
-                const thumb = image.data.attributes.url;
+                const thumb = image.data
+                  ? image.data.attributes.url
+                  : "/images/dummy-profile-pic.jpeg";
                 return (
                   <div className="mb-10" key={ind}>
                     <div className="text-center flex flex-col items-center">
@@ -49,9 +51,9 @@ const ProjectOpen = ({ project }) => {
                         alt="profile"
                         className="text-center h-32 flex"
                       />
-                      <p className="text-center font-bold my-5">{name}</p>
+                      <p className="text-center font-bold my-2">{name}</p>
                     </div>
-                    <div className="my-2 text-left">
+                    <div className="my-0 text-center">
                       <span>
                         <b>{designation}</b>  <div dangerouslySetInnerHTML={{ __html: description }} />
                       </span>
