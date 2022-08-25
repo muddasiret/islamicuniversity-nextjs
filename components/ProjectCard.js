@@ -9,7 +9,7 @@ const ProjectCard = ({ details }) => {
 
   return (
     <Link href={"/projects/" + slug}>
-      <div className="my-4 flex flex-col justify-center items-center text-center rounded-md bg-white cursor-pointer shadow-lg group card-zoom hover:shadow-2xl">
+      <div className="project-card my-4 flex flex-col justify-center items-center text-center rounded-md bg-white cursor-pointer shadow-lg group card-zoom hover:shadow-2xl">
         <h2 className="text-center roboto-text my-5 text-lg uppercase text-lightdark px-5 pb-2 pt-2 leading-6">
           {title}
         </h2>
@@ -18,7 +18,7 @@ const ProjectCard = ({ details }) => {
           style={{ backgroundImage: `url(${thumb})` }}
           className="h-44 w-10/12 bg-cover"
         /> */}
-        <p className="text-center text-slate-500 py-5 px-5">
+        <p className="text-center text-slate-500 py-5 px-5 project-card-desc">
           {short_description}
         </p>
         <div className="text-center mb-5">

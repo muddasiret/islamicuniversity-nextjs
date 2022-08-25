@@ -8,14 +8,17 @@ import { getPageDescription, getTitleImage } from "../../utils/getTitleImage";
 const Papers = ({ papers, global }) => {
   let title_image = getTitleImage(global, "PAPERS");
   let page_desc = getPageDescription(global, "PAPERS");
-
+  const { research_paper_title } = global.attributes;
+  
   return (
     <Layout>
       <PageTitle title="PAPERS" title_image={title_image} />
       <MainLayout>
-        <h1 className="my-5 md:text-5xl text-4xl sanspro font-black text-primaryblue uppercase text-center">
-          Research Papers
-        </h1>
+        {research_paper_title && (
+          <h1 className="my-5 md:text-5xl text-4xl sanspro font-black text-primaryblue uppercase text-center">
+            {research_paper_title}
+          </h1>
+        )}
         <p className="my-5 sanspro md:text-2xl font-semibold text-center md:px-16 md:mx-10">
           {page_desc
             ? page_desc

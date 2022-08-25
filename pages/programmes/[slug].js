@@ -52,6 +52,7 @@ const ProgrammeOpen = ({ programme, global }) => {
     how_to_apply,
     subtitle,
     faculty,
+    category="diploma",
   } = programme.attributes;
 
   const [openYear, setOpenYear] = useState([]);
@@ -66,6 +67,7 @@ const ProgrammeOpen = ({ programme, global }) => {
 
   useEffect(() => {
     console.log(currSyllabus);
+    console.log(category,"test")
     setOpenYear([]);
     setOpenApply([]);
     setOpenFaculty([]);
@@ -134,10 +136,11 @@ const ProgrammeOpen = ({ programme, global }) => {
   const ref = useRef();
   let title_image = getTitleImage(global, "DIPLOMA");
 
+  let category_final=category?category:"diploma"
   return (
     <Layout>
       {/* <Seo seo={seo} /> */}
-      <PageTitle title="DIPLOMA" title_image={title_image} />
+      <PageTitle title={category_final} title_image={title_image} />
       <MainLayout>
         <div className="sm:px-10">
           <h1 className="text-sm md:text-4xl text-primaryblue font-bold text-center my-5">

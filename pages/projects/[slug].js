@@ -2,6 +2,7 @@ import Layout from "../../components/layout";
 import { fetchAPI } from "../../lib/api";
 import MainLayout from "../../components/mainLayout";
 import Markdown from "markdown-to-jsx";
+import { useEffect } from "react";
 
 const ProjectOpen = ({ project }) => {
   // const imageUrl = getStrapiMedia(article.attributes.image);
@@ -11,8 +12,17 @@ const ProjectOpen = ({ project }) => {
   //   shareImage: article.attributes.image,
   //   article: true,
   // };
-  const { title, image, introduction, events, publications, team } =
-    project.attributes;
+  const {
+    title,
+    image,
+    introduction_title,
+    introduction,
+    event_title,
+    events,
+    publications_title,
+    publications,
+    team,
+  } = project.attributes;
 
   return (
     <Layout>
@@ -26,9 +36,11 @@ const ProjectOpen = ({ project }) => {
           <div className="mb-5">
             {introduction && (
               <div className="my-3 text-slate-600 text-left rounded-md bg-white p-5">
-                <div className="text-center mb-3 uppercase text-2xl font-bold text-primaryblue">
-                  introduction
-                </div>
+                {introduction_title && (
+                  <div className="text-center mb-3 uppercase text-2xl font-bold text-primaryblue">
+                    {introduction_title}
+                  </div>
+                )}
                 <div className="markdown-reset">
                   <div dangerouslySetInnerHTML={{ __html: introduction }} />
                 </div>
@@ -36,38 +48,47 @@ const ProjectOpen = ({ project }) => {
             )}
           </div>
           <div className="mb-5 text-center">
-            <h1 className="text-2xl mb-5 text-blue-700 font-bold">TEAM</h1>
-            {team &&
-              team.map((member, ind) => {
-                const { name, designation, description, image } = member;
-                const thumb = image.data
-                  ? image.data.attributes.url
-                  : "/images/dummy-profile-pic.jpeg";
-                return (
-                  <div className="mb-10" key={ind}>
-                    <div className="text-center flex flex-col items-center">
-                      <img
-                        src={thumb}
-                        alt="profile"
-                        className="text-center h-32 flex"
-                      />
-                      <p className="text-center font-bold my-2">{name}</p>
+            {team && team.length !== 0 && (
+              <h1 className="text-2xl mb-5 text-blue-700 font-bold">TEAM</h1>
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              {team &&
+                team.map((member, ind) => {
+                  const { name, designation, description, image } = member;
+                  const thumb = image.data
+                    ? image.data.attributes.url
+                    : "/images/dummy-profile-pic.jpeg";
+                  return (
+                    <div className="mb-10" key={ind}>
+                      <div className="text-center flex flex-col items-center">
+                        <img
+                          src={thumb}
+                          alt="profile"
+                          className="text-center h-32 flex programfaculty"
+                        />
+                        <p className="text-center font-bold my-2">{name}</p>
+                      </div>
+                      <div className="my-0 text-center">
+                        <span>
+                          <b>{designation}</b>{" "}
+                          <div
+                            dangerouslySetInnerHTML={{ __html: description }}
+                          />
+                        </span>
+                      </div>
                     </div>
-                    <div className="my-0 text-center">
-                      <span>
-                        <b>{designation}</b>  <div dangerouslySetInnerHTML={{ __html: description }} />
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+            </div>
           </div>
           <div className="my-5">
             {events && (
               <div className="my-3 text-slate-600 text-left p-5">
-                <div className="text-center mb-3 uppercase text-3xl font-bold text-primaryblue">
-                  Events
-                </div>
+                {event_title && (
+                  <div className="text-center mb-3 uppercase text-3xl font-bold text-primaryblue">
+                    {event_title}
+                  </div>
+                )}
                 <div className="pb-5">
                   <div className="markdown-reset">
                     <div dangerouslySetInnerHTML={{ __html: events }} />
@@ -79,9 +100,11 @@ const ProjectOpen = ({ project }) => {
           <div className="my-5">
             {publications && (
               <div className="my-3 text-slate-600 text-left p-5">
-                <div className="text-center mb-3 uppercase text-3xl font-bold text-primaryblue">
-                  PUBLICATIONS
-                </div>
+                {publications_title && (
+                  <div className="text-center mb-3 uppercase text-3xl font-bold text-primaryblue">
+                    {publications_title}
+                  </div>
+                )}
                 <div className="pb-5">
                   <div className="markdown-reset">
                     <div dangerouslySetInnerHTML={{ __html: publications }} />

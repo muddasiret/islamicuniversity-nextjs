@@ -263,17 +263,27 @@ button[disabled] {
   min-height: 360px;
 }
 
+.project-card-desc {
+  min-height: 136px;
+}
+
+.project-card img {
+  height: 170px;
+  width: 80%;
+  object-fit: cover;
+}
+
 .header-main {
-  -webkit-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 10;
 }
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
-  .map-continer iframe{
+  .map-continer iframe {
     max-height: 350px;
     margin-top: 20px;
   }
@@ -367,7 +377,7 @@ button[disabled] {
   margin: 2rem auto;
 }
 
-.faculty-cont .accordion-title{
+.faculty-cont .accordion-title {
   border-top: none;
 }
 

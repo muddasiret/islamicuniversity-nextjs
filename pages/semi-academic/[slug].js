@@ -46,6 +46,7 @@ const ProgrammeOpen = ({ programme }) => {
     syllabus,
     sub_description,
     how_to_apply,
+    category = "diploma",
   } = programme.attributes;
 
   const [openYear, setOpenYear] = useState([]);
@@ -55,6 +56,7 @@ const ProgrammeOpen = ({ programme }) => {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
+    console.log(category,"test")
     setOpenYear([]);
     setOpenApply([]);
     var inputs = document.querySelectorAll(".file-input");
@@ -111,7 +113,7 @@ const ProgrammeOpen = ({ programme }) => {
   return (
     <Layout>
       {/* <Seo seo={seo} /> */}
-      <PageTitle title="DIPLOMA" />
+      <PageTitle title={category} />
       <MainLayout>
         <div className="sm:px-10">
           <h1 className="py-2 text-sm md:text-4xl text-primaryblue font-bold text-center my-5">
@@ -163,7 +165,11 @@ const ProgrammeOpen = ({ programme }) => {
                         <p className="mt-5 px-4 pb-2">
                           <div className="markdown-reset">
                             {item.description && (
-                              <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: item.description,
+                                }}
+                              />
                             )}
                           </div>
                         </p>
@@ -197,7 +203,11 @@ const ProgrammeOpen = ({ programme }) => {
                     {descShow && (
                       <p className="mt-5 px-5 pl-8 pb-2">
                         <div className="markdown-reset">
-                          <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: item.description,
+                            }}
+                          />
                         </div>
                       </p>
                     )}
@@ -236,7 +246,6 @@ const ProgrammeOpen = ({ programme }) => {
                   }
                 );
                 const content = await rawResponse.json();
-
               }}
             >
               {({
