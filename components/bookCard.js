@@ -5,9 +5,11 @@ const BookCard = ({ bookDetails }) => {
   let imgSrc = "/images/newsdummy.jpeg";
   const { book_name, short_description, cover, slug } = bookDetails.attributes;
   const [descriptionFormatted, setDescription] = useState(
-    short_description.length > 60
-      ? short_description.slice(0, 60) + "...."
-      : short_description
+    short_description
+      ? short_description.length > 60
+        ? short_description.slice(0, 60) + "...."
+        : short_description
+      : ""
   );
   if (bookDetails) {
     imgSrc = cover.data.attributes.url;
